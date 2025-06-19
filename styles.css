@@ -9,3 +9,23 @@ html,
 body{
     background-color: #fefcf7;
 }
+.title{
+    display: flex;
+    width: 100vw;
+    height: 65vh;
+    background-color: #191919;
+}
+.title p{
+    color: #fcba03;
+    font-family: Cal Sans;
+    font-size: 6em;
+    padding-top: 5vh;
+    padding-left: 3vw;
+}
+.title .vertical-divider {
+    width: 2.5px;
+    height: 65vh;
+    background-color: #fefcf7;
+    margin: 0 10px;
+    margin-left: 5em;
+}
