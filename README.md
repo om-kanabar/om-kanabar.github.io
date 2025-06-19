@@ -1,0 +1,30 @@
+Copyright Notice
+
+© 2025 Om Kanabar. All rights reserved.
+
+This repository and all its contents—including source code, documentation, images, designs, and other materials (collectively, the “Materials”)—are the sole property of Om Kanabar unless otherwise explicitly stated.
+
+Terms of Use and Restrictions
+	•	You are permitted to view, fork, and clone this repository solely for personal, educational, or non-commercial purposes.
+	•	Modification, alteration, or derivative works of any kind based on the Materials is strictly prohibited without prior written authorization from Om Kanabar.
+	•	You may not redistribute, sublicense, sell, rent, lease, or commercially exploit the Materials in any form.
+	•	All copyright, trademark, and proprietary notices must be preserved and may not be removed or altered.
+	•	Any unauthorized use—including modification, copying, or distribution—constitutes a violation of copyright law and may result in legal action.
+
+A Personal Note
+
+I’m a student working hard to learn and grow through my projects. If you review or use my work, please be kind and respectful. If you want to suggest improvements or collaborate, I warmly welcome respectful communication.
+
+Thank you for your understanding and support!
+ 
+
+Disclaimer
+
+The Materials are provided “as is” without warranty of any kind. Om Kanabar disclaims all warranties, whether express or implied, including but not limited to merchantability, fitness for a particular purpose, or non-infringement.
+
+Contact Information
+
+For licensing requests, permission to modify or redistribute, or any other inquiries regarding this repository, please contact:
+
+Om Kanabar
+Email: okanabar@cps.edu
