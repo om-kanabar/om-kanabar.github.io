@@ -5,27 +5,61 @@ This source code is licensed for personal use and educational purposes only.
 Unauthorized reproduction, distribution, or commercial use is prohibited without explicit permission.
 Contact: okanabar@cps.edu
 */
+:root{
+    --white: #fefcf7;
+    --black: #191919;
+    --gray: #6b7c85;
+    --cal: Cal Sans;
+    --dark-text-title: #ffb300;
+    --light-text: #233c4a;
+}
 html,
 body{
-    background-color: #fefcf7;
+    background-color: var(--white);
 }
 .title{
-    display: flex;
     width: 100vw;
     height: 65vh;
-    background-color: #191919;
+    background-color: var(--black);
 }
 .title p{
-    color: #fcba03;
-    font-family: Cal Sans;
+    color: var(--dark-text-title);
+    font-family: var(--cal);
     font-size: 6em;
     padding-top: 5vh;
     padding-left: 3vw;
 }
+.title .subtitle{
+    color: var(--white);
+    font-size: 1.75em;
+}
 .title .vertical-divider {
     width: 2.5px;
     height: 65vh;
-    background-color: #fefcf7;
+    background-color: var(--white);
     margin: 0 10px;
     margin-left: 5em;
+}
+nav{
+    background-color: inherit;
+    font-family: var(--cal);
+}
+nav img{
+    min-height: 12.5em;
+}
+.nav-link {
+    padding: 10px 20px;
+    font-size: 1.75em;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.nav-link:hover{
+    background-color: var(--light-text);
+    color: var(--white);
+}
+nav .active{
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;    
+    transition: 0.3s;
 }
