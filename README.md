@@ -19,7 +19,7 @@ Welcome to my personal resume website repository! This project showcases my skil
 - HTML5 & CSS3
 - JavaScript (for interactivity)
 - Bootstrap 5
-- Google Fonts (Cal Sans, Poiret One, Righteous)
+- Google Fonts (Cal Sans, Poiret One)
 
 ## Contact
 
