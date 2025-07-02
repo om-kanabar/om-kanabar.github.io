@@ -1,9 +1,6 @@
 /*
-© 2025 Om Kanabar. All rights reserved.
-
-This source code is licensed for personal use and educational purposes only.
-Unauthorized reproduction, distribution, or commercial use is prohibited without explicit permission.
-Contact: okanabar@cps.edu
+© 2025 Om Kanabar.
+More info in LICENSE
 */
 :root{
     --white: #fefcf7;
@@ -13,12 +10,15 @@ Contact: okanabar@cps.edu
     --dark-text-title: #ffb300;
     --light-text: #233c4a;
     --black: #111111;
+    --navy: #0b1623;
+    --trans: 0.2s ease-in-out;
 }
 * {
     box-sizing: border-box;
 }
 html{
     background-color: var(--white);
+    font-family: var(--cal);
 }
 body{
     background-color: inherit !important;
@@ -26,7 +26,7 @@ body{
 .title {
     width: 100vw;
     width: 100%;
-    min-height: 60vh;
+    min-height: 55vh;
     padding: 5vh 3vw;
     display: flex;
     flex-direction: column;
@@ -53,6 +53,7 @@ body{
     margin-top: 0.5rem;
 }
 nav{
+    height: 17.5vh;
     background-color: inherit;
     font-family: var(--cal);
 }
@@ -80,8 +81,6 @@ nav .active{
     text-decoration-thickness: 4.5px;
     text-underline-offset: 6px;    
 }
-
-
 
 .nav-link::after {
     content: "";
@@ -139,6 +138,125 @@ nav .nav-link:hover {
     }
 }
 
+.languages {
+    width: 100%;
+    background-color: var(--white);
+    font-family: var(--cal);
+    color: var(--light-text);
+    padding: 2.5rem;
+}
+
+.languages h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.icns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.icns i {
+    font-size: 3rem;
+    transition: var(--trans);
+}
+
+.devicon-html5-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-html5-plain-wordmark:hover{
+    color: #e54d26;
+}
+
+.devicon-css3-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-css3-plain-wordmark:hover{
+    color: #3c8fc6;
+}
+
+.devicon-javascript-plain{
+    transition: var(--trans);
+}
+
+.devicon-javascript-plain:hover{
+    color: #efdb4f;
+}
+
+.devicon-python-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-python-plain-wordmark:hover{
+    color: #ffd746;
+}
+
+.devicon-numpy-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-numpy-plain-wordmark:hover{
+    color: #4cabcf;
+}
+
+.devicon-arduino-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-arduino-plain-wordmark:hover{
+    color: #00979c;
+}
+
+.devicon-bash-plain{
+    transition: var(--trans);
+}
+
+.devicon-bash-plain:hover{
+    color: #939292;
+}
+
+.devicon-bootstrap-plain-wordmark{
+    transition: var(--trans);
+}
+
+.devicon-bootstrap-plain-wordmark:hover{
+    color: #712cf8;
+}
+
+.devicon-canva-original{
+    transition: var(--trans);
+}
+
+.devicon-canva-original:hover{
+    color: #00c4cc;
+}
+
+footer{
+    font-size: 0.75rem;
+    font-family: var(--cal);
+    text-align: center;
+    color: var(--gray);
+    margin-top: -1rem;
+}
+
+footer a{
+    color: var(--gray);
+    transition: 0.2s ease;
+}
+
+footer a:hover{
+    color: var(--light-text);
+}
+
+/*DARK MODE CSS FROM NOW ON*/
+/*DARK MODE CSS FROM NOW ON*/
+/*DARK MODE CSS FROM NOW ON*/
+/*DARK MODE CSS FROM NOW ON*/
 /*DARK MODE CSS FROM NOW ON*/
 
 .dark-mode html{
@@ -192,10 +310,6 @@ nav .nav-link:hover {
 }
 
 .dark-mode .dModebtn {
-    margin-top: 0.4em;
-    border-radius: 2em;
-    height: 3em;
-    width: 3em;
     transition: 0.3s ease;
     background-color: var(--dark-text-title);
     color: var(--white);
@@ -212,4 +326,33 @@ nav .nav-link:hover {
     background-color: var(--dark-text-title);
     color: var(--white);
     border-color: var(--dark-text-title) !important;
+}
+
+.dark-mode .languages {
+    background-color: var(--light-text);
+    color: var(--white);
+}
+
+.dark-mode .icns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.dark-mode footer{
+    background-color: var(--light-text);
+    font-size: 0.75rem;
+    font-family: var(--cal);
+    text-align: center;
+    color: var(--gray);
+    margin-top: -1rem;
+    padding-bottom: 0.45rem;
+}
+
+.dark-mode footer a{
+    color: var(--gray);
+    transition: 0.2s ease;
+}
+
+.dark-mode footer a:hover{
+    color: var(--dark-text-title);
 }

@@ -1,7 +1,4 @@
 /* 
-© 2025 Om Kanabar. All rights reserved.
-
-This source code is licensed for personal use and educational purposes only.
-Unauthorized reproduction, distribution, or commercial use is prohibited without explicit permission.
-Contact: okanabar@cps.edu
+© 2025 Om Kanabar.
+More info in LICENSE
 */

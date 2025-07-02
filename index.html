@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <!-- 
-© 2025 Om Kanabar. All rights reserved.
-
-This source code is licensed for personal use and educational purposes only.
-Unauthorized reproduction, distribution, or commercial use is prohibited without explicit permission.
-Contact: okanabar@cps.edu
+© 2025 Om Kanabar.
+More info in LICENSE
 -->
 <html lang="en">
 <head>
@@ -19,57 +16,111 @@ Contact: okanabar@cps.edu
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Poiret+One&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />      
 </head>
 <body>
-    <nav>
-        <div class="container d-flex justify-content-between align-items-center">
-            <!-- Left links -->
-            <div class="d-flex gap-3">
-                <a class="nav-link active" href="#home">Home</a>
-                <a class="nav-link" href="#about">About</a>
-            </div>
-
-            <!-- Center logo -->
-            <a href="#home" class="mx-auto">
-                <img id="logo" src="https://github.com/om-kanabar/resume/blob/main/Assets/2.png?raw=true" alt="Logo" height="50" />
-            </a>
-
-            <!-- Right links -->
-            <div class="d-flex gap-3">
-                <a class="nav-link" href="#skills">Skills</a>
-                <a class="nav-link" href="#contact">Contact</a>
-                <button onclick="myFunction()" type="button" id="darkButton" class="btn-primary dModebtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>
-                </button> 
-            </div>
+    <nav class="navbar navbar-expand-md position-relative">
+      <div class="container-fluid w-100 d-flex justify-content-between align-items-center">
+        <!-- Left links -->
+        <div class="d-flex gap-3">
+          <a class="nav-link active" href="index.html">Home</a>
+          <a class="nav-link" href="#about">About</a>
         </div>
+
+        <!-- Toggler Button -->
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Right links -->
+        <div class="d-flex gap-3 align-items-center">
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <button onclick="myFunction()" type="button" id="darkButton" class="btn dModebtn ms-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Centered Logo -->
+      <a class="position-absolute start-50 translate-middle-x" href="index.html">
+        <img id="logo" src="https://github.com/om-kanabar/resume/blob/main/Assets/2.png?raw=true" alt="Logo" height="50" />
+      </a>
     </nav>
     <div class="title">
         <h1>Om Kanabar</h1>
         <p class="subtitle">Thinker. &nbsp;Coder. &nbsp;Debater.</p>
     </div>
+    <div class="languages">
+        <h2>I Work With</h2>
+        <div class="container text-center icns">
+            <div class="row">
+                <div class="col">    
+                    <i class="devicon-html5-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-css3-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-javascript-plain"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-python-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-numpy-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-arduino-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-bash-plain"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-bootstrap-plain-wordmark"></i>
+                </div>
+                <div class="col">
+                    <i class="devicon-canva-original"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="license.html">&copy; Om Kanabar 2025</a>
+    </footer>
 </body>
 
 <script>
     const btn = document.getElementById('darkButton');
-    let btnToggle = 0;
+    const logo = document.getElementById('logo');
 
-    function myFunction() {
+    // Initialize toggle value based on saved preference
+    let btnToggle = localStorage.getItem("darkMode") === "false" ? 0 : 1;
+
+    // Function to apply dark mode state
+    function applyDarkMode(isDark) {
         const element = document.body;
-        const logo = document.getElementById('logo');
 
-        if (btnToggle === 0) {
+        if (isDark) {
             element.classList.add("dark-mode");
             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>`;
             logo.src = "https://github.com/om-kanabar/resume/blob/main/Assets/4.png?raw=true";
-            btnToggle = 1;
         } else {
             element.classList.remove("dark-mode");
             btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>`;
-            btnToggle = 0;
-            logo.src = "https://github.com/om-kanabar/resume/blob/main/Assets/2.png?raw=true"
+            logo.src = "https://github.com/om-kanabar/resume/blob/main/Assets/2.png?raw=true";
         }
+
+        localStorage.setItem("darkMode", isDark ? "true" : "false");
+        btnToggle = isDark ? 1 : 0;
+    }
+
+    // On load, apply saved mode (or default to dark)
+    applyDarkMode(btnToggle === 1);
+
+    // On click, toggle and save
+    function myFunction() {
+        applyDarkMode(btnToggle === 0);
     }
 </script>
-
 </html>
