@@ -17,9 +17,11 @@ Contact: okanabar@cps.edu
 * {
     box-sizing: border-box;
 }
-html,
-body{
+html{
     background-color: var(--white);
+}
+body{
+    background-color: inherit !important;
 }
 .title {
     width: 100vw;
@@ -139,13 +141,12 @@ nav .nav-link:hover {
 
 /*DARK MODE CSS FROM NOW ON*/
 
-.dark-mode html,
-.dark-mode{
+.dark-mode html{
     background-color: var(--black);
 }
 
 .dark-mode nav{
-    background-color: inherit;
+    background-color: var(--black);
     font-family: var(--cal);
 }
 
@@ -177,7 +178,7 @@ nav .nav-link:hover {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: var(--light-text);
+    background-color: var(--dark-text-title);
     transition: width 0.3s ease;
     z-index: -1;
 }
