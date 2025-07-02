@@ -13,53 +13,148 @@ Contact: okanabar@cps.edu
     --dark-text-title: #ffb300;
     --light-text: #233c4a;
 }
+* {
+    box-sizing: border-box;
+}
 html,
 body{
     background-color: var(--white);
 }
-.title{
+.title {
     width: 100vw;
-    height: 65vh;
+    width: 100%;
+    min-height: 60vh;
+    padding: 5vh 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
     background-color: var(--black);
 }
-.title p{
+
+.title h1 {
     color: var(--dark-text-title);
     font-family: var(--cal);
-    font-size: 6em;
-    padding-top: 5vh;
-    padding-left: 3vw;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    padding-top: 0;
+    padding-left: 0;
+    margin-left: 0;
 }
-.title .subtitle{
+
+.title .subtitle {
     color: var(--white);
-    font-size: 1.75em;
-}
-.title .vertical-divider {
-    width: 2.5px;
-    height: 65vh;
-    background-color: var(--white);
-    margin: 0 10px;
-    margin-left: 5em;
+    font-family: var(--cal);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-left: 0;
+    margin-top: 0.5rem;
 }
 nav{
     background-color: inherit;
     font-family: var(--cal);
 }
 nav img{
-    min-height: 12.5em;
+    height: auto;
+    max-height: 12.5em;
+    width: auto;
 }
 .nav-link {
+    transition: 0.3s;
     padding: 10px 20px;
     font-size: 1.75em;
     transition: 0.3s ease;
     cursor: pointer;
+    z-index: 2;
+    position: relative;
 }
 .nav-link:hover{
-    background-color: var(--light-text);
+    background-color: transparent !important;
     color: var(--white);
 }
 nav .active{
+    color: var(--light-text);
     text-decoration: underline;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 4.5px;
     text-underline-offset: 6px;    
-    transition: 0.3s;
+}
+
+
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--light-text);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+ .nav-link:hover::after {
+    width: 100%;
+}
+
+nav .nav-link:hover {
+    color: var(--white);
+}
+.dModebtn{
+    margin-top: 0.4em;
+    border-radius: 2em;
+    height: 3em;
+    width: 3em;
+    transition: 0.3s ease;
+    background-color: var(--light-text);
+    color: var(--white);
+}
+.dModebtn:hover{
+    background-color: var(--light-text);
+    color: var(--white);
+    cursor: pointer;
+}
+.dModebtn:active {
+    background-color: var(--light-text) !important;
+    color: var(--white) !important;
+    border-color: var(--light-text) !important;
+}
+.dModebtn svg{
+    width: 24px;
+    height: 24px;
+}
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 1.25em;
+        padding: 8px 12px;
+    }
+
+    .dModebtn {
+        width: 3em;
+        height: 3em;
+    }
+}
+
+/*
+DARK MODE FROM NOW ON
+*/
+
+.dark-mode .dModebtn{
+    margin-top: 0.4em;
+    border-radius: 2em;
+    height: 3em;
+    width: 3em;
+    transition: 0.3s ease;
+    background-color: var(--dark-text-title);
+    color: var(--white);
+}
+.dark-mode .dModebtn:hover{
+    background-color: var(--dark-text-title);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.dark-mode .dModebtn:active {
+    background-color: var(--dark-text-title);
+    color: var(--white);
+    border-color: var(--dark-text-title) !important;
 }
