@@ -99,7 +99,7 @@ nav .active{
 nav .nav-link:hover {
     color: var(--white);
 }
-.dModebtn{
+.dModebtn {
     margin-top: 0.4em;
     border-radius: 2em;
     height: 3em;
@@ -107,16 +107,18 @@ nav .nav-link:hover {
     transition: 0.3s ease;
     background-color: var(--light-text);
     color: var(--white);
+    border: 1px solid var(--light-text);
 }
 .dModebtn:hover{
     background-color: var(--light-text);
     color: var(--white);
     cursor: pointer;
+    border-color: var(--light-text)
 }
 .dModebtn:active {
-    background-color: var(--light-text) !important;
+    background-color: var(--light-text);
     color: var(--white) !important;
-    border-color: var(--light-text) !important;
+    border-color: var(--light-text);
 }
 .dModebtn svg{
     width: 24px;
@@ -134,11 +136,7 @@ nav .nav-link:hover {
     }
 }
 
-/*
-DARK MODE FROM NOW ON
-*/
-
-.dark-mode .dModebtn{
+.dark-mode .dModebtn {
     margin-top: 0.4em;
     border-radius: 2em;
     height: 3em;
@@ -146,11 +144,13 @@ DARK MODE FROM NOW ON
     transition: 0.3s ease;
     background-color: var(--dark-text-title);
     color: var(--white);
+    border: 1px solid var(--dark-text-title);
 }
 .dark-mode .dModebtn:hover{
     background-color: var(--dark-text-title);
     color: var(--white);
     cursor: pointer;
+    border-color: var(--dark-text-title) !important;
 }
 
 .dark-mode .dModebtn:active {
