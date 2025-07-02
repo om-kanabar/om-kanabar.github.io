@@ -236,6 +236,14 @@ nav .nav-link:hover {
     color: #00c4cc;
 }
 
+.devicon-c-plain{
+    transition: var(--trans);
+}
+
+.devicon-c-plain:hover{
+    color: #02599c;
+}
+
 footer{
     font-size: 0.75rem;
     font-family: var(--cal);
