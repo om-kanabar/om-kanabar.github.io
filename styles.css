@@ -7,11 +7,12 @@ Contact: okanabar@cps.edu
 */
 :root{
     --white: #fefcf7;
-    --black: #191919;
+    --dark: #191919;
     --gray: #6b7c85;
     --cal: Cal Sans;
     --dark-text-title: #ffb300;
     --light-text: #233c4a;
+    --black: #111111;
 }
 * {
     box-sizing: border-box;
@@ -30,7 +31,7 @@ body{
     justify-content: center;
     align-items: flex-start;
     gap: 1rem;
-    background-color: var(--black);
+    background-color: var(--dark);
 }
 
 .title h1 {
@@ -136,6 +137,59 @@ nav .nav-link:hover {
     }
 }
 
+/*DARK MODE CSS FROM NOW ON*/
+
+.dark-mode html,
+.dark-mode{
+    background-color: var(--black);
+}
+
+.dark-mode nav{
+    background-color: inherit;
+    font-family: var(--cal);
+}
+
+.dark-mode .nav-link {
+    transition: 0.3s;
+    padding: 10px 20px;
+    font-size: 1.75em;
+    transition: 0.3s ease;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    color: var(--white);
+}
+.dark-mode .nav-link:hover{
+    background-color: transparent !important;
+    color: var(--white);
+}
+.dark-mode nav .active{
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-thickness: 4.5px;
+    text-underline-offset: 6px;    
+}
+
+.dark-mode .nav-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--light-text);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.dark-mode .nav-link:hover::after {
+    width: 100%;
+}
+
+.dark-mode nav .nav-link:hover {
+    color: var(--white);
+}
+
 .dark-mode .dModebtn {
     margin-top: 0.4em;
     border-radius: 2em;
@@ -158,3 +212,4 @@ nav .nav-link:hover {
     color: var(--white);
     border-color: var(--dark-text-title) !important;
 }
+
