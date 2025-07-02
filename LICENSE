@@ -12,9 +12,19 @@ Terms of Use and Restrictions
 	•	Any unauthorized use—including modification, copying, or distribution—constitutes a violation of copyright law and may result in legal action.
  
 
+Third-Party Libraries and Fonts
+
+This project includes third-party resources that are licensed separately from the Materials:
+
+- Bootstrap (CSS and JavaScript) is licensed under the MIT License. For more information, see https://github.com/twbs/bootstrap/blob/main/LICENSE
+
+- Google Fonts used in this project are licensed under the SIL Open Font License (OFL). For more information, see https://fonts.google.com/about
+
+Your use of these third-party resources is subject to their respective licenses. This license applies only to the original Materials created by Om Kanabar.
+
 Disclaimer
 
-The Materials are provided “as is” without warranty of any kind. Om Kanabar disclaims all warranties, whether express or implied, including but not limited to merchantability, fitness for a particular purpose, or non-infringement.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Contact Information
 
