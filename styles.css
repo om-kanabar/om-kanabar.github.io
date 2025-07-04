@@ -11,7 +11,7 @@ More info in LICENSE
     --light-text: #233c4a;
     --black: #111111;
     --navy: #0b1623;
-    --trans: 0.2s ease-in-out;
+    --trans: 0.2s ease;
 }
 * {
     box-sizing: border-box;
@@ -254,11 +254,31 @@ footer{
 
 footer a{
     color: var(--gray);
-    transition: 0.2s ease;
+    transition: 0.2s ease-in-out;
 }
 
 footer a:hover{
     color: var(--light-text);
+}
+
+.legal{
+    padding-top: 3%;
+    padding-left: 5%;
+    font-size: 1.2em;
+    color: var(--black);
+}
+
+.legal a{
+    transition: 0.15s ease-in-out;
+}
+
+.legal h1,
+.legal h2,
+.legal h3,
+.legal h4,
+.legal h5{
+    font-family: Lexend;
+    font-weight: 600;
 }
 
 /*DARK MODE CSS FROM NOW ON*/
@@ -363,4 +383,9 @@ footer a:hover{
 
 .dark-mode footer a:hover{
     color: var(--dark-text-title);
+}
+
+.dark-mode .legal{
+    background-color: var(--dark);
+    color: var(--white);
 }
