@@ -4,6 +4,7 @@ More info in LICENSE
 */
 :root{
     --white: #fefcf7;
+    --cream: #e8e5dd;
     --dark: #191919;
     --gray: #6b7c85;
     --cal: Cal Sans;
@@ -11,10 +12,17 @@ More info in LICENSE
     --light-text: #233c4a;
     --black: #111111;
     --navy: #0b1623;
+    --accent: #d4a017;
+    --blue-grey: #434e54;
     --trans: 0.2s ease;
 }
 * {
     box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 html{
     background-color: var(--white);
@@ -22,6 +30,9 @@ html{
 }
 body{
     background-color: inherit !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .title {
     width: 100vw;
@@ -34,6 +45,7 @@ body{
     align-items: flex-start;
     gap: 1rem;
     background-color: var(--dark);
+    flex-grow: 1;
 }
 
 .title h1 {
@@ -53,6 +65,7 @@ body{
     margin-top: 0.5rem;
 }
 nav{
+    display: flex;
     height: 17.5vh;
     background-color: inherit;
     font-family: var(--cal);
@@ -144,6 +157,7 @@ nav .nav-link:hover {
     font-family: var(--cal);
     color: var(--light-text);
     padding: 2.5rem;
+    flex-grow: 1;
 }
 
 .languages h2 {
@@ -249,7 +263,8 @@ footer{
     font-family: var(--cal);
     text-align: center;
     color: var(--gray);
-    margin-top: -1rem;
+    margin-top: 0;
+    flex-shrink: 0;
 }
 
 footer a{
@@ -266,6 +281,7 @@ footer a:hover{
     padding-left: 5%;
     font-size: 1.2em;
     color: var(--black);
+    background-color: var(--cream);
 }
 
 .legal a{
@@ -279,6 +295,46 @@ footer a:hover{
 .legal h5{
     font-family: Lexend;
     font-weight: 600;
+}
+
+.l-footer{
+    padding-bottom: 20px;
+    font-size: 1em;
+}
+
+.hero{
+    min-height: 20rem;
+    background-color: var(--blue-grey);
+    color: var(--cream);
+    font-family: var(--cal);
+}
+
+.hero-main{
+    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 10rem;
+}
+
+.hero span{
+    font-family: Lexend;
+    font-weight: 900;
+    color: var(--dark-text-title);
+}
+
+.intro{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem auto;
+    background-color: var(--cream);
+    font-family: var(--cal);
+    color: var(--blue-grey);
+}
+.intro p{
+    margin: 5rem;
+    width: 30rem;
+    font-size: 1.25rem;
 }
 
 /*DARK MODE CSS FROM NOW ON*/
@@ -359,6 +415,7 @@ footer a:hover{
 .dark-mode .languages {
     background-color: var(--light-text);
     color: var(--white);
+    flex-grow: 1;
 }
 
 .dark-mode .icns {
@@ -372,8 +429,8 @@ footer a:hover{
     font-family: var(--cal);
     text-align: center;
     color: var(--gray);
-    margin-top: -1rem;
-    padding-bottom: 0.45rem;
+    margin-top: 0;
+    flex-shrink: 0;
 }
 
 .dark-mode footer a{
