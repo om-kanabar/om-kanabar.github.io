@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+
+User-agent: AdsBot-Google
+Disallow: /
+
 Sitemap: https://om-kanabar.github.io/sitemap.xml
