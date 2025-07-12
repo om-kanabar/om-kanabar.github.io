@@ -9,19 +9,18 @@ More info in LICENSE
   <meta name="description" content="Learn more about Om Kanabar — passionate web developer, coder, and lifelong learner. Discover my background, skills, and interests.">
   <meta name="keywords" content="Om Kanabar, about, web developer, programmer, background, skills, interests">
   <meta name="author" content="Om Kanabar">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="About Om Kanabar | Web Developer Portfolio">
   <meta property="og:description" content="Learn more about Om Kanabar — passionate web developer, coder, and lifelong learner. Discover my background, skills, and interests.">
   <meta property="og:image" content="https://om-kanabar.github.io/Assets/3.png">
   <meta property="og:url" content="https://om-kanabar.github.io/about.html">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Om Kanabar | Web Developer Portfolio">
-  <meta name="twitter:description" content="Learn more about Om Kanabar — passionate web developer, coder, and lifelong learner. Discover my background, skills, and interests.">
-  <meta name="twitter:image" content="https://om-kanabar.github.io/Assets/3.png">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    img-src 'self' https:;
+    script-src 'self' https://cdn.jsdelivr.net;
+    style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+    font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+  ">
   <title>About Me</title>
   <link rel="icon" href="/Assets/3.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
@@ -60,6 +59,12 @@ More info in LICENSE
     <!-- Centered Logo -->
     <a class="position-absolute start-50 translate-middle-x" href="index.html">
       <img id="logo" src="/Assets/4.png" alt="Logo" height="50"/>
+      <noscript>
+        <style>
+          #logo { display: none; }
+        </style>
+        <img src="/Assets/2.png" alt="Logo (No JavaScript)" height="50"/>
+      </noscript>
     </a>
   </nav>
   <div class="hero">

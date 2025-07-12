@@ -1,7 +1,12 @@
-User-agent: *
-Allow: /
+User-agent: Googlebot
+Disallow: /license.html
+Disallow: /Assets/
 
 User-agent: AdsBot-Google
 Disallow: /
+
+User-agent: *
+Disallow: /license.html
+Disallow: /Assets/
 
 Sitemap: https://om-kanabar.github.io/sitemap.xml
