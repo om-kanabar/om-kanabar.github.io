@@ -282,6 +282,7 @@ footer a:hover{
     font-size: 1.2em;
     color: var(--black);
     background-color: var(--cream);
+    line-height: 1.75;
 }
 
 .legal a{
@@ -335,6 +336,20 @@ footer a:hover{
     margin: 5rem;
     width: 30rem;
     font-size: 1.25rem;
+}
+
+.a-footer{
+    background-color: var(--cream);
+    color: color-mix(in srgb, var(--cream) 50%, var(--blue-grey) 50%);
+    transition: none;
+}
+
+.a-footer a {
+    transition: color 0.2s ease;
+}
+
+.a-footer a:hover{
+    color: color-mix(in srgb, var(--cream) 25%, var(--light-text) 75%);
 }
 
 /*DARK MODE CSS FROM NOW ON*/
@@ -445,4 +460,29 @@ footer a:hover{
 .dark-mode .legal{
     background-color: var(--dark);
     color: var(--white);
+}
+
+.dark-mode .hero{
+    background-color: color-mix(in srgb, var(--blue-grey) 50%, var(--light-text) 50%);
+    color: var(--white);
+}
+
+.dark-mode .intro{
+    background-color: var(--light-text);
+    font-family: var(--cal);
+    color: var(--white);
+}
+
+.dark-mode .a-footer{
+    background-color: var(--light-text);
+    color: color-mix(in srgb, var(--cream) 40%, var(--light-text) 60%);
+    transition: none;
+}
+
+.dark-mode .a-footer a {
+    transition: color 0.2s ease;
+}
+
+.dark-mode .a-footer a:hover {
+    color: color-mix(in srgb, var(--cream) 75%, var(--light-text) 25%);
 }
