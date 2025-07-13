@@ -33,14 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     applyDarkMode(btnToggle === 0);
   });
 
-  // Your email code here as well...
-  const user = "okanabar";
-  const domain = "cps.edu";
-  const email = `${user}@${domain}`;
-  const emailLink = document.createElement("a");
-  emailLink.href = `mailto:${email}`;
-  emailLink.textContent = email;
-
   const target = document.getElementById("email-link");
   if (target) {
     target.appendChild(emailLink);
@@ -65,4 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
       form.classList.add('was-validated');
     });
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const visibleSubject = document.getElementById("subject");
+    const hiddenSubject = document.querySelector("input[name='_subject']");
+
+    visibleSubject.addEventListener("input", function () {
+        hiddenSubject.value = visibleSubject.value;
+    });
 });
