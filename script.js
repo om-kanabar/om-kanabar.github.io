@@ -34,11 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Your email code here as well...
-  const user = "okanabar";
-  const domain = "cps.edu";
-  const email = `${user}@${domain}`;
-  const emailLink = document.createElement("a");
-  emailLink.href = `mailto:${email}`;
+  emailLink.href = `https://om-kanabar.github.io/contact.html`;
   emailLink.textContent = email;
 
   const target = document.getElementById("email-link");
