@@ -33,14 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
     applyDarkMode(btnToggle === 0);
   });
 
-  // Your email code here as well...
-  const user = "okanabar";
-  const domain = "cps.edu";
-  const email = `${user}@${domain}`;
-  const emailLink = document.createElement("a");
-  emailLink.href = `mailto:${email}`;
-  emailLink.textContent = email;
-
   const target = document.getElementById("email-link");
   if (target) {
     target.appendChild(emailLink);
