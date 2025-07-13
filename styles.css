@@ -352,6 +352,65 @@ footer a:hover{
     color: color-mix(in srgb, var(--cream) 25%, var(--light-text) 75%);
 }
 
+.form{
+    font-family: Cal Sans;
+}
+
+.form h1{
+    font-family: Lexend;
+    font-weight: 800;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0;
+}
+
+.form-box main {
+    flex-grow: 1;
+    width: 100%;
+    min-height: 0;
+}
+
+.none {
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--black) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+    box-shadow: 0 0 0px 1000px #fff inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.landing {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white);
+    font-family: Cal Sans;
+    width: 100%;
+}
+
+.la-footer{
+    background-color: white;
+}
+
 /*DARK MODE CSS FROM NOW ON*/
 /*DARK MODE CSS FROM NOW ON*/
 /*DARK MODE CSS FROM NOW ON*/
@@ -485,4 +544,65 @@ footer a:hover{
 
 .dark-mode .a-footer a:hover {
     color: color-mix(in srgb, var(--cream) 75%, var(--light-text) 25%);
+}
+
+.dark-mode .form{
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.dark-mode .form h1{
+    font-family: Lexend;
+    font-weight: 800;
+}
+
+.dark-mode .form-control {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+  border-color: var(--blue-grey) !important;
+}
+
+.dark-mode .form-control:focus {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.25);
+}
+
+.dark-mode .form-control {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+    border-color: var(--blue-grey) !important;
+}
+
+.dark-mode .form-control::placeholder {
+    color: var(--gray) !important;
+}
+
+.dark-mode .c-footer{
+    background-color: var(--dark);
+}
+
+.dark-mode input:-webkit-autofill,
+.dark-mode input:-webkit-autofill:hover,
+.dark-mode input:-webkit-autofill:focus,
+.dark-mode textarea:-webkit-autofill,
+.dark-mode textarea:-webkit-autofill:hover,
+.dark-mode textarea:-webkit-autofill:focus,
+.dark-mode select:-webkit-autofill,
+.dark-mode select:-webkit-autofill:hover,
+.dark-mode select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--white) !important;
+    -webkit-box-shadow: 0 0 0px 1000px var(--black) inset !important;
+    box-shadow: 0 0 0px 1000px var(--black) inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.dark-mode .landing {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.dark-mode .la-footer{
+    background-color: var(--black);
 }
