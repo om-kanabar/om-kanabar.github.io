@@ -25,39 +25,38 @@
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-md position-relative" id="nav">
-        <div class="container-fluid w-100 d-flex justify-content-between align-items-center">
-        <!-- Left links -->
-        <div class="d-flex gap-3">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-        </div>
-
-        <!-- Centered Logo -->
-        <a class="mx-auto" href="index.html">
-            <img id="logo" src="/Assets/2.png" alt="Logo" height="50"/>
+    <nav class="navbar navbar-expand-md bg-body">
+      <div class="container-fluid">
+        <!-- Logo for mobile -->
+        <a class="navbar-brand d-md-none" href="index.html">
+          <img id="logo-mobile" src="Assets/4.png" alt="Logo" height="40" />
         </a>
-        <noscript>
-            <style>
-            #logo { display: none; }
-            </style>
-            <img src="/Assets/2.png" alt="Logo (No JavaScript)" height="50"/>
-        </noscript>
 
-        <!-- Toggler Button -->
-        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Right links -->
-            <div class="d-flex gap-3 align-items-center">
-                <a class="nav-link" href="#skills">Skills</a>
-                <a class="nav-link active" href="#nav">Contact</a>
-                <button onclick="myFunction()" type="button" id="darkButton" class="btn dModebtn ms-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg>
-                </button>
-            </div>
+        <!-- Collapsed content -->
+        <div class="collapse navbar-collapse d-flex align-items-center" id="navbarCollapse">
+          <a class="navbar-brand d-none d-md-block me-3" href="index.html">
+            <img id="logo-desktop" src="Assets/4.png" alt="Logo" height="50" />
+          </a>
+          <ul class="navbar-nav d-flex flex-row align-items-center">
+            <li class="nav-item ms-2 me-2"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item ms-2 me-2"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item ms-2 me-2"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item ms-2 me-2"><a class="nav-link active" href="contact.html">Contact</a></li>
+          </ul>
         </div>
+
+        <!-- Dark mode toggle -->
+        <div class="d-flex ms-auto">
+          <button type="button" id="darkButton" class="btn dModebtn ms-2">🌙</button>
+        </div>
+      </div>
     </nav>
     <div class="content-wrapper flex-grow-1 form-box">
         <main class="container-fluid form d-flex justify-content-center align-items-center flex-column">
