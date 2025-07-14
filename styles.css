@@ -66,13 +66,14 @@ body{
 }
 nav{
     display: flex;
-    height: 17.5vh;
+    height: auto;
+    min-height: 17.5vh;
     background-color: inherit;
     font-family: var(--cal);
 }
 nav img{
     height: auto;
-    max-height: 12.5em;
+    max-height: 200px;
     width: auto;
 }
 .nav-link {
@@ -605,4 +606,30 @@ select:-webkit-autofill:focus {
 
 .dark-mode .la-footer{
     background-color: var(--black);
+}
+.css
+/* Responsive logo handling */
+#logo {
+    max-height: 50px;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Collapsed navbar background for mobile */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: var(--white);
+        padding: 1rem;
+    }
+
+    .dark-mode .navbar-collapse {
+        background-color: var(--black);
+    }
+}
+.dark-mode nav {
+  background-color: var(--black) !important;
+}
+
+.dark-mode .navbar-collapse {
+  background-color: var(--black) !important;
 }
