@@ -87,7 +87,7 @@ nav img{
 }
 .nav-link:hover{
     background-color: transparent !important;
-    color: var(--white) !important;
+    color: var(--white);
 }
 nav .active{
     color: var(--light-text);
@@ -104,7 +104,6 @@ nav .active{
     width: 0;
     height: 100%;
     background-color: var(--light-text);
-    color: var(--white);
     transition: width 0.3s ease;
     z-index: -1;
 }
@@ -265,7 +264,7 @@ footer{
     font-family: var(--cal);
     text-align: center;
     color: var(--gray);
-    margin-top: -1%;
+    margin-top: 0;
     flex-shrink: 0;
 }
 
@@ -436,14 +435,14 @@ select:-webkit-autofill:focus {
     cursor: pointer;
     z-index: 2;
     position: relative;
-    color: var(--cream);
+    color: var(--white);
 }
 .dark-mode .nav-link:hover{
     background-color: transparent !important;
     color: var(--white);
 }
 .dark-mode nav .active{
-    color: var(--white) !important;
+    color: var(--white);
     text-decoration: underline;
     text-decoration-thickness: 4.5px;
     text-underline-offset: 6px;    
@@ -467,14 +466,6 @@ select:-webkit-autofill:focus {
 
 .dark-mode nav .nav-link:hover {
     color: var(--white);
-}
-
-.dark-mode nav {
-  background-color: var(--black) !important;
-}
-
-.dark-mode .navbar-collapse {
-  background-color: var(--black) !important;
 }
 
 .dark-mode .dModebtn {
@@ -634,4 +625,11 @@ select:-webkit-autofill:focus {
     .dark-mode .navbar-collapse {
         background-color: var(--black);
     }
+}
+.dark-mode nav {
+  background-color: var(--black) !important;
+}
+
+.dark-mode .navbar-collapse {
+  background-color: var(--black) !important;
 }

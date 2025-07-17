@@ -1,0 +1,129 @@
+/* © 2025 Om Kanabar.
+More info in LICENSE */
+
+:root{
+    --white: #fefcf7;
+    --cream: #e8e5dd;
+    --dark: #191919;
+    --gray: #6b7c85;
+    --dark-text-title: #ffb300;
+    --light-text: #233c4a;
+    --black: #111111;
+    --navy: #0b1623;
+    --accent: #d4a017;
+    --blue-grey: #434e54;
+    --trans: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+    background-color: var(--black);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: inherit;
+    color: var(--white);
+    font-family: 'Cal Sans', sans-serif;
+}
+
+nav{
+    width: 100vw !important;
+    background-color: var(--black);
+}
+
+nav div ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav div ul li{
+    padding: 3rem;
+}
+
+nav div ul li a{
+    color: var(--cream) !important;
+    font-size: 1.75em !important;
+    transition: 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    transition: var(--trans);
+    text-decoration: none;
+}
+
+nav div ul li a.active {
+    color: var(--white) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-underline-offset: 6px !important;  
+}
+
+nav div ul li a:hover{
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+
+nav div ul li a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 140%;
+    margin-left: -20%;
+    margin-top: -10%;
+    background-color: var(--light-text);
+    color: var(--white);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+nav div ul li a:hover::after {
+    width: 140%;
+}
+
+nav div ul li a:hover {
+    color: var(--white);
+}
+
+.nBtn{
+    color: var(--white);
+}
+
+.dModebtn {
+    margin-top: 0.4em;
+    border-radius: 2em;
+    height: 3em;
+    width: 3em;
+    transition: 0.3s ease;
+    background-color: var(--light-text);
+    color: var(--white);
+    border: 1px solid var(--light-text);
+}
+
+.dModebtn:hover{
+    background-color: var(--light-text);
+    color: var(--white);
+    cursor: pointer;
+    border-color: var(--light-text)
+}
+
+.dModebtn:active {
+    background-color: var(--light-text);
+    color: var(--white) !important;
+    border-color: var(--light-text);
+}
+
+.dModebtn svg{
+    width: 24px;
+    height: 24px;
+}
