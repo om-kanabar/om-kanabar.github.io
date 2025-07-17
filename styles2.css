@@ -1,6 +1,12 @@
 /* © 2025 Om Kanabar.
 More info in LICENSE */
 
+/* i-x = Index X 
+a-x = about x
+l-x = license x
+la-x = landing x
+s-x = skills x
+c-x = contact x*/
 :root{
     --white: #fefcf7;
     --cream: #e8e5dd;
@@ -46,12 +52,12 @@ nav div ul{
 }
 
 nav div ul li{
-    padding: 3rem;
+    padding: 2rem;
 }
 
 nav div ul li a{
     color: var(--cream) !important;
-    font-size: 1.75em !important;
+    font-size: 1.5em !important;
     transition: 0.3s ease;
     position: relative;
     cursor: pointer;
@@ -123,7 +129,12 @@ nav div ul li a:hover {
     border-color: var(--light-text);
 }
 
-.dModebtn svg{
-    width: 24px;
-    height: 24px;
+.i-main {
+    padding: 5% 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    background-color: var(--dark);
 }
