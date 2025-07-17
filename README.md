@@ -23,9 +23,7 @@ Welcome to my personal resume website repository! This project showcases my skil
 
 ## Contact
 
-For questions or feedback, feel free to reach out:
-
-- **Email:** [om-kanabar.github.io/contact.html]
+For questions or feedback, feel free to [**reach out**](om-kanabar.github.io/contact.html])
 
 ---
 
