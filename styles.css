@@ -1,13 +1,17 @@
-/*
-© 2025 Om Kanabar.
-More info in LICENSE
-*/
+/* © 2025 Om Kanabar.
+More info in LICENSE */
+
+/* i-x = Index X 
+a-x = about x
+l-x = license x
+la-x = landing x
+s-x = skills x
+c-x = contact x*/
 :root{
     --white: #fefcf7;
     --cream: #e8e5dd;
     --dark: #191919;
     --gray: #6b7c85;
-    --cal: Cal Sans;
     --dark-text-title: #ffb300;
     --light-text: #233c4a;
     --black: #111111;
@@ -16,371 +20,219 @@ More info in LICENSE
     --blue-grey: #434e54;
     --trans: 0.2s ease;
 }
-* {
-    box-sizing: border-box;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-html{
-    background-color: var(--white);
-    font-family: var(--cal);
-}
+
 body{
-    background-color: inherit !important;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-.title {
-    width: 100vw;
-    width: 100%;
-    min-height: 55vh;
-    padding: 5vh 3vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
-    background-color: var(--dark);
-    flex-grow: 1;
-}
-
-.title h1 {
-    color: var(--dark-text-title);
-    font-family: var(--cal);
-    font-size: clamp(2.5rem, 6vw, 6rem);
-    padding-top: 0;
-    padding-left: 0;
-    margin-left: 0;
-}
-
-.title .subtitle {
+    background-color: var(--black);
     color: var(--white);
-    font-family: var(--cal);
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    margin-left: 0;
-    margin-top: 0.5rem;
+    min-height: 100vh;
+    font-family: 'Cal Sans', sans-serif;
 }
+
 nav{
+    width: 100vw !important;
+    background-color: var(--black);
+}
+
+nav div ul{
+    width: 100%;
     display: flex;
-    height: auto;
-    min-height: 17.5vh;
-    background-color: inherit;
-    font-family: var(--cal);
+    flex-direction: row;
+    justify-content: space-around;
 }
-nav img{
-    height: auto;
-    max-height: 200px;
-    width: auto;
+
+nav div ul li{
+    padding: 2rem;
 }
-.nav-link {
-    transition: 0.3s;
-    padding: 10px 20px;
-    font-size: 1.75em;
+
+nav div ul li a{
+    color: var(--cream) !important;
+    font-size: 1.5em !important;
     transition: 0.3s ease;
+    position: relative;
     cursor: pointer;
     z-index: 2;
-    position: relative;
-}
-.nav-link:hover{
-    background-color: transparent !important;
-    color: var(--white);
-}
-nav .active{
-    color: var(--light-text);
-    text-decoration: underline;
-    text-decoration-thickness: 4.5px;
-    text-underline-offset: 6px;    
+    transition: var(--trans);
+    text-decoration: none;
 }
 
-.nav-link::after {
+nav div ul li a.active {
+    color: var(--white) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-underline-offset: 6px !important;  
+}
+
+nav div ul li a:hover{
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+
+nav div ul li a::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
-    height: 100%;
-    background-color: var(--light-text);
+    height: 140%;
+    margin-left: -20%;
+    margin-top: -10%;
+    background-color: var(--gray);
+    color: var(--white);
     transition: width 0.3s ease;
     z-index: -1;
 }
 
- .nav-link:hover::after {
-    width: 100%;
+nav div ul li a:hover::after {
+    width: 140%;
 }
 
-nav .nav-link:hover {
+nav div ul li a:hover {
     color: var(--white);
 }
+
+.nBtn{
+    color: var(--white);
+}
+
 .dModebtn {
     margin-top: 0.4em;
     border-radius: 2em;
     height: 3em;
     width: 3em;
     transition: 0.3s ease;
-    background-color: var(--light-text);
+    background-color:var(--gray);
     color: var(--white);
-    border: 1px solid var(--light-text);
+    border: 1px solid var(--gray);
 }
+
 .dModebtn:hover{
-    background-color: var(--light-text);
+    background-color: var(--gray);
     color: var(--white);
     cursor: pointer;
-    border-color: var(--light-text)
+    border-color: var(--gray);
 }
+
 .dModebtn:active {
-    background-color: var(--light-text);
+    background-color: var(--gray);
     color: var(--white) !important;
-    border-color: var(--light-text);
-}
-.dModebtn svg{
-    width: 24px;
-    height: 24px;
-}
-@media (max-width: 768px) {
-    .nav-link {
-        font-size: 1.25em;
-        padding: 8px 12px;
-    }
-
-    .dModebtn {
-        width: 3em;
-        height: 3em;
-    }
+    border-color: var(--gray);
 }
 
-.languages {
-    width: 100%;
-    background-color: var(--white);
-    font-family: var(--cal);
-    color: var(--light-text);
-    padding: 2.5rem;
-    flex-grow: 1;
-}
-
-.languages h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.icns {
+.i-main {
+    position: relative; 
+    overflow: hidden; 
+    padding: 5% 0%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2rem;
+    width: 100vw;
+    background-color: transparent;
 }
 
-.icns i {
-    font-size: 3rem;
-    transition: var(--trans);
-}
-
-.devicon-html5-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-html5-plain-wordmark:hover{
-    color: #e54d26;
-}
-
-.devicon-css3-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-css3-plain-wordmark:hover{
-    color: #3c8fc6;
-}
-
-.devicon-javascript-plain{
-    transition: var(--trans);
-}
-
-.devicon-javascript-plain:hover{
-    color: #efdb4f;
-}
-
-.devicon-python-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-python-plain-wordmark:hover{
-    color: #ffd746;
-}
-
-.devicon-numpy-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-numpy-plain-wordmark:hover{
-    color: #4cabcf;
-}
-
-.devicon-arduino-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-arduino-plain-wordmark:hover{
-    color: #00979c;
-}
-
-.devicon-bash-plain{
-    transition: var(--trans);
-}
-
-.devicon-bash-plain:hover{
-    color: #939292;
-}
-
-.devicon-bootstrap-plain-wordmark{
-    transition: var(--trans);
-}
-
-.devicon-bootstrap-plain-wordmark:hover{
-    color: #712cf8;
-}
-
-.devicon-canva-original{
-    transition: var(--trans);
-}
-
-.devicon-canva-original:hover{
-    color: #00c4cc;
-}
-
-.devicon-c-plain{
-    transition: var(--trans);
-}
-
-.devicon-c-plain:hover{
-    color: #02599c;
-}
-
-footer{
-    font-size: 0.75rem;
-    font-family: var(--cal);
-    text-align: center;
-    color: var(--gray);
-    margin-top: 0;
-    flex-shrink: 0;
-}
-
-footer a{
-    color: var(--gray);
-    transition: 0.2s ease-in-out;
-}
-
-footer a:hover{
-    color: var(--light-text);
-}
-
-.legal{
-    padding-top: 3%;
-    padding-left: 5%;
-    font-size: 1.2em;
-    color: var(--black);
-    background-color: var(--cream);
-    line-height: 1.75;
-}
-
-.legal a{
-    transition: 0.15s ease-in-out;
-}
-
-.legal h1,
-.legal h2,
-.legal h3,
-.legal h4,
-.legal h5{
-    font-family: Lexend;
-    font-weight: 600;
-}
-
-.l-footer{
-    padding-bottom: 20px;
-    font-size: 1em;
-}
-
-.hero{
-    min-height: 20rem;
-    background-color: var(--blue-grey);
-    color: var(--cream);
-    font-family: var(--cal);
-}
-
-.hero-main{
-    margin: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    min-height: 10rem;
-}
-
-.hero span{
-    font-family: Lexend;
-    font-weight: 900;
+.i-main h1 {
+    font-size: 6rem;
     color: var(--dark-text-title);
+    background: radial-gradient(circle at center, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
 }
 
-.intro{
+.i-main p{
+    color: var(--white);
+    background: radial-gradient(circle at center, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.i-me {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.c-main {
     display: flex;
     flex-direction: column;
-    padding: 2rem auto;
-    background-color: var(--cream);
-    font-family: var(--cal);
-    color: var(--blue-grey);
-}
-.intro p{
-    margin: 5rem;
-    width: 30rem;
-    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    position: relative;
+    z-index: 1;
+    background-color: var(--dark);
 }
 
-.a-footer{
-    background-color: var(--cream);
-    color: color-mix(in srgb, var(--cream) 50%, var(--blue-grey) 50%);
-    transition: none;
+.c-main h1{
+    color: var(--dark-text-title);
+    font-size: 4em;
 }
 
-.a-footer a {
-    transition: color 0.2s ease;
-}
-
-.a-footer a:hover{
-    color: color-mix(in srgb, var(--cream) 25%, var(--light-text) 75%);
-}
-
-.form{
-    font-family: Cal Sans;
-}
-
-.form h1{
-    font-family: Lexend;
-    font-weight: 800;
-}
-
-.form-box {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.c-form-box {
     width: 100%;
-    min-height: 0;
+    max-width: 1000px;
 }
 
-.form-box main {
-    flex-grow: 1;
+form .none {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-control {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--blue-grey);
+}
+
+.form-control:focus {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.25);
+}
+
+.form-control {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--blue-grey);
+}
+
+.form-control::placeholder {
+    color: var(--gray);
+}
+
+.c-footer {
+    background-color: var(--dark);
+    margin-top: auto;
     width: 100%;
-    min-height: 0;
+    text-align: center;
 }
-
-.none {
-    position: absolute !important;
-    left: -9999px !important;
-}
-
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -391,245 +243,155 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--white);
+    -webkit-box-shadow: 0 0 0px 1000px var(--black) inset;
+    box-shadow: 0 0 0px 1000px var(--black) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+
+/*************************************************************
+ *                                                           *
+ *              !!! LIGHT MODE FROM NOW ON !!!               *
+ *  All styles below this line are for the light mode theme  *
+ *                                                           *
+ *************************************************************/
+
+body.light-mode {
+    background-color: var(--white) !important;
+    color: var(--black);
+}
+
+.light-mode nav{
+    background-color: var(--white);
+}
+
+.light-mode nav div ul li a{
+    color: var(--blue-grey) !important;
+}
+
+.light-mode nav div ul li a.active {
+    color: var(--light-text) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 3px !important;
+    text-underline-offset: 6px !important;  
+}
+
+.light-mode nav div ul li a:hover{
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+
+.light-mode nav div ul li a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 140%;
+    margin-left: -20%;
+    margin-top: -10%;
+    background-color: var(--light-text);
+    color: var(--white);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.light-mode nav div ul li a:hover::after {
+    width: 140%;
+}
+
+.light-mode nav div ul li a:hover {
+    color: var(--white);
+}
+
+.light-mode .dModebtn,
+.light-mode .dModebtn:hover,
+.light-mode .dModebtn:active {
+    background-color: var(--light-text);
+    border: 1px solid var(--light-text);
+    border-color: var(--light-text);
+}
+
+.light-mode .i-main h1 {
+    color: var(--light-text);
+    background: radial-gradient(circle at center, rgba(232, 229, 221, 0) 0%, rgba(254, 252, 247, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.light-mode .i-main p{
+    color: var(--black);
+    background: radial-gradient(circle at center, rgba(232, 229, 221, 0) 0%, rgba(254, 252, 247, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+.light-mode #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cream);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.light-mode .nBtn{
+    color: var(--light-text);
+    border-width: 0px;
+}
+
+.light-mode .c-main {
+    background-color: var(--cream);
+}
+
+.light-mode .c-main h1{
+    color: var(--light-text);
+    font-size: 4em;
+}
+
+.light-mode input,
+.light-mode textarea,
+.light-mode select {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--blue-grey);
+}
+
+.light-mode input::placeholder,
+.light-mode textarea::placeholder {
+    color: var(--gray);
+}
+
+.light-mode .form-control:focus {
+  background-color: var(--white);
+  color: var(--black);
+  border-color: var(--gray);
+  box-shadow: 0 0 0 0.25rem rgba(67, 78, 84, 0.25);
+}
+
+.light-mode input:-webkit-autofill,
+.light-mode input:-webkit-autofill:hover,
+.light-mode input:-webkit-autofill:focus,
+.light-mode textarea:-webkit-autofill,
+.light-mode textarea:-webkit-autofill:hover,
+.light-mode textarea:-webkit-autofill:focus,
+.light-mode select:-webkit-autofill,
+.light-mode select:-webkit-autofill:hover,
+.light-mode select:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--black) !important;
     -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
     box-shadow: 0 0 0px 1000px #fff inset !important;
     transition: background-color 5000s ease-in-out 0s !important;
 }
 
-.landing {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--white);
-    font-family: Cal Sans;
-    width: 100%;
-}
-
-.la-footer{
-    background-color: white;
-}
-
-/*DARK MODE CSS FROM NOW ON*/
-/*DARK MODE CSS FROM NOW ON*/
-/*DARK MODE CSS FROM NOW ON*/
-/*DARK MODE CSS FROM NOW ON*/
-/*DARK MODE CSS FROM NOW ON*/
-
-.dark-mode html{
-    background-color: var(--black);
-}
-
-.dark-mode nav{
-    background-color: var(--black);
-    font-family: var(--cal);
-}
-
-.dark-mode .nav-link {
-    transition: 0.3s;
-    padding: 10px 20px;
-    font-size: 1.75em;
-    transition: 0.3s ease;
-    cursor: pointer;
-    z-index: 2;
-    position: relative;
-    color: var(--white);
-}
-.dark-mode .nav-link:hover{
-    background-color: transparent !important;
-    color: var(--white);
-}
-.dark-mode nav .active{
-    color: var(--white);
-    text-decoration: underline;
-    text-decoration-thickness: 4.5px;
-    text-underline-offset: 6px;    
-}
-
-.dark-mode .nav-link::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--dark-text-title);
-    transition: width 0.3s ease;
-    z-index: -1;
-}
-
-.dark-mode .nav-link:hover::after {
-    width: 100%;
-}
-
-.dark-mode nav .nav-link:hover {
-    color: var(--white);
-}
-
-.dark-mode .dModebtn {
-    transition: 0.3s ease;
-    background-color: var(--dark-text-title);
-    color: var(--white);
-    border: 1px solid var(--dark-text-title);
-}
-.dark-mode .dModebtn:hover{
-    background-color: var(--dark-text-title);
-    color: var(--white);
-    cursor: pointer;
-    border-color: var(--dark-text-title) !important;
-}
-
-.dark-mode .dModebtn:active {
-    background-color: var(--dark-text-title);
-    color: var(--white);
-    border-color: var(--dark-text-title) !important;
-}
-
-.dark-mode .languages {
-    background-color: var(--light-text);
-    color: var(--white);
-    flex-grow: 1;
-}
-
-.dark-mode .icns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.dark-mode footer{
-    background-color: var(--light-text);
-    font-size: 0.75rem;
-    font-family: var(--cal);
-    text-align: center;
-    color: var(--gray);
-    margin-top: 0;
-    flex-shrink: 0;
-}
-
-.dark-mode footer a{
-    color: var(--gray);
-    transition: 0.2s ease;
-}
-
-.dark-mode footer a:hover{
-    color: var(--dark-text-title);
-}
-
-.dark-mode .legal{
-    background-color: var(--dark);
-    color: var(--white);
-}
-
-.dark-mode .hero{
-    background-color: color-mix(in srgb, var(--blue-grey) 50%, var(--light-text) 50%);
-    color: var(--white);
-}
-
-.dark-mode .intro{
-    background-color: var(--light-text);
-    font-family: var(--cal);
-    color: var(--white);
-}
-
-.dark-mode .a-footer{
-    background-color: var(--light-text);
-    color: color-mix(in srgb, var(--cream) 40%, var(--light-text) 60%);
-    transition: none;
-}
-
-.dark-mode .a-footer a {
-    transition: color 0.2s ease;
-}
-
-.dark-mode .a-footer a:hover {
-    color: color-mix(in srgb, var(--cream) 75%, var(--light-text) 25%);
-}
-
-.dark-mode .form{
-    background-color: var(--dark);
-    color: var(--white);
-}
-
-.dark-mode .form h1{
-    font-family: Lexend;
-    font-weight: 800;
-}
-
-.dark-mode .form-control {
-  background-color: var(--black) !important;
-  color: var(--white) !important;
-  border-color: var(--blue-grey) !important;
-}
-
-.dark-mode .form-control:focus {
-  background-color: var(--black) !important;
-  color: var(--white) !important;
-  border-color: var(--accent) !important;
-  box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.25);
-}
-
-.dark-mode .form-control {
-    background-color: var(--black) !important;
-    color: var(--white) !important;
-    border-color: var(--blue-grey) !important;
-}
-
-.dark-mode .form-control::placeholder {
-    color: var(--gray) !important;
-}
-
-.dark-mode .c-footer{
-    background-color: var(--dark);
-}
-
-.dark-mode input:-webkit-autofill,
-.dark-mode input:-webkit-autofill:hover,
-.dark-mode input:-webkit-autofill:focus,
-.dark-mode textarea:-webkit-autofill,
-.dark-mode textarea:-webkit-autofill:hover,
-.dark-mode textarea:-webkit-autofill:focus,
-.dark-mode select:-webkit-autofill,
-.dark-mode select:-webkit-autofill:hover,
-.dark-mode select:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--white) !important;
-    -webkit-box-shadow: 0 0 0px 1000px var(--black) inset !important;
-    box-shadow: 0 0 0px 1000px var(--black) inset !important;
-    transition: background-color 5000s ease-in-out 0s !important;
-}
-
-.dark-mode .landing {
-    background-color: var(--black);
-    color: var(--white);
-}
-
-.dark-mode .la-footer{
-    background-color: var(--black);
-}
-.css
-/* Responsive logo handling */
-#logo {
-    max-height: 50px;
-    height: auto;
-    max-width: 100%;
-}
-
-/* Collapsed navbar background for mobile */
-@media (max-width: 768px) {
-    .navbar-collapse {
-        background-color: var(--white);
-        padding: 1rem;
-    }
-
-    .dark-mode .navbar-collapse {
-        background-color: var(--black);
-    }
-}
-.dark-mode nav {
-  background-color: var(--black) !important;
-}
-
-.dark-mode .navbar-collapse {
-  background-color: var(--black) !important;
+.light-mode .c-footer{
+    background-color: var(--cream);
 }
