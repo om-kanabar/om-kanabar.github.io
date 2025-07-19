@@ -27,6 +27,11 @@ c-x = contact x*/
   box-sizing: border-box;
 }
 
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
 body{
     background-color: var(--black);
     color: var(--white);
@@ -79,9 +84,8 @@ nav div ul li a::after {
     top: 0;
     left: 0;
     width: 0;
-    height: 140%;
+    height: 100%;
     margin-left: -20%;
-    margin-top: -10%;
     background-color: var(--gray);
     color: var(--white);
     transition: width 0.3s ease;
@@ -183,8 +187,7 @@ nav div ul li a:hover {
     position: relative;
     z-index: 1;
     background-color: var(--dark);
-    max-height: 75vh; /* reduce overall height */
-    overflow-y: auto; /* enable vertical scroll if needed */
+    padding: 5% 2%;
 }
 
 .c-main h1{
@@ -205,8 +208,6 @@ nav div ul li a:hover {
     -webkit-backdrop-filter: blur(8px);
     padding: 2%;
     border-radius: 1rem;
-    max-height: 75vh !important;
-    overflow: hidden;
 }
 
 form .none {
@@ -311,6 +312,42 @@ select:-webkit-autofill:focus {
     color: color-mix(in srgb, #0c6dfd 40%, color-mix(in srgb, var(--light-text) 30%, var(--cream) 70%) 60%);
 }
 
+footer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+    transition: var(--trans);
+}
+
+footer:hover {
+    transition: var(--trans);
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.landing{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    width: 60vw; 
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.a404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+}
+
+
 /*************************************************************
  *                                                           *
  *              !!! LIGHT MODE FROM NOW ON !!!               *
@@ -349,9 +386,8 @@ body.light-mode {
     top: 0;
     left: 0;
     width: 0;
-    height: 140%;
+    height: 100%;
     margin-left: -20%;
-    margin-top: -10%;
     background-color: var(--light-text);
     color: var(--white);
     transition: width 0.3s ease;
@@ -396,8 +432,6 @@ body.light-mode {
 
 .light-mode .c-form-box {
     border-radius: 1rem;
-    max-height: 75vh !important;
-    overflow: hidden;
 }
 
 .light-mode #particles-js {
@@ -425,8 +459,7 @@ body.light-mode {
     position: relative;
     z-index: 1;
     background-color: var(--dark);
-    max-height: 75vh; /* reduce overall height */
-    overflow-y: auto; /* enable vertical scroll if needed */
+    padding: 5% 2%;
 }
 
 
