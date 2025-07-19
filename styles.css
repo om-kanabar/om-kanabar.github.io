@@ -28,8 +28,6 @@ c-x = contact x*/
 }
 
 body{
-    display: flex;
-    flex-direction: column;
     background-color: var(--black);
     color: var(--white);
     min-height: 100vh;
@@ -159,6 +157,9 @@ nav div ul li a:hover {
 
 #particles-js {
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
     width: 100%;
     height: 100%;
     background-color: var(--dark);
@@ -179,20 +180,33 @@ nav div ul li a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 50vh;
     position: relative;
     z-index: 1;
     background-color: var(--dark);
+    max-height: 75vh; /* reduce overall height */
+    overflow-y: auto; /* enable vertical scroll if needed */
 }
 
 .c-main h1{
     color: var(--dark-text-title);
     font-size: 4em;
+    background: radial-gradient(circle at center, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1%;
+    border-radius: 1rem;
 }
 
 .c-form-box {
     width: 100%;
     max-width: 1000px;
+    background: radial-gradient(circle at center, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 2%;
+    border-radius: 1rem;
+    max-height: 75vh !important;
+    overflow: hidden;
 }
 
 form .none {
@@ -229,9 +243,31 @@ form .none {
 
 .c-footer {
     background-color: var(--dark);
-    margin-top: auto;
     width: 100%;
     text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.l-footer {
+    background-color: var(--black);
+    font-size: 0.75rem;
+    width: 100%;
+    text-align: center;
+}
+
+.l-footer a{
+    font-family: 'Cal Sans', sans-serif;
+}
+
+.c-footer a{
+    color: color-mix(in srgb, var(--cream) 50%, var(--gray) 50%);
+    font-size: 0.75rem;
+    transition: var(--trans);
+}
+
+.c-footer a:hover{
+    color: color-mix(in srgb, var(--cream) 40%, var(--light-text) 60%);;
 }
 
 input:-webkit-autofill,
@@ -249,7 +285,31 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+.legal {
+    font-family: 'Roboto Flex', sans-serif;
+    line-height: 2;
+}
 
+.legal h1, .legal h2, .legal h3, .legal h4, .legal h5, .legal h6 {
+    font-weight: 800;
+    font-family: 'Lexend', sans-serif;
+}
+
+.legal a{
+    transition: var(--trans);
+    color: color-mix(in srgb, #0c6dfd 50%, color-mix(in srgb, var(--light-text) 30%, var(--cream) 70%) 50%);
+    text-decoration: underline;
+    text-underline-offset: 2px !important;  
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+}
+
+
+.legal a:hover{
+    color: color-mix(in srgb, #0c6dfd 40%, color-mix(in srgb, var(--light-text) 30%, var(--cream) 70%) 60%);
+}
 
 /*************************************************************
  *                                                           *
@@ -323,13 +383,21 @@ body.light-mode {
     padding: 0.75rem 1.5rem;
 }
 
-.light-mode .i-main p{
+.light-mode .i-main p,
+.light-mode .c-form-box, 
+.light-mode .c-main h1{
     color: var(--black);
     background: radial-gradient(circle at center, rgba(232, 229, 221, 0) 0%, rgba(254, 252, 247, 0.3) 50%, transparent 100%);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
-    padding: 0.75rem 1.5rem;
+
+}
+
+.light-mode .c-form-box {
+    border-radius: 1rem;
+    max-height: 75vh !important;
+    overflow: hidden;
 }
 
 .light-mode #particles-js {
@@ -349,8 +417,18 @@ body.light-mode {
 }
 
 .light-mode .c-main {
+    display: flex;
     background-color: var(--cream);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background-color: var(--dark);
+    max-height: 75vh; /* reduce overall height */
+    overflow-y: auto; /* enable vertical scroll if needed */
 }
+
 
 .light-mode .c-main h1{
     color: var(--light-text);
@@ -394,4 +472,19 @@ body.light-mode {
 
 .light-mode .c-footer{
     background-color: var(--cream);
+}
+
+.light-mode .l-footer{
+    background-color: var(--white);
+}
+
+.light-mode .legal a{
+    transition: var(--trans);
+    color: color-mix(in srgb, #0c6dfd 50%, color-mix(in srgb, var(--light-text) 70%, var(--cream) 30%) 50%);
+    text-decoration: underline;
+    text-underline-offset: 2px !important;  
+}
+
+.light-mode .legal a:hover{
+    color: color-mix(in srgb, #0c6dfd 30%, color-mix(in srgb, var(--light-text) 70%, var(--cream) 30%) 70%);
 }

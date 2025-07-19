@@ -12,7 +12,7 @@ function initParticles() {
   particlesJS("particles-js", {
     "particles": {
       "number": {
-        "value": 200,
+        "value": 175,
         "density": {
           "enable": true,
           "value_area": 800
@@ -189,7 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const visibleSubject = document.getElementById("subject");
     const hiddenSubject = document.querySelector("input[name='_subject']");
 
-    visibleSubject.addEventListener("input", function () {
-        hiddenSubject.value = visibleSubject.value;
-    });
+    if (visibleSubject && hiddenSubject) {
+        visibleSubject.addEventListener("input", function () {
+            hiddenSubject.value = visibleSubject.value;
+        });
+    }
 });
