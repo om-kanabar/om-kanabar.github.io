@@ -381,6 +381,55 @@ footer:hover {
     height: 60vh;
 }
 
+.progress{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 75vh;
+    text-align: center;
+    background-color: inherit;
+}
+
+.i-footer{
+    color: var(--cream);
+    background-color: #111111;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+    transition: 0s !important;
+}
+
+.i-footer a{
+    color: var(--dark);
+    background-color: #111111;
+    font-size: 0.75em;
+}
+
+.i-footer a:hover{
+    color: var(--cream);
+}
+
+.p-footer{
+    background-color: #111111;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+    transition: 0s;
+}
+
+.p-footer a{
+    color: var(--dark);
+    background-color: #111111;
+    font-size: 0.75em;
+}
+
+.p-footer a:hover{
+    color: var(--cream);
+}
+
 
 /*************************************************************
  *                                                           *
@@ -554,4 +603,41 @@ body.light-mode {
 
 .light-mode .legal a:hover{
     color: color-mix(in srgb, #0c6dfd 30%, color-mix(in srgb, var(--light-text) 70%, var(--cream) 30%) 70%);
+}
+
+.light-mode .i-footer{
+    color: var(--cream);
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.light-mode .i-footer a{
+    color: var(--cream);
+    background-color: var(--white);
+    font-size: 0.75em;
+}
+
+.light-mode .i-footer a:hover{
+    color: var(--light-text);
+}
+
+.light-mode .p-footer{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.light-mode .p-footer a{
+    color: var(--cream);
+    background-color: var(--white);
+    font-size: 0.75em;
+}
+
+.light-mode .p-footer a:hover{
+    color: var(--light-text);
 }
