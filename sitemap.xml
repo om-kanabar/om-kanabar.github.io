@@ -7,7 +7,7 @@
     <loc>https://om-kanabar.github.io/about.html</loc>
   </url>
   <url>
-    <loc>https://om-kanabar.github.io/license.html</loc>
+    <loc>https://om-kanabar.github.io/contact.html</loc>
   </url>
   <url>
     <loc>https://om-kanabar.github.io/skills.html</loc>
@@ -17,5 +17,8 @@
   </url>
   <url>
     <loc>https://om-kanabar.github.io/landing.html</loc>
+  </url>
+  <url>
+    <loc>https://om-kanabar.github.io/404.html</loc>
   </url>
 </urlset>

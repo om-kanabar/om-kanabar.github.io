@@ -1,6 +1,7 @@
 User-agent: Googlebot
-Disallow: /license.html
+Allow: /Assets/googlecd4fbe630c51566b.html
 Disallow: /Assets/
+Disallow: /license.html
 Disallow: /404.html
 Disallow: /contact.html
 Disallow: /landing.html
