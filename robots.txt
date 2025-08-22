@@ -1,7 +1,7 @@
 User-agent: Googlebot
 Allow: /Assets/googlecd4fbe630c51566b.html
 Disallow: /Assets/
-Disallow: /license.html
+Disallow: /copyright.html
 Disallow: /404.html
 Disallow: /landing.html
 
@@ -9,7 +9,7 @@ User-agent: AdsBot-Google
 Disallow: /
 
 User-agent: *
-Disallow: /license.html
+Disallow: /copyright.html
 Disallow: /Assets/
 Disallow: /404.html
 Disallow: /landing.html
