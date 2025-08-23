@@ -7,6 +7,7 @@ l-x = license x
 la-x = landing x
 s-x = skills x
 c-x = contact x*/
+
 :root{
     --white: #fefcf7;
     --cream: #e8e5dd;
@@ -19,6 +20,14 @@ c-x = contact x*/
     --accent: #d4a017;
     --blue-grey: #434e54;
     --trans: 0.2s ease;
+}
+
+.hidden{
+    display: none;
+    height: 0px;
+    width: 0px;
+    color: transparent;
+    background-color: transparent;
 }
 
 *,
@@ -644,4 +653,8 @@ body.light-mode {
 
 .light-mode .p-footer a:hover{
     color: var(--light-text);
+}
+
+#st-0-t{
+    font-family: 'Menlo', sans-serif;
 }

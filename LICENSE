@@ -29,9 +29,11 @@ Notwithstanding the foregoing restrictions, Hack Club and its affiliates are her
 
 This project incorporates third-party libraries and resources, which are licensed separately under their respective terms:
 
-- Bootstrap → MIT License (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-- Google Fonts → SIL Open Font License (OFL) (https://fonts.google.com/about)
-- Particles.js → MIT License (https://github.com/VincentGarreau/particles.js/?tab=MIT-1-ov-file)
+- Bootstrap: MIT License (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+- Google Fonts: SIL Open Font License (OFL) (https://fonts.google.com/about)
+- Particles.js: MIT License (https://github.com/VincentGarreau/
+particles.js/?tab=MIT-1-ov-file)
+- Menlo Font: MIT License
 
 Use of these resources must comply with their respective licenses.
 
