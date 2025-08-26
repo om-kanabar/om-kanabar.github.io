@@ -172,15 +172,43 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
+  const blockedHashes = [
+    "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee"
+  ];
+
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  const alertBox = document.getElementById("blockedAlert");
   const forms = document.querySelectorAll('.needs-validation');
 
   Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // stop browser submit immediately
+
+      const emailInput = form.querySelector("input[type='email']");
+      const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
+
+      sha256(email).then(hash => {
+        // Blocked email check
+        if (blockedHashes.includes(hash)) {
+          if (alertBox) alertBox.classList.remove("d-none");
+          return; // stop submission
+        }
+
+        // Check form validity (Bootstrap)
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return; // stop submission
+        }
+
+        // All good — submit manually
+        form.submit();
+      });
     });
   });
 });

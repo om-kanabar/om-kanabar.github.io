@@ -362,7 +362,6 @@ footer {
     flex-direction: row !important;
     justify-content: center !important;
     margin-top: auto !important;
-    transition: var(--trans);
 }
 
 footer a{
