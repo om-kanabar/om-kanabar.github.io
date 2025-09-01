@@ -210,6 +210,7 @@ async function formSubmit1() {
     const visibleSubject = document.getElementById("subject");
     const hiddenSubject = document.querySelector("input[name='_subject']");
     hiddenSubject.value = visibleSubject.value;
+    if (document.getElementById("realSubmit")) document.getElementById("realSubmit").click();
   });
 }
 
@@ -221,6 +222,7 @@ async function langCode(){
   let text = "Languages I Code In"
   let split = text.split(""); 
   const p = document.getElementById("st-0-t");
+  if (!p) return;
   p.innerHTML = "";
   p.classList.remove("hidden");
   for (let i = 0; i < split.length; i++) {

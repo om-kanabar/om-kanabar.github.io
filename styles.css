@@ -22,6 +22,10 @@ c-x = contact x*/
     --trans: 0.2s ease;
 }
 
+.s-hidden{
+    opacity: 0;
+}
+
 .hidden{
     display: none;
     height: 0px;
