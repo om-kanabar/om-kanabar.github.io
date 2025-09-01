@@ -9,6 +9,10 @@ var color = `${yellow}`
 function initParticles() {
   const particlesElement = document.getElementById("particles-js");
   if (!particlesElement) return;
+  if (window.pJSDom && window.pJSDom.length) {
+    window.pJSDom[0].pJS.fn.vendors.destroypJS();
+    window.pJSDom = [];
+  }
   particlesJS("particles-js", {
     "particles": {
       "number": {
@@ -169,60 +173,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+async function sha256(message) {
+  const msgBuffer = new TextEncoder().encode(message);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
 
+async function formSubmit1() {
   const blockedHashes = [
-    "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee"
+    "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee", 
+    "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66", 
+    "57f6427135dd0537e59772e4821695529d6e6d814a2203f9d6e3ce04c2ecb3f0"
   ];
-
-  async function sha256(message) {
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-  }
-
   const alertBox = document.getElementById("blockedAlert");
-  const forms = document.querySelectorAll('.needs-validation');
+  const form = document.querySelector('.needs-validation');
+  const emailInput = form.querySelector("input[type='email']")
+  const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
+  let check = 0
+  sha256(email).then(hash => {
+    // Blocked email check
+    if (blockedHashes.includes(hash)) {
+      alertBox.classList.remove("d-none");
+      alertBox.innerHTML = `Sorry, the email ${email} has been blocked`
+      document.getElementById("checkBtn").remove();
+      check = 1;
+      throw Error(`[EMAIL] Email ${email} was blocked`)
+    }
 
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // stop browser submit immediately
-
-      const emailInput = form.querySelector("input[type='email']");
-      const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
-
-      sha256(email).then(hash => {
-        // Blocked email check
-        if (blockedHashes.includes(hash)) {
-          if (alertBox) alertBox.classList.remove("d-none");
-          return; // stop submission
-        }
-
-        // Check form validity (Bootstrap)
-        if (!form.checkValidity()) {
-          form.classList.add('was-validated');
-          return; // stop submission
-        }
-
-        // All good — submit manually
-        form.submit();
-      });
-    });
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
+    // Check form validity (Bootstrap)
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+      check = 1;
+      throw Error("[EMAIL] Form was not validated")
+    }
     const visibleSubject = document.getElementById("subject");
     const hiddenSubject = document.querySelector("input[name='_subject']");
+    hiddenSubject.value = visibleSubject.value;
+  });
+}
 
-    if (visibleSubject && hiddenSubject) {
-        visibleSubject.addEventListener("input", function () {
-            hiddenSubject.value = visibleSubject.value;
-        });
-    }
-});
+function pause(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 async function langCode(){
   let text = "Languages I Code In"
@@ -232,13 +225,13 @@ async function langCode(){
   p.classList.remove("hidden");
   for (let i = 0; i < split.length; i++) {
     p.innerHTML += split[i];
-    await new Promise(resolve => setTimeout(resolve, 100)); 
+    await pause(100);
   }
   while (true){
     p.innerHTML = `${text}|`
-    await new Promise(resolve => setTimeout(resolve, 400));
+    await pause(400);
     p.innerHTML = text;
-    await new Promise(resolve => setTimeout(resolve, 400));
+    await pause(400);
   }
 }
 
