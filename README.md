@@ -1,11 +1,6 @@
 Om Kanabar Portfolio Website
 
-This is my personal website project, created to practice responsive web design and experiment with light and dark modes. It focuses on clean design and smooth usability across devices.
-
-Features
-	•	Responsive layout for desktop and mobile
-	•	Light and dark mode
-	•	Minimalist design
+Literally a personal website. Um, used ai for debugging and for creating commits since I have GitHub Pro (education). Hopefully you like it. I do not leave comments (so sad), but I am working on it. Also, I am of course still working on this and will probably be working on this for longer because I like to add unnecessary things that take up my time but are fun to do.
 
 ## Contact
 

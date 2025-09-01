@@ -184,7 +184,8 @@ async function formSubmit1() {
   const blockedHashes = [
     "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee", 
     "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66", 
-    "57f6427135dd0537e59772e4821695529d6e6d814a2203f9d6e3ce04c2ecb3f0"
+    "57f6427135dd0537e59772e4821695529d6e6d814a2203f9d6e3ce04c2ecb3f0", 
+    "fab750116714be3d606e5d30230c9040c4477a1eb52f03b13b0cc0ff32bd70b9"
   ];
   const alertBox = document.getElementById("blockedAlert");
   const form = document.querySelector('.needs-validation');
