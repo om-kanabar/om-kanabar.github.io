@@ -1,7 +1,9 @@
+// © 2025 Om Kanabar.
+// More info in LICENSE
+
 const crypto = require("crypto");
 const readline = require("readline");
 
-// Replace these with your actual blocked emails
 const blockedEmails = [];
 
 const rl = readline.createInterface({

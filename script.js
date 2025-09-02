@@ -219,25 +219,6 @@ function pause(ms){
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function langCode(){
-  let text = "Languages I Code In"
-  let split = text.split(""); 
-  const p = document.getElementById("st-0-t");
-  if (!p) return;
-  p.innerHTML = "";
-  p.classList.remove("hidden");
-  for (let i = 0; i < split.length; i++) {
-    p.innerHTML += split[i];
-    await pause(100);
-  }
-  while (true){
-    p.innerHTML = `${text}|`
-    await pause(400);
-    p.innerHTML = text;
-    await pause(400);
-  }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   langCode();
 });
