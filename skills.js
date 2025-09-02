@@ -56,7 +56,12 @@ async function subtitle(id){
         if (repeat) {
             let repeatSplit = repeat.split("");
             let repeatTime = Number(stElem.getAttribute("dt-repeatTime")) || 400;
-            let totalRepeats = Number(stElem.getAttribute("dt-repeat")) || 5;
+            let totalRepeats = stElem.getAttribute("dt-repeat") || 5;
+            if (totalRepeats === "inf") {
+                totalRepeats = 2000;
+            } else {
+               totalRepeats = Number(stElem.getAttribute("dt-repeat") || 5); 
+            };
 
             let baseText = inText; // store the typed text before repeats
 
