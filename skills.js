@@ -6,8 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function start(){
+    await subtitle("st-0-h");
+    await pause(200)
     await subtitle("st-1");
     await subtitle("st-2");
+    changeColor("st-1", "green")
     await subtitle("st-3");
 }
 
@@ -88,10 +91,19 @@ async function subtitle(id){
         stElem.innerHTML = text;
 
         // Hide if needed
-        if (st[2] === "h") {
+        if (st[2] == "h") {
             await pause(Number(stElem.getAttribute("dt-end")) || 1000);
             stElem.classList.add("hidden");
         }
         resolve();
     });
+}
+
+function changeColor(id, color) {
+    const elem = document.getElementById(id);
+    if (!elem) return;
+    const colors = ["blue", "purple", "green"];
+    if (!colors.includes(color)) return;
+    colors.forEach(c => elem.classList.remove(`t-${c}`));
+    elem.classList.add(`t-${color}`);
 }

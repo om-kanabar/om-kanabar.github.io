@@ -19,7 +19,7 @@ More info in LICENSE
   <link rel="icon" href="Assets/3.png" type="image/png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="skills.css">
   <script src="skills.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,14 +29,16 @@ More info in LICENSE
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" crossorigin="anonymous">
   <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
-<body>
+<body class="terminal">
   <!-- Fetching File -->
   <!-- File Fetched -->
   <!-- Please Enter Credentials. To Skip Verification Enter "v" -->
-  <p id="st-1" class="hidden" dt-time="2000" dt-repeat="3">Fetching File^[...]</p>
-  <p id="st-2" class="hidden" dt-time="1500">File Fetched</p>
-  <p id="st-3" class="hidden" dt-time="3000" dt-repeat="inf">Please Enter Credentials (To Skip Type "v")^[|]</p>
-
+  <div class="ms-5 mt-5 terminal">
+    <a id="st-0-h" href="copyright.html" class="hidden t-blue" dt-time="2000" target="_blank">&copy; Om Kanabar 2025</a>
+    <p id="st-1" class="hidden t-purple" dt-time="2000" dt-repeat="3">Fetching File^[...]</p>
+    <p id="st-2" class="hidden t-green" dt-time="1500">File Fetched</p>
+    <p id="st-3" class="hidden" dt-time="3000" dt-repeat="inf">Please Enter Credentials (To Skip Type "v"): ^[|]</p>
+  </div>
   <!-- <nav class="navbar navbar-expand-lg" id="nav">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">
@@ -80,8 +82,5 @@ More info in LICENSE
       <div id="extra-curriculars"></div>
     </div>
   </main>
-  <footer class="p-footer">
-    <a href="copyright.html" target="_blank">&copy; Om Kanabar 2025</a>
-  </footer>
 </body>
 </html>
