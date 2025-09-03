@@ -5,12 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
 });
 
+let theme;
+
 async function start(){
     await subtitle("st-0-h");
     await pause(200)
     await subtitle("st-1");
     changeColor("st-1", "green")
     await subtitle("st-2");
+    theme = localStorage.getItem("theme");
+    if (theme === "light") {
+        await subtitle("st-l3")
+    }
     await subtitle("st-3");
 }
 
@@ -102,8 +108,14 @@ async function subtitle(id){
 function changeColor(id, color) {
     const elem = document.getElementById(id);
     if (!elem) return;
-    const colors = ["blue", "purple", "green"];
+    const colors = ["blue", "purple", "green", "url-white", "url-black", "white", "black"];
     if (!colors.includes(color)) return;
     colors.forEach(c => elem.classList.remove(`t-${c}`));
     elem.classList.add(`t-${color}`);
+}
+
+async function tInput(id, input){
+    const elem = document.getElementById(id);
+    if (!elem || !input) return;
+
 }

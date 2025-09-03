@@ -19,6 +19,30 @@ More info in LICENSE */
     color: #0080ff;
 }
 
+.t-url-white{
+    color: var(--white);
+}
+
+.t-url-white:hover{
+    color: rgb(145, 145, 145);
+}
+
+.t-url-black{
+    color: var(--black);
+}
+
+.t-url-black:hover{
+    color: rgb(145, 145, 145);
+}
+
+.t-white{
+    color: var(--white)
+}
+
+.t-black{
+    color: var(--black);
+}
+
 .t-purple{
     color: #ff00ff;
 }
@@ -34,3 +58,18 @@ html .terminal{
     opacity: 0;
     display: none;
 }
+
+
+/*************************************************************
+ *                                                           *
+ *              !!! LIGHT MODE FROM NOW ON !!!               *
+ *  All styles below this line are for the light mode theme  *
+ *                                                           *
+ *************************************************************/
+
+ .terminal .light{
+    background-color: var(--white);
+    color: var(--black);
+ }
+
+ 
