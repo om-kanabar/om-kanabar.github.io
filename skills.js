@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     start();
 });
 
-let theme;
+let isLight;
 
 async function start(){
     await subtitle("st-0-h");
@@ -13,9 +13,19 @@ async function start(){
     await subtitle("st-1");
     changeColor("st-1", "green")
     await subtitle("st-2");
-    theme = localStorage.getItem("theme");
-    if (theme === "light") {
-        await subtitle("st-l3")
+    isLight = localStorage.getItem("lightMode") === "true";
+    if (isLight) {
+        await subtitle("st-l3");
+        await subtitle("st-l4");
+        document.body.classList.add("light");
+        document.getElementById("t-box").classList.add("light");
+        changeColor("st-l3", "black");
+        await pause(750);
+        changeColor("st-l4", "black");
+        changeColor("st-3", "black");
+        await pause(750);
+        changeColor("st-l5", "black")
+        await subtitle("st-l5")
     }
     await subtitle("st-3");
 }
