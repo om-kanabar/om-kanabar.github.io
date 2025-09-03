@@ -9,8 +9,8 @@ async function start(){
     await subtitle("st-0-h");
     await pause(200)
     await subtitle("st-1");
-    await subtitle("st-2");
     changeColor("st-1", "green")
+    await subtitle("st-2");
     await subtitle("st-3");
 }
 
@@ -91,7 +91,7 @@ async function subtitle(id){
         stElem.innerHTML = text;
 
         // Hide if needed
-        if (st[2] == "h") {
+        if (st[2] === "h") {
             await pause(Number(stElem.getAttribute("dt-end")) || 1000);
             stElem.classList.add("hidden");
         }
