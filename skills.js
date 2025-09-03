@@ -19,6 +19,10 @@ async function start(){
         await subtitle("st-l4");
         document.body.classList.add("light");
         document.getElementById("t-box").classList.add("light");
+        const divs = document.querySelectorAll('div');
+        divs.forEach(Element => {
+            Element.classList.add("light");
+        });
         changeColor("st-l3", "black");
         await pause(750);
         changeColor("st-l4", "black");
@@ -123,9 +127,20 @@ function changeColor(id, color) {
     colors.forEach(c => elem.classList.remove(`t-${c}`));
     elem.classList.add(`t-${color}`);
 }
-
+// A function for getting input from user
 async function tInput(id, input){
     const elem = document.getElementById(id);
     if (!elem || !input) return;
-
+    return new Promise((resolve) => {
+        elem.classList.remove("hidden");
+        elem.value = "";
+        elem.focus();
+        elem.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                let val = elem.value;
+                elem.classList.add("hidden");
+                resolve(val);
+            }
+        });
+    }); 
 }
