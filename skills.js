@@ -131,26 +131,13 @@ class Terminal {
     changeColor(id, color) {
         const elem = document.getElementById(id);
         if (!elem) return;
-        const colors = ["blue", "purple", "green", "url-white", "url-black", "white", "black"];
+        const colors = ["blue", "purple", "green", "url-white", "url-black", "white", "black", "red", "yellow"];
         if (!colors.includes(color)) return;
         colors.forEach(c => elem.classList.remove(`t-${c}`));
         elem.classList.add(`t-${color}`);
     }
 
-    async tInput(id, input){
-        const elem = document.getElementById(id);
-        if (!elem || !input) return;
-        return new Promise((resolve) => {
-            elem.classList.remove("hidden");
-            elem.value = "";
-            elem.focus();
-            elem.addEventListener("keydown", (e) => {
-                if (e.key === "Enter") {
-                    let val = elem.value;
-                    elem.classList.add("hidden");
-                    resolve(val);
-                }
-            });
-        }); 
+    async tInput(){
+
     }
 }

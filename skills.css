@@ -5,6 +5,16 @@ More info in LICENSE */
     --white: #fefcf7;
     --black: #111111;
 }
+
+noscript{
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    height: 100vh;
+}
+
 .terminal{
     font-family: 'Menlo', sans-serif;
     color: var(--white);
@@ -45,6 +55,14 @@ More info in LICENSE */
 
 .t-purple{
     color: #ff00ff;
+}
+
+.t-red{
+    color: rgb(255, 29, 29);
+}
+
+.t-yellow{
+    color: #d7d74c;
 }
 
 body .terminal,
