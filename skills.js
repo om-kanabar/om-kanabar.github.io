@@ -18,23 +18,27 @@ async function start(){
     await terminal.subtitle("st-2");
     isLight = localStorage.getItem("lightMode") === "true";
     if (isLight) {
-        await terminal.subtitle("st-l3");
-        await terminal.subtitle("st-l4");
-        document.body.classList.add("light");
-        document.getElementById("t-box").classList.add("light");
-        const divs = document.querySelectorAll('div');
-        divs.forEach(Element => {
-            Element.classList.add("light");
-        });
-        terminal.changeColor("st-l3", "black");
-        await pause(750);
-        terminal.changeColor("st-l4", "black");
-        terminal.changeColor("st-3", "black");
-        await pause(750);
-        terminal.changeColor("st-l5", "black")
-        await terminal.subtitle("st-l5")
+        lightMode();
     }
     await terminal.subtitle("st-3");
+}
+
+async function lightMode(){
+    await terminal.subtitle("st-l3");
+    await terminal.subtitle("st-l4");
+    document.body.classList.add("light");
+    document.getElementById("t-box").classList.add("light");
+    const divs = document.querySelectorAll('div');
+    divs.forEach(Element => {
+        Element.classList.add("light");
+    });
+    terminal.changeColor("st-l3", "black");
+    await pause(750);
+    terminal.changeColor("st-l4", "black");
+    terminal.changeColor("st-3", "black");
+    await pause(750);
+    terminal.changeColor("st-l5", "black")
+    await terminal.subtitle("st-l5")
 }
 
 function pause(ms){
@@ -148,9 +152,5 @@ class Terminal {
                 }
             });
         }); 
-    }
-
-    async createElem(id, text, parentId, dtTime, dtRepeat, dtRepeatTime, dtEnd){
-        //Working on it
     }
 }
