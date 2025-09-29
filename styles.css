@@ -189,11 +189,14 @@ nav svg {
 .i-main h1 {
     font-size: 6rem;
     color: var(--dark-text-title);
+    
     background: radial-gradient(circle at center, rgba(25, 25, 25, 0.75) 0%, rgba(25, 25, 25, 0.3) 50%, transparent 100%);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
     padding: 0.75rem 1.5rem;
+    text-shadow: 0 0 3px var(--dark-text-title),
+                0 0 4px var(--dark-text-title)
 }
 
 .i-main p{
@@ -446,6 +449,16 @@ footer a{
     color: var(--cream);
 }
 
+#code{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#codeAccordion{
+    width: 83.4215812321vw;
+}
 
 /*************************************************************
  *                                                           *
@@ -516,6 +529,7 @@ body.light-mode {
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
     padding: 0.75rem 1.5rem;
+    text-shadow: none !important;
 }
 
 .light-mode .i-main p,
@@ -526,7 +540,6 @@ body.light-mode {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-radius: 1rem;
-
 }
 
 .light-mode .c-form-box {

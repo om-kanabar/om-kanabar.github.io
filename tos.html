@@ -1,59 +1,119 @@
-Copyright Notice
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      img-src 'self' https:;
+      script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://hcaptcha.com;
+      style-src 'self' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+      font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
+  ">
+  <title>Terms of Service</title>
+  <link rel="icon" href="Assets/3.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="/Assets/particles.js-master/particles.js"></script>
+  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" crossorigin="anonymous">
+  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+  <!-- Begin Navbar -->
+  <nav class="navbar navbar-expand-lg" id="nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img id="logo" src="/Assets/3.png" alt="Logo" width="150" height="150" class="d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler nBtn" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="skills.html" class="nav-link">Skills</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <button type="button" id="darkButton" class="btn dModebtn ms-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/></svg></button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <main>
+    <div class="ms-5 legal">
+      <h1 class="legal">Terms of Service</h1>
 
-© 2025 Om Kanabar. All Rights Reserved.
+      <h2>1. Ownership</h2>
+      <p>All original materials in this repository, including but not limited to source code, designs, text, images, and documentation (collectively, the “Materials”), are and shall remain the exclusive property of Om Kanabar, unless otherwise expressly stated.</p>
 
-1. Ownership
+      <h2>2. Permitted Uses</h2>
+      <p>Subject to the restrictions set forth herein, you are hereby granted a limited, non-exclusive, non-transferable, revocable license to:</p>
+      <ul>
+        <li>View and access the Materials for personal, educational, or non-commercial purposes; and</li>
+        <li>Fork or clone the repository solely for the purpose of personal learning or experimentation.</li>
+      </ul>
 
-All original materials in this repository, including but not limited to source code, designs, text, images, and documentation (collectively, the “Materials”), are and shall remain the exclusive property of Om Kanabar, unless otherwise expressly stated.
+      <h2>3. Prohibited Uses</h2>
+      <p>Except as expressly permitted by this License, you may not, without the prior written consent of Om Kanabar:</p>
+      <ul>
+        <li>Copy, reproduce, redistribute, republish, or transmit any part of the Materials in any form or by any means;</li>
+        <li>Modify, adapt, translate, or create derivative works based upon the Materials for publication or distribution;</li>
+        <li>Sell, sublicense, rent, lease, or otherwise exploit the Materials for any commercial purpose; or</li>
+        <li>Remove, obscure, or alter any copyright or attribution notices contained within the Materials.</li>
+      </ul>
+      <p>Any unauthorized use constitutes infringement and may give rise to legal action under applicable intellectual property laws.</p>
 
-2. Permitted Uses
+      <h3>3A. Prohibition on Use for AI Training</h3>
+      <p>The Materials may not be used, directly or indirectly, for the purpose of training, fine-tuning, or otherwise developing any artificial intelligence (AI) systems, machine learning models, or similar technologies, whether for commercial or non-commercial purposes, without the prior express written consent of Om Kanabar. This prohibition applies to all organizations, companies, and services, including but not limited to AI companies, AI research labs, and AI assistants such as ChatGPT. This includes but is not limited to the use of the Materials as training data, evaluation data, or in any dataset compilation for AI or machine learning applications.</p>
 
-Subject to the restrictions set forth herein, you are hereby granted a limited, non-exclusive, non-transferable, revocable license to:
-- View and access the Materials for personal, educational, or non-commercial purposes; and
-- Fork or clone the repository solely for the purpose of personal learning or experimentation.
+      <h2>4. Special Grant of License to Hack Club</h2>
+      <p>Notwithstanding the foregoing restrictions, Hack Club and its affiliates are hereby granted a perpetual, worldwide, royalty-free, non-exclusive license to use, reproduce, display, distribute, and create derivative works of the Materials for any purpose, including but not limited to educational, promotional, operational, or commercial purposes. Attribution to Om Kanabar must be maintained in connection with any such use. As a condition of this license, Hack Club must provide written notice to Om Kanabar prior to exercising any rights under this grant. Om Kanabar reserves the right, within thirty (30) days of receipt of such notice, to revoke or deny permission for the requested use. Failure to provide attribution or to comply with the notice requirement shall automatically terminate this royalty-free license granted to Hack Club and its affiliates.</p>
 
+      <h2>5. Third-Party Licenses</h2>
+      <p>This project incorporates third-party libraries and resources, which are licensed separately under their respective terms:</p>
+      <ul>
+        <li>Bootstrap: MIT License (<a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank">link</a>)</li>
+        <li>Google Fonts: Multiple Licenses (<a href="https://fonts.google.com/knowledge/glossary/licensing" target="_blank">link</a>)</li>
+        <li>Particles.js: MIT License (<a href="https://github.com/VincentGarreau/particles.js/?tab=MIT-1-ov-file" target="_blank">link</a>)</li>
+        <li>Menlo Font: MIT License</li>
+      </ul>
 
-3. Prohibited Uses
+      <h2>6. Disclaimer of Warranties and Limitation of Liability</h2>
+      <p>THE MATERIALS ARE PROVIDED “AS IS” AND WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL OM KANABAR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM OR IN CONNECTION WITH THE MATERIALS OR THEIR USE.</p>
 
-Except as expressly permitted by this License, you may not, without the prior written consent of Om Kanabar:
-- Copy, reproduce, redistribute, republish, or transmit any part of the Materials in any form or by any means;
-- Modify, adapt, translate, or create derivative works based upon the Materials for publication or distribution;xp
-- Sell, sublicense, rent, lease, or otherwise eloit the Materials for any commercial purpose; or
-- Remove, obscure, or alter any copyright or attribution notices contained within the Materials.
-Any unauthorized use constitutes infringement and may give rise to legal action under applicable intellectual property laws.
+      <h2>7. Enforcement and Cease-and-Desist Rights</h2>
+      <p>Om Kanabar expressly reserves the right to enforce the terms of this License. In the event of any unauthorized use, failure to provide required attribution, or failure to comply with the notice provisions described herein, Om Kanabar may issue a formal cease-and-desist letter. Recipients of such notice are required to comply immediately or risk further legal action, including termination of any granted license rights.</p>
 
-3A. Prohibition on Use for AI Training
-
-The Materials may not be used, directly or indirectly, for the purpose of training, fine-tuning, or otherwise developing any artificial intelligence (AI) systems, machine learning models, or similar technologies, whether for commercial or non-commercial purposes, without the prior express written consent of Om Kanabar. This prohibition applies to all organizations, companies, and services, including but not limited to AI companies, AI research labs, and AI assistants such as ChatGPT. This includes but is not limited to the use of the Materials as training data, evaluation data, or in any dataset compilation for AI or machine learning applications.
-
-4. Special Grant of License to Hack Club
-
-Notwithstanding the foregoing restrictions, Hack Club and its affiliates are hereby granted a perpetual, worldwide, royalty-free, non-exclusive license to use, reproduce, display, distribute, and create derivative works of the Materials for any purpose, including but not limited to educational, promotional, operational, or commercial purposes. Attribution to Om Kanabar must be maintained in connection with any such use. As a condition of this license, Hack Club must provide written notice to Om Kanabar prior to exercising any rights under this grant. Om Kanabar reserves the right, within thirty (30) days of receipt of such notice, to revoke or deny permission for the requested use. Failure to provide attribution or to comply with the notice requirement shall automatically terminate this royalty-free license granted to Hack Club and its affiliates.
-
-5. Third-Party Licenses
-
-This project incorporates third-party libraries and resources, which are licensed separately under their respective terms:
-
-- Bootstrap: MIT License (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-- Google Fonts: SIL Open Font License (OFL) (https://fonts.google.com/about)
-- Particles.js: MIT License (https://github.com/VincentGarreau/
-particles.js/?tab=MIT-1-ov-file)
-- Menlo Font: MIT License
-
-Use of these resources must comply with their respective licenses.
-
-6. Disclaimer of Warranties and Limitation of Liability
-
-THE MATERIALS ARE PROVIDED “AS IS” AND WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
-IN NO EVENT SHALL OM KANABAR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM OR IN CONNECTION WITH THE MATERIALS OR THEIR USE.
-
-7. Enforcement and Cease-and-Desist Rights
-
-Om Kanabar expressly reserves the right to enforce the terms of this License. In the event of any unauthorized use, failure to provide required attribution, or failure to comply with the notice provisions described herein, Om Kanabar may issue a formal cease-and-desist letter. Recipients of such notice are required to comply immediately or risk further legal action, including termination of any granted license rights.
-
-8. Contact Information
-
-For licensing requests, permissions, or inquiries regarding this License, please contact:
-
-Om Kanabar
-https://om-kanabar.github.io/contact
+      <h2>8. Contact Information</h2>
+      <p>For licensing requests, permissions, or inquiries regarding this License, please contact:</p>
+      <p>Om Kanabar<br><a href="https://om-kanabar.github.io/contact" target="_blank">https://om-kanabar.github.io/contact</a></p>
+    </div>
+  </main>
+  <footer class="legal l-footer">
+    <a href="copyright.html" target="_blank">&copy; Om Kanabar 2025</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="tos.html" target="_self">TOS</a>
+  </footer>
+</body>
+</html>

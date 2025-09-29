@@ -3,79 +3,18 @@ More info in LICENSE */
 
 :root{
     --white: #fefcf7;
+    --cream: #e8e5dd;
+    --dark: #191919;
+    --gray: #6b7c85;
+    --dark-text-title: #ffb300;
+    --light-text: #233c4a;
     --black: #111111;
+    --navy: #0b1623;
+    --accent: #d4a017;
+    --blue-grey: #434e54;
+    --trans: 0.2s ease;
 }
 
-noscript{
-    z-index: 2;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center !important;
-    height: 100vh;
-}
-
-.terminal{
-    font-family: 'Menlo', sans-serif;
-    color: var(--white);
-    font-size: 1.5em;
-}
-
-.t-green{
-    color: #4AF262;
-}
-
-.t-blue{
-    color: #0080ff;
-}
-
-.t-url-white{
-    color: var(--white);
-}
-
-.t-url-white:hover{
-    color: rgb(145, 145, 145);
-}
-
-.t-url-black{
-    color: var(--black);
-}
-
-.t-url-black:hover{
-    color: rgb(145, 145, 145);
-}
-
-.t-white{
-    color: var(--white)
-}
-
-.t-black{
-    color: var(--black);
-}
-
-.t-purple{
-    color: #ff00ff;
-}
-
-.t-red{
-    color: rgb(255, 29, 29);
-}
-
-.t-yellow{
-    color: #d7d74c;
-}
-
-body .terminal,
-html .terminal{
-    background-color: var(--black);
-}
-
-.hidden{
-    height: 0;
-    width: 0;
-    opacity: 0;
-    display: none;
-}
 
 
 /*************************************************************
@@ -84,13 +23,3 @@ html .terminal{
  *  All styles below this line are for the light mode theme  *
  *                                                           *
  *************************************************************/
-
-body.light{
-    background-color: var(--white);
-    color: var(--black);
-}
-
-.light{
-    background-color: var(--white) !important;
-}
- 
