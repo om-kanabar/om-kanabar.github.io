@@ -1,0 +1,155 @@
+:root{
+    --white: #fefcf7;
+    --cream: #e8e5dd;
+    --dark: #191919;
+    --gray: #6b7c85;
+    --dark-text-title: #ffb300;
+    --light-text: #233c4a;
+    --black: #111111;
+    --navy: #0b1623;
+    --accent: #d4a017;
+    --blue-grey: #434e54;
+    --trans: 0.2s ease;
+}
+
+html, body{
+    background-color: var(--cream) !important;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--cream);
+}
+
+.titleHero{
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+.o {
+    z-index: 5;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.o1 {
+    opacity: 50%;
+    z-index: 4;
+}
+
+.o2 {
+    opacity: 25%;
+    z-index: 3;
+}
+
+.o3 {
+    opacity: 12.5%;
+    z-index: 2;
+}
+
+.top {
+    margin-bottom: -6.5rem;
+}
+
+.bottom {
+    margin-top: calc(-6.9rem + var(--spread, 0px));
+}
+
+.space1 {
+    padding-top: 10vh;
+    background-color: var(--cream) !important;
+}
+
+
+.space2 {
+    padding-top: 20vh;
+    background-color: var(--cream) !important;
+}
+
+.photographer, .coder {
+    background-color: var(--cream);
+    text-align: center;
+}
+
+.photographer h1, .coder h1 {
+    opacity: calc(var(--spreadp, 0%));
+    font-family: 'Cal Sans', 'sans-serif';
+    padding-top: 5vh;
+}
+
+.coder {
+    background-color: var(--black);
+    height: fit-content;
+}
+
+.scene {
+    height: fit-content;
+}
+
+pre {
+    height: 50vh;
+}
+
+.coder h1 {
+    color: var(--cream);
+}
+
+.code-js p {
+    margin-bottom: -2rem !important;
+}
+
+/* dark blue */
+.db {
+    color: #569cd6 !important;
+}
+
+/* blue */
+.b {
+    color: #4dbbf6 !important;
+}
+
+/* grey */
+.g {
+    color: #6c737e !important;
+}
+
+/* yellow */
+.y { 
+    color: #dcdcaa !important;
+}
+
+/* light blue */
+.lb {
+    color: #9cdcfe !important;
+}
+
+/* mango */
+.m {
+    color: #fbd400 !important;
+}
+
+/* white */
+.w {
+    color: #d4d4d4 !important;
+}
+
+/* purple */
+.p {
+    color: #bd81b8 !important;
+}
+
+/* orange */
+.or {
+    color: #ce9178 !important;
+}
+
+.output-html {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
