@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" crossorigin="anonymous">
 </head>
@@ -23,72 +24,26 @@
         <h1 class="titleHero o2 bottom">om kanabar</h1>
         <h1 class="titleHero o3 bottom">om kanabar</h1>
     </div>
-    <div class="space1"></div>
-    <div class="photographer">
-        <h1>Photographer</h1>
-        <img id="GreenIris" src="https://cdn.omkanabar.com/assets/photography/GreenIris.jpg" width="1000rem">
-    </div>
     <div class="space2"></div>
     <div class="coder" id="coder">
-        <h1>Coder</h1>
+        <h1 id="coderh1">Coder</h1>
         <div class="scene">
-            <pre class="code-js text-start ms-5">
+            <div class="code-js text-start ms-5">
                 <p id="l136"><span class="g me-4">136</span><span class="db">async function </span><span class="y">fetchData</span><span class="m">(</span><span class="lb">uid</span><span class="m">) </span><span class="m">{</span></p>
                 <p id="l137"><span class="g me-4">137</span><span class="me-4"></span><span class="db">const </span><span class="b">expensesRef</span><span class="w"> = </span><span class="y">collection</span><span class="p">(</span><span class="b">db</span><span class="w">, </span><span class="or">"users"</span><span class="w">, </span><span class="lb">uid</span><span class="w">, </span><span class="or">"expenses"</span><span class="p">)</span><span class="w">;</span></p>
                 <p id="l138"><span class="g me-4">138</span><span class="me-4"></span><span class="db">const </span><span class="b">querySnapshot</span><span class="w"> = </span><span class="p">await </span><span class="y">getDocs</span><span class="p">(</span><span class="b">expensesRef</span><span class="p">)</span><span class="w">;</span></p>
-                <p id="l139"><span class="g me-4">139</span>  </p>
-                <p id="l140"><span class="g me-4">140</span><span class="me-4"></span><span class="db">const </span><span class="b">expenses</span><span class="w"> = </span><span class="b">querySnapshot</span><span class="w">.</span><span class="lb">docs</span><span class="w">.</span><span class="y">map</span><span class="p">(</span><span class="lb">doc </span><span class="db">=> </span><span class="b">(</span><span class="m">{</span>
-                <p id="l141" class="mt-4"><span class="g me-4">141</span><span class="me-4"></span><span class="me-4"></span><span class="lb">id: doc</span><span class="w">.</span><span class="lb">id</span><span class="w">,</span></p>
-                <p id="l142"><span class="g me-4">142</span><span class="me-4"></span><span class="me-4"></span><span class="w">...</span><span class="lb">doc</span><span class="w">.</span><span class="y">data</span><span class="p">()</span>
-                <p id="l143" class="mt-4"><span class="g me-4">143</span><span class="me-4"></span><span class="m">}</span><span class="b">)</span><span class="m">)</span><span class="w">;</span>
-                <p id="l144" class="mt-4"><span class="g me-4">144</span>  </p> 
-                <p id="hero"><span class="g me-4">145</span><span class="me-4"></span><span class="p">return </span><span class="b">expenses</span><span class="w">;</span>
-                <p id="l146" class="mt-4"><span class="g me-4">146</span><span class="m">}</span></p>
-            </pre>
-            <div class="output-html">
-                <div class="card">
-                    <table id="table1" class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Amount ($)</th>
-                                <th scope="col">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="table1body">
-                            <tr data-date="2026-01-17" data-time="1768632693870" id="53Ug8KWJeM822SsVDeZK">
-                                <th scope="row">1</th>
-                                <td>Hack Club Donation</td>
-                                <td>20.00</td>
-                                <td>1/17/2026</td>
-                            </tr>
-                            <tr data-date="2026-01-17" data-time="1768632680394" id="28N1ERiHmnin85MkNjWq">
-                                <th scope="row">2</th>
-                                <td>Arizona Iced Tea</td>
-                                <td>1.11</td>
-                                <td>1/17/2026</td>
-                            <tr data-date="2026-01-12" data-time="1768632764874" id="IsiDILfcph4leY2tEZEx">
-                                <th scope="row">3</th>
-                                <td>School Bake Sale</td>
-                                <td>10.43</td>
-                                <td>1/12/2026</td>
-                            </tr>
-                            <tr id="1TuEF5Ujtj665yf24Gip" class="">
-                                <th scope="row">4</th>
-                                <td>New Years Gift</td>
-                                <td>50.13</td>
-                                <td>1/1/2026</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <p id="l139"><span class="g me-4">139</span><span class="me-4"></span></p>
+                <p id="l140"><span class="g me-4">140</span><span class="me-4"></span><span class="db">const </span><span class="b">expenses</span><span class="w"> = </span><span class="b">querySnapshot</span><span class="w">.</span><span class="lb">docs</span><span class="w">.</span><span class="y">map</span><span class="p">(</span><span class="lb">doc </span><span class="db">=> </span><span class="b">(</span><span class="m">{</span></p>
+                <p id="l141"><span class="g me-4">141</span><span class="me-4"></span><span class="me-4"></span></span><span class="lb">id: doc</span><span class="w">.</span><span class="lb">id</span><span class="w">,</span></p>
+                <p id="l142"><span class="g me-4">142</span><span class="me-4"></span><span class="t t2"></span><span class="me-4"></span></span><span class="w">...</span><span class="lb">doc</span><span class="w">.</span><span class="y">data</span><span class="p">()</span></p>
+                <p id="l143"><span class="g me-4">143</span><span class="me-4"></span></span><span class="m">}</span><span class="b">)</span><span class="p">)</span><span class="w">;</span></p>
+                <p id="l144"><span class="g me-4">144</span><span class="me-4"></span></p> 
+                <p id="l145"><span id="hero"><span class="g me-4">145</span><span class="t t2"></span><span class="me-4"></span><span class="p">return </span><span class="b">expenses</span><span class="w">;</span></span></p>
+                <p id="l146"><span class="g me-4">146</span><span class="m">}</span></p>
+                <p>&nbsp;</p>
             </div>
         </div>
     </div>
-    
-    <div class="space2"></div>
-    <div class="space2"></div>
     <div class="space2"></div>
     <div class="space2"></div>
     <div class="space2"></div>

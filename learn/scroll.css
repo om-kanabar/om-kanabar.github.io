@@ -1,0 +1,13 @@
+div.sticky {
+    position: sticky !important;
+    top: 0;
+}
+
+h1.title-hero {
+    color: rgb(13, 13, 13);
+    font-family: BlinkMacSystemFont;
+}
+
+.space20 {
+    height: 500vh;
+}

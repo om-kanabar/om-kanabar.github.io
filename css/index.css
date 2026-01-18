@@ -28,7 +28,8 @@ html, body{
 
 .titleHero{
     font-family: 'Montserrat', 'sans-serif';
-    font-size: 6rem;
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    line-height: 1.3;
     font-weight: 700;
 }
 
@@ -58,7 +59,7 @@ html, body{
 }
 
 .bottom {
-    margin-top: calc(-6.9rem + var(--spread, 0px));
+    margin-top: calc(-6.9rem + var(--spread, 0px))
 }
 
 .space1 {
@@ -92,16 +93,18 @@ html, body{
     height: fit-content;
 }
 
-pre {
-    height: 50vh;
-}
-
 .coder h1 {
     color: var(--cream);
 }
 
 .code-js p {
-    margin-bottom: -2rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.code-js {
+    height: auto;
+    max-width: 90vw !important;
+    background-color: var(--black);
 }
 
 /* dark blue */
@@ -149,7 +152,10 @@ pre {
     color: #ce9178 !important;
 }
 
-.output-html {
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+
+
+.code-js p, .code-js span{
+    font-family: 'Menlo', sans-serif;
+    margin-top: -0.5em;
+    margin-bottom: -0.5em;
 }

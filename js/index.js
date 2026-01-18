@@ -11,83 +11,89 @@ window.addEventListener("scroll", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const photographerH1 = document.querySelector(".photographer h1");
-    const code = document.getElementById("coder");
-    const GreenIris = document.getElementById("GreenIris");
+    coderAnimation();
+})
 
-    photographerH1.style.opacity = 0;
-    GreenIris.style.opacity = 0;
-    photographerH1.style.transition = "opacity 1.5s ease";
-    GreenIris.style.transition = "opacity 1.5s ease";
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Scroll to the photographer section smoothly
-                entry.target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-                // Set opacity to 100%
-                entry.target.style.opacity = 1;
-
-                if (entry.target == photographerH1) {
-                    GreenIris.style.opacity = 1;
-                }
-                
-                if (entry.target == code) {
-                    codeAnimation();
-                }
-
-            } else {
-                // Reset opacity when leaving view
-                entry.target.style.opacity = 0;
-                if (entry.target == photographerH1) {
-                    GreenIris.style.opacity = 0;
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-
-    observer.observe(photographerH1);
-
-    const heroLine = document.getElementById("hero");
+function coderAnimation() {
+    const hero = document.getElementById("hero");
     const output = document.querySelector(".output-html");
-    const allCodeLines = document.querySelectorAll(".code-js p");
+    const lines = document.querySelectorAll(".code-js p");
 
-    if (heroLine && output) {
-        heroLine.style.transformOrigin = "center center";
-        heroLine.style.display = "inline-block";
+    if (!hero || !output) return;
 
-        output.style.opacity = 0;
-        output.style.transform = "translateY(20px)";
+    const heroInitialRect = hero.getBoundingClientRect();
+    const heroInitialCenterY =
+        heroInitialRect.top + heroInitialRect.height / 2;
 
-        window.addEventListener("scroll", () => {
-            const rect = heroLine.getBoundingClientRect();
-            const vh = window.innerHeight;
-            const start = vh * 0.75;
-            const end = vh * 0.25;
-            let progress = (start - rect.top) / (start - end);
-            progress = Math.min(Math.max(progress, 0), 1);
+    hero.style.transformOrigin = "center center";
+    hero.style.transition = "none";
 
-            const scale = 1 + progress * 1.5;
-            heroLine.style.transform = `scale(${scale})`;
+    output.style.opacity = 0;
+    output.style.pointerEvents = "none";
+    output.style.transition = "opacity 0.6s ease";
 
-            // Trigger output when hero grows ~100px
-            if ((heroLine.offsetHeight * scale - heroLine.offsetHeight) >= 100) {
-                allCodeLines.forEach(line => line.style.opacity = 0);
-                heroLine.style.opacity = 0;
+    let pinned = false;
 
-                output.style.opacity = 1;
-                output.style.transform = "translateY(0)";
-            } else {
-                allCodeLines.forEach(line => {
-                    if (line !== heroLine) {
-                        line.style.opacity = 1 - 0.7 * progress;
-                    }
-                });
-                heroLine.style.opacity = 1;
-                output.style.opacity = 0;
-                output.style.transform = "translateY(20px)";
+    window.addEventListener("scroll", () => {
+        const vh = window.innerHeight;
+
+        const scrollY = window.scrollY;
+        const triggerStart = heroInitialRect.top + scrollY - vh * 0.8;
+        const triggerEnd   = heroInitialRect.top + scrollY - vh * 0.2;
+
+        let progress =
+            (scrollY - triggerStart) / (triggerEnd - triggerStart);
+        progress = Math.min(Math.max(progress, 0), 1);
+
+        /* -------- PHASE 1: 0 → 0.3 -------- */
+        const phase1 = Math.min(progress / 0.3, 1);
+
+        if (phase1 > 0 && !pinned) {
+            hero.style.position = "fixed";
+            hero.style.top = `${heroInitialRect.top}px`;
+            hero.style.left = `${heroInitialRect.left}px`;
+            hero.style.width = `${heroInitialRect.width}px`;
+            pinned = true;
+        }
+
+        if (phase1 === 0 && pinned) {
+            hero.style.position = "relative";
+            hero.style.top = "";
+            hero.style.left = "";
+            hero.style.width = "";
+            pinned = false;
+        }
+
+        const translateY =
+            (vh / 2 - heroInitialCenterY) * phase1;
+
+        const scale = 1 + phase1 * 1.2;
+
+        hero.style.transform = `
+            translateY(${translateY}px)
+            scale(${scale})
+        `;
+
+        lines.forEach(line => {
+            if (line !== hero) {
+                line.style.opacity = 1 - phase1 * 0.6;
             }
         });
-    }
-});
+
+        /* -------- PHASE 2 -------- */
+        const expanded =
+            heroInitialRect.height * scale - heroInitialRect.height;
+
+        if (expanded >= 100) {
+            hero.style.opacity = 0;
+            lines.forEach(line => line.style.opacity = 0);
+
+            output.style.opacity = 1;
+            output.style.pointerEvents = "auto";
+        } else {
+            hero.style.opacity = 1;
+            output.style.opacity = 0;
+        }
+    });
+}
