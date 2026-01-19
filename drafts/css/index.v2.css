@@ -1,0 +1,42 @@
+:root{
+    --white: #fefcf7;
+    --cream: #e8e5dd;
+    --dark: #191919;
+    --gray: #6b7c85;
+    --dark-text-title: #ffb300;
+    --light-text: #233c4a;
+    --black: #111111;
+    --navy: #0b1623;
+    --accent: #d4a017;
+    --blue-grey: #434e54;
+    --trans: 0.2s ease;
+}
+
+html, body{
+    background-color: var(--cream) !important;
+}
+
+.sticky {
+    position: sticky !important;
+    top: 0;
+}
+
+.titleHero{
+    font-family: 'Montserrat', BlinkMacSystemFont, 'sans-serif';
+    font-weight: 700;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.hero {
+    height: 100vh !important;
+    width: 100vw !important;
+}
+
+.spacer {
+    height: 5000vh;
+}
