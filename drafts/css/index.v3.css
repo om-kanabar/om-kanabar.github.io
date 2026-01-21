@@ -1,4 +1,4 @@
-:root{
+root{
     --white: #fefcf7;
     --cream: #e8e5dd;
     --dark: #191919;
@@ -22,7 +22,7 @@ html, body{
     top: 0;
 }
 
-.titleHero{
+.title{
     font-family: 'Montserrat', BlinkMacSystemFont, 'sans-serif';
     font-weight: 700;
     overflow: hidden;
@@ -31,14 +31,15 @@ html, body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    white-space: nowrap;
-    opacity: 0.4;
+    white-space: nowrap !important;
 }
 
-.titleChar {
+.title p{
     font-family: 'Montserrat', BlinkMacSystemFont, 'sans-serif';
     font-weight: 700;
-    opacity: 1;
+    overflow: hidden;
+    overflow-x: hidden !important;
+    white-space: nowrap;
     display: inline;
 }
 
@@ -51,16 +52,17 @@ html, body{
 .spacer {
     height: 5000vh;
 }
-/* 
-.line{
-    height: 100vh !important;
-    width: 2px;
-    background-color: var(--dark-text-title) !important;
-    position: sticky !important;
-    top: 0;
-    /* left: 51.2%; */
-    /* left: 56.2%;
-    transform: translate(-50%, -50%);
-} */
 
+.nImportant {
+    opacity: 1;
+}
 
+.titleSpacer {
+    display: inline-block !important;
+    width: 0vw;
+    flex-shrink: 0
+}
+
+.hidden {
+    display: none;
+}

@@ -14,12 +14,13 @@ function animations() {
     const container = document.getElementById("hero");
     const maxFont = 500;
     const scroll1 = 5*maxFont - 250;
-    console.log(scroll);
     if (scroll <= scroll1) {
         container.classList.add("sticky");
         fontSize = Math.min(0.2*scroll+50,maxFont)
         heroH1.style.fontSize = `${fontSize}px`;
     } else {
-        container.classList.remove("sticky");
+        container.classList.add("sticky");
+        fontSize = Math.min(0.2*scroll+50,maxFont)
+        heroH1.style.fontSize = `${fontSize}px`;
     }
 }
