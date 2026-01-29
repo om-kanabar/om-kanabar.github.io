@@ -77,12 +77,7 @@ html, body{
     opacity: 0;
 }
 
-.hidden {
-    display: none !important;
-    overflow: hidden;
-}
-
-.hidden *{
+.hidden, .hidden * {
     display: none !important;
     overflow: hidden;
 }
@@ -138,4 +133,169 @@ html, body{
 .pr-row {
     width: 50%;
     justify-self: center;
+}
+
+.subHeading {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.trianglesWrapper {
+    position: relative; 
+    pointer-events: none;
+}
+
+.triangles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0; /* behind everything else */
+}
+
+.o-hidden {
+    opacity: 0;
+}
+
+.aboutMe {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutMe h1, .aboutMe h2 {
+    font-family: 'Inter', BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+.aboutMe h2 {
+    font-weight: 500;
+}
+
+.aboutCard {
+    width: 61vw;
+    align-self: center;
+}
+
+.space {
+    height: 50vh;
+}
+
+.photographyLine {
+    height: 200vh;
+    width: 1px;
+    background-image: linear-gradient(to bottom, var(--light-text), var(--cream));
+    justify-self: center;
+}
+
+.photographyBack{
+    height: 200vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, var(--cream), var(--dark))
+}
+
+.photography {
+    min-height: 150vh;
+    background-color: var(--dark);
+}
+
+.form {
+    width: 100vw;
+}
+
+.c-main h1{
+    color: var(--black);
+    background: radial-gradient(circle at center, rgba(232, 229, 221, 0) 0%, rgba(254, 252, 247, 0.3) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+}
+
+.nBtn{
+    color: var(--light-text);
+    border-width: 0px;
+}
+
+.c-main {
+    display: flex;
+    background-color: var(--cream);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    background-color: var(--dark);
+    padding: 5% 2%;
+}
+
+
+.c-main h1{
+    color: var(--light-text);
+    font-size: 4em;
+}
+
+input,
+textarea,
+select {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--blue-grey);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--gray);
+}
+
+.form-control:focus {
+    background-color: var(--white);
+    color: var(--black);
+    border-color: var(--gray);
+    box-shadow: 0 0 0 0.25rem rgba(67, 78, 84, 0.25);
+}
+
+.c-footer{
+    background-color: var(--cream);
+}
+
+.c-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: 5% 2%;
+}
+
+.c-main h1{
+    font-size: 4em;
+    padding: 1%;
+    border-radius: 1rem;
+}
+
+.c-form-box {
+    width: 100vw;   
+    justify-self: center;
+    border-radius: 1rem;
+
+}
+
+.none {
+    position: absolute !important;
+    left: -9999px !important;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+form {
+    width: 61vw;
+    justify-self: center;
+    pointer-events: all !important;
 }

@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" crossorigin="anonymous">
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="projectSection hidden" id="projectSection">
-        <p class="test2 hidden" id="projectsTitle">Projects</p>
+        <p class="test2" id="projectsTitle">Projects</p>
         <div class="container projectsContainer2" id="projectsContainer2">
             <div class="row pr-row">
                 <div class="col pr-col">
@@ -103,7 +103,77 @@
             </div>
         </div>
     </div>
-    <div class="spacer"></div>
+    <div id="triangleWrapper" style="pointer-events: none;">
+        <div id="triangles" class="triangles"></div>
+    </div>
+    <div style="height: 2600px !important;"></div>
+    <div class="aboutMe container my-5 mb-5">
+        <div class="row align-items-start">
+            <!-- Left column: Intro + Skills -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2>Hi! I'm Om Kanabar</h2>
+                <p>I'm a full-stack developer in 8th grade, creating functional projects that help people in their day-to-day lives. I enjoy combining design, code, and usability to make something meaningful.</p>
+                <div class="skills mt-3">
+                    <i class="devicon-javascript-plain skill-icon"></i>
+                    <i class="devicon-html5-plain skill-icon"></i>
+                    <i class="devicon-css3-plain skill-icon"></i>
+                    <i class="devicon-python-plain skill-icon"></i>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Beyond Coding</h3>
+                <p>Outside of tech, I compete in varsity policy debate, run cross country, and participate in track & field. These activities sharpen my critical thinking, communication, and discipline.</p>
+            </div>
+        </div>
+    </div>
+    <h1 class="mt-5 text-center" id="contact">Contact Me</h1>
+    <div class="c-form-box mb-5">
+        <div id="form-container">
+            <form action="https://formsubmit.co/e0459f877d74bc51cf22e24a45fd2a74" method="POST" class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-3 pt-3">
+                        <label for="email" class="form-label">Your Email: <span class="text-danger">*</span></label>
+                        <input placeholder="example@example.com" type="email" id="email" name="email" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3 pt-3">
+                        <label for="subject" class="form-label">Subject: <span class="text-danger">*</span></label>
+                        <input placeholder="Whereas disregard and contempt for human rights have resulted..." type="text" id="subject" name="subject" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Please enter a subject.
+                        </div>
+                    </div>
+                    <div class="col-12 mb-3 pt-3">
+                        <label for="message" class="form-label">Your Message: <span class="text-danger">*</span></label>
+                        <textarea placeholder="Whereas disregard and contempt for human rights have resulted in barbarous acts which have outraged the conscience of mankind, and the advent of a world in which human beings shall enjoy freedom of speech and belief and freedom from fear and want has been proclaimed as the highest aspiration of the common people," name="message" class="form-control" rows="5" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter your message.
+                        </div>
+                    </div>
+                </div>
+                <div class="none">
+                    <label class="none" for="nickname">Leave this field empty</label>
+                    <input class="none" type="text" id="nickname" name="nickname">
+                </div>
+
+                <input type="hidden" name="_template" value="box">  
+                <input type="hidden" name="_subject" value="">
+                <div id="blockedAlert" class="mt-5 alert alert-danger d-none" role="alert">
+                    Sorry, your email has been blocked due to spam.
+                </div>
+                <button id="checkBtn" onclick="formSubmit1()" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16"><path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z"/></svg>
+                    &nbsp; Send
+                </button>
+            </form>
+            
+        </div>
+    </div>
     <div class="mobile hidden"></div>
+    <footer class="bg-light text-center mt-5 py-3 mt-auto">
+        <div class="text-muted" style="font-size: 0.9rem;">© Om Kanabar 2026, All rights reserved.</div>
+    </footer>
 </body>
 </html>
