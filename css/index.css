@@ -299,3 +299,13 @@ form {
     justify-self: center;
     pointer-events: all !important;
 }
+
+@keyframes pulse-size {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.4); }
+}
+
+#ScrollDown {
+  animation: pulse-size 1.5s ease-in-out infinite !important;
+  display: inline-block;
+}
