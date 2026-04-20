@@ -1,17 +1,359 @@
 <!DOCTYPE html>
-<html>
-<!-- 
-© 2025 Om Kanabar.
-More info in LICENSE
--->
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://omkanabar.com/#contact">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Redirecting…</title>
-  <link rel="canonical" href="https://omkanabar.com/#contact">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <link rel="icon" href="https://cdn.omkanabar.com/assets/branding/logos/DarkMainLogo.png" type="image/png" />
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" crossorigin="anonymous">
 </head>
+<style>
+  body{
+    background-color: var(--dark);
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-title {
+    font-family: 'Menlo', 'Cal Sans', sans-serif;
+    text-align: center;
+    color: var(--light-text);
+    font-size: 5rem;
+    margin: 0;
+    transition: font-size 0.85s ease, letter-spacing 0.85s ease;
+  }
+
+  .hero-wrap {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    transition: min-height 0.85s ease, padding 0.85s ease, opacity 0.4s ease;
+  }
+
+  .hero-wrap.done {
+    min-height: 0;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero-wrap.done .hero-title {
+    font-size: clamp(2.75rem, 7vw, 4rem);
+  }
+
+  .cursor {
+    display: inline-block;
+    animation: blink 0.8s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .contact-section {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 1rem;
+    min-height: 0;
+  }
+
+  .contact-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .contact-section h1 {
+    color: var(--light-text);
+  }
+
+  .contact-shell {
+    width: 100%;
+  }
+
+  .contact-section form,
+  .contact-section .form-label,
+  .contact-section .form-control,
+  .contact-section .invalid-feedback,
+  .contact-section .submit-btn {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .contact-section .form-label {
+    color: var(--white);
+  }
+
+  .contact-section .form-control {
+    border-radius: 0.5rem;
+  }
+
+  .contact-section textarea.form-control {
+    min-height: 180px;
+  }
+
+  .robot-warning {
+    min-height: 38vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    padding: 2rem 1rem;
+  }
+
+  .robot-warning.visible {
+    display: flex;
+  }
+
+  .robot-warning p {
+    margin: 0;
+    max-width: 32rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .submit-btn {
+    padding-inline: 1.1rem;
+  }
+
+  .honeypot {
+    display: none;
+  }
+
+  .page-footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    padding: 1rem 0 0.75rem;
+    font-size: 0.65rem;
+    color: rgb(34, 34, 34);
+    user-select: none;
+    display: none;
+  }
+
+  .page-footer.visible {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .hero-wrap.done {
+      padding-top: 2rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .contact-section {
+      align-items: flex-start;
+      padding: 1rem 0 0.5rem;
+    }
+
+    .c-main h1 {
+      font-size: 2.4rem;
+      padding: 0 1rem;
+    }
+
+    form {
+      width: min(92vw, 61rem);
+    }
+  }
+
+  @media (max-width: 992px) {
+    form {
+      width: min(88vw, 61rem);
+    }
+  }
+</style>
 <body>
-  <p>If you are not redirected automatically, <a href="https://omkanabar.com/#contact">click here</a>.</p>
+  <main>
+    <section class="hero-wrap" id="heroWrap">
+      <h1 class="hero-title" id="hero"></h1>
+    </section>
+
+    <section class="contact-section c-main" id="contactCard">
+      <div class="contact-shell">
+        <div class="robot-warning" id="robotWarning">
+          <p>We have detected that you are a robot.</p>
+        </div>
+        <div class="c-form-box mb-4">
+          <div id="form-container">
+            <form
+              id="contactForm"
+              action="https://formsubmit.co/e0459f877d74bc51cf22e24a45fd2a74"
+              method="POST"
+              class="needs-validation"
+              novalidate
+            >
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3 pt-3">
+                  <label for="name" class="form-label">Name: <span class="text-danger">*</span></label>
+                  <input id="name" name="name" type="text" class="form-control" placeholder="Linus Torvalds" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 pt-3">
+                  <label for="email" class="form-label">Your Email: <span class="text-danger">*</span></label>
+                  <input id="email" name="email" type="email" class="form-control" placeholder="example@example.com" required>
+                  <div class="invalid-feedback">Please provide a valid email address.</div>
+                </div>
+
+                <div class="col-12 mb-3 pt-3">
+                  <label for="subject" class="form-label">Subject: <span class="text-danger">*</span></label>
+                  <input id="subject" name="subject" type="text" class="form-control" placeholder="Whereas disregard and contempt for human rights have resulted in barbarous acts..." required>
+                  <div class="invalid-feedback">Please enter a subject.</div>
+                </div>
+
+                <div class="col-12 mb-3 pt-3">
+                  <label for="message" class="form-label">Your Message: <span class="text-danger">*</span></label>
+                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="Whereas disregard and contempt for human rights have resulted in barbarous acts which have outraged the conscience of mankind, and the advent of a world in which human beings shall enjoy freedom of speech and belief and freedom from fear and want has been proclaimed as the highest aspiration of the common people, Whereas it is essential, if man is not to be compelled to have recourse, as a last resort, to rebellion against tyranny and oppression, that human rights should be protected by the rule of law." required></textarea>
+                  <div class="invalid-feedback">Please enter your message.</div>
+                </div>
+              </div>
+
+              <div class="honeypot">
+                <label for="nickname">Leave this field empty</label>
+                <input id="nickname" name="nickname" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <input type="hidden" name="_template" value="box">
+              <input type="hidden" name="_subject" id="hiddenSubject" value="">
+              <button class="btn btn-primary submit-btn" type="submit">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="page-footer">© Om Kanabar 2026</footer>
+  </main>
 </body>
+<script>
+  const hero = document.getElementById("hero");
+  const heroWrap = document.getElementById("heroWrap");
+  const contactCard = document.getElementById("contactCard");
+  const contactForm = document.getElementById("contactForm");
+  const formContainer = document.getElementById("form-container");
+  const robotWarning = document.getElementById("robotWarning");
+  const text = "Contact Me";
+  const typingSpeed = 120;
+  const pauseAfterWord = 700;
+  const revealDelay = 250;
+  const blockedHashes = [
+    "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee",
+    "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66",
+    "57f6427135dd0537e59772e4821695529d6e6d814a2203f9d6e3ce04c2ecb3f0",
+    "fab750116714be3d606e5d30230c9040c4477a1eb52f03b13b0cc0ff32bd70b9"
+  ];
+
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  function showRobotWarning(message) {
+    formContainer.style.display = "none";
+    robotWarning.querySelector("p").textContent = message;
+    robotWarning.classList.add("visible");
+  }
+
+  function getFromParam() {
+    const params = new URLSearchParams(window.location.search);
+    const standardFrom = params.get("from");
+
+    if (standardFrom) {
+      return standardFrom.trim();
+    }
+
+    const rawQuery = window.location.search.replace(/^\?/, "");
+    const colonMatch = rawQuery.match(/(?:^|&)from:([^&]+)/);
+
+    if (!colonMatch) {
+      return "";
+    }
+
+    return decodeURIComponent(colonMatch[1].replace(/\+/g, " ")).trim();
+  }
+
+  const fromSource = getFromParam();
+
+  async function typeWriter() {
+    hero.innerHTML = '<span class="cursor">|</span>';
+
+    for (let i = 0; i < text.length; i++) {
+      await wait(typingSpeed);
+      hero.innerHTML = `${text.slice(0, i + 1)}<span class="cursor">|</span>`;
+    }
+
+    await wait(pauseAfterWord);
+    hero.innerHTML = text;
+    heroWrap.classList.add("done");
+    await wait(revealDelay);
+    contactCard.classList.add("visible");
+    document.querySelector(".page-footer").classList.add("visible");
+  }
+
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const honeypotValue = document.getElementById("nickname").value.trim();
+    if (honeypotValue) {
+      showRobotWarning("Spam was detected.");
+      return;
+    }
+
+    if (!contactForm.checkValidity()) {
+      event.preventDefault();
+      contactForm.classList.add("was-validated");
+      contactForm.reportValidity();
+      return;
+    }
+
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const emailHash = await sha256(email);
+
+    if (blockedHashes.includes(emailHash)) {
+      showRobotWarning("This email is blocked.");
+      return;
+    }
+
+    contactForm.classList.add("was-validated");
+    const visibleSubject = document.getElementById("subject").value.trim();
+    document.getElementById("hiddenSubject").value = fromSource
+      ? `${fromSource}: ${visibleSubject}`
+      : visibleSubject;
+    contactForm.submit();
+  });
+
+  typeWriter();
+</script>
 </html>
