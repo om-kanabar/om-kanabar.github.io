@@ -21,25 +21,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
     if (animDone === true) return;
+    document.querySelector(".options").style.backgroundColor = "#e8e5dd";
     optionsContainer.classList.add("photo-active");
     revealBackButton(backBtn, "#111111");
     animatePanels(photoPanel, codePanel, 2400);
 
     setTimeout(() => {
         typeWriter(" kanabar", photoPanel.querySelector(".type-target"));
+        const photoBody = document.querySelector(".photo-body");
+        if (photoBody) photoBody.classList.remove("hidden");
+        document.body.style.backgroundColor = "#e8e5dd";
+        document.querySelector(".options").style.height = "98vh";
     }, 1600);
+    
+    // Fixed: Added '.' selector and a structural safety check
+    
     animDone = true;
 }
 
 function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
     if (animDone === true) return;
     optionsContainer.classList.add("code-active");
+    document.querySelector(".options").style.backgroundColor = "#111111";
     revealBackButton(backBtn, "#fefcf7");
     animatePanels(codePanel, photoPanel, 2400);
 
     setTimeout(() => {
         typeWriter("om ", codePanel.querySelector(".type-target"));
+        const codeBody = document.querySelector(".code-body");
+        if (codeBody) codeBody.classList.remove("hidden");
+        document.body.style.backgroundColor = "#111111";
+        document.querySelector(".options").style.height = "98vh";
     }, 1600);
+    
+    // Fixed: Added '.' selector and a structural safety check
     animDone = true;
 }
 
@@ -72,10 +87,11 @@ function animatePanels(dominantPanel, shrinkingPanel, duration) {
             requestAnimationFrame(updateFrame);
         } else {
             shrinkingPanel.style.opacity = "0";
-            dominantPanel.style.transition = "0.1s cubic-bezier(0.25, 1, 0.5, 1)";
-            shrinkingPanel.style.transition = "0.1s cubic-bezier(0.25, 1, 0.5, 1)";
+            dominantPanel.style.transition = "0.15s cubic-bezier(0.25, 1, 0.5, 1)";
+            shrinkingPanel.style.transition = "0.15s cubic-bezier(0.25, 1, 0.5, 1)";
             shrinkingPanel.style.width = "0%";
             dominantPanel.style.width = "100%";
+            document.body.style.overflow = "auto";
         }
     }
 
@@ -112,6 +128,15 @@ function resetGateway(optionsContainer, backBtn) {
 
     backBtn.classList.add("hidden");
     optionsContainer.classList.remove("photo-active", "code-active");
+    
+    // Fixed: Added '.' selectors and safety wrappers for cleanup
+    const photoBody = document.querySelector(".photo-body");
+    const codeBody = document.querySelector(".code-body");
+    if (photoBody) photoBody.classList.add("hidden");
+    if (codeBody) codeBody.classList.add("hidden");
+    document.body.style.overflow = "hidden";
+    document.body.style.backgroundColor = "";
+    document.querySelector(".options").style.height = "100vh";
     document.querySelectorAll(".type-target").forEach(el => el.textContent = "");
     if (photoPanel && codePanel) {
         photoPanel.style.width = "";
