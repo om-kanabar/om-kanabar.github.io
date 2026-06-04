@@ -82,6 +82,8 @@ html, body {
     height: 100vh;
     box-sizing: border-box;
     display: flex;
+    overflow: hidden;
+    background-color: var(--black);
 }
 
 
@@ -165,7 +167,13 @@ html, body {
 .code .label::after { transform-origin: left; }
 
 .photo:hover .label::after,
-.code:hover .label::after {
+.code:hover .label::after,
+.code.expanded .label::after,
+.photo.expanded .label::after {
     transform: scaleX(1);
 }
 
+.photo.expanded .label,
+.code.expanded .label {
+    opacity: 1;
+}
