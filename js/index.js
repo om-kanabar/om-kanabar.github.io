@@ -1,4 +1,5 @@
 let animDone = false;
+let animDoing = false;
 
 document.addEventListener("DOMContentLoaded", () => {
     const optionsContainer = document.querySelector(".options");
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
     if (animDone === true) return;
+    animDoing = true;
     document.querySelector(".options").style.backgroundColor = "#e8e5dd";
     optionsContainer.classList.add("photo-active");
     revealBackButton(backBtn, "#111111");
@@ -31,16 +33,15 @@ function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
         const photoBody = document.querySelector(".photo-body");
         if (photoBody) photoBody.classList.remove("hidden");
         document.body.style.backgroundColor = "#e8e5dd";
-        document.querySelector(".options").style.height = "98vh";
+        document.querySelector(".options").style.height = "90vh";
     }, 1600);
-    
-    // Fixed: Added '.' selector and a structural safety check
-    
     animDone = true;
+    animDoing = false;
 }
 
 function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
     if (animDone === true) return;
+    animDoing = true;
     optionsContainer.classList.add("code-active");
     document.querySelector(".options").style.backgroundColor = "#111111";
     revealBackButton(backBtn, "#fefcf7");
@@ -51,15 +52,15 @@ function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
         const codeBody = document.querySelector(".code-body");
         if (codeBody) codeBody.classList.remove("hidden");
         document.body.style.backgroundColor = "#111111";
-        document.querySelector(".options").style.height = "98vh";
+        document.querySelector(".options").style.height = "90vh";
     }, 1600);
-    
-    // Fixed: Added '.' selector and a structural safety check
     animDone = true;
+    animDoing = false;
 }
 
 function animatePanels(dominantPanel, shrinkingPanel, duration) {
     animDone = true;
+    animDoing = true;
     const startTime = performance.now();
 
     dominantPanel.style.transition = "none";
@@ -87,11 +88,10 @@ function animatePanels(dominantPanel, shrinkingPanel, duration) {
             requestAnimationFrame(updateFrame);
         } else {
             shrinkingPanel.style.opacity = "0";
-            dominantPanel.style.transition = "0.15s cubic-bezier(0.25, 1, 0.5, 1)";
-            shrinkingPanel.style.transition = "0.15s cubic-bezier(0.25, 1, 0.5, 1)";
-            shrinkingPanel.style.width = "0%";
-            dominantPanel.style.width = "100%";
+            dominantPanel.style.width = "100vw"; 
+            shrinkingPanel.style.width = "0vw";
             document.body.style.overflow = "auto";
+            document.querySelector(".options").style.pointerEvents = "none";
         }
     }
 
@@ -122,22 +122,24 @@ function revealBackButton(button, customColor) {
 }
 
 function resetGateway(optionsContainer, backBtn) {
+    if (animDoing == true) return;
     animDone = false;
     const photoPanel = document.querySelector(".photo");
     const codePanel = document.querySelector(".code");
 
     backBtn.classList.add("hidden");
     optionsContainer.classList.remove("photo-active", "code-active");
-    
-    // Fixed: Added '.' selectors and safety wrappers for cleanup
+
     const photoBody = document.querySelector(".photo-body");
     const codeBody = document.querySelector(".code-body");
     if (photoBody) photoBody.classList.add("hidden");
     if (codeBody) codeBody.classList.add("hidden");
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "";
     document.body.style.backgroundColor = "";
     document.querySelector(".options").style.height = "100vh";
+    document.querySelector(".options").style.pointerEvents = "";
     document.querySelectorAll(".type-target").forEach(el => el.textContent = "");
+    document.querySelector(".options").style.height = "100vh";
     if (photoPanel && codePanel) {
         photoPanel.style.width = "";
         codePanel.style.width = "";
@@ -149,3 +151,4 @@ function resetGateway(optionsContainer, backBtn) {
         codePanel.classList.remove("expanded");
     }
 }
+
