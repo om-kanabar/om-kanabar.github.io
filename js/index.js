@@ -33,7 +33,7 @@ function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
         const photoBody = document.querySelector(".photo-body");
         if (photoBody) photoBody.classList.remove("hidden");
         document.body.style.backgroundColor = "#e8e5dd";
-        document.querySelector(".options").style.height = "90vh";
+        document.querySelector(".options").style.height = "80vh";
     }, 1600);
     animDone = true;
     animDoing = false;
@@ -44,7 +44,7 @@ function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
     animDoing = true;
     optionsContainer.classList.add("code-active");
     document.querySelector(".options").style.backgroundColor = "#111111";
-    revealBackButton(backBtn, "#fefcf7");
+    revealBackButton(backBtn, "#ede8dd");
     animatePanels(codePanel, photoPanel, 2400);
 
     setTimeout(() => {
@@ -152,3 +152,111 @@ function resetGateway(optionsContainer, backBtn) {
     }
 }
 
+let isPhysicsRunning = false;
+let velocity = 0;
+let currentY = window.scrollY;
+let lastScrollTimestamp = 0;
+let physicsLoopId = null;
+
+window.addEventListener('wheel', (e) => {
+    const photoBody = document.querySelector('.photo-body');
+    if (!photoBody || photoBody.classList.contains('hidden')) return;
+
+    if (isPhysicsRunning && Math.abs(velocity) < 2) {
+        cancelAnimationFrame(physicsLoopId);
+        isPhysicsRunning = false;
+    }
+
+    velocity += e.deltaY * 0.15; 
+    
+    velocity = Math.max(Math.min(velocity, 45), -45);
+
+    if (!isPhysicsRunning) {
+        currentY = window.scrollY;
+        runTerrainPhysics();
+    }
+}, { passive: true });
+
+function runTerrainPhysics() {
+    isPhysicsRunning = true;
+    
+    const cards = document.querySelectorAll('.photo-card');
+    if (cards.length === 0) {
+        isPhysicsRunning = false;
+        return;
+    }
+
+    const card1Center = cards[0].getBoundingClientRect().top + window.scrollY + (cards[0].offsetHeight / 2);
+    const card2Center = cards[1] ? (cards[1].getBoundingClientRect().top + window.scrollY + (cards[1].offsetHeight / 2)) : card1Center + window.innerHeight;
+    const wavelength = card2Center - card1Center; 
+
+    const gravity = 1.1;
+    const friction = 0.92;
+    const stopThreshold = 0.1;
+
+    let initialScrollDirection = velocity > 0 ? 1 : -1;
+    let baselineCardIndex = findClosestCardIndex(currentY, cards);
+    let baselineCardCenter = getCardCenterByIndex(baselineCardIndex, cards);
+
+    function updateFrame() {
+        const deltaX = currentY - baselineCardCenter;
+        const angle = (deltaX / wavelength) * Math.PI;
+        const restoringForce = -gravity * Math.sin(angle);
+
+        velocity += restoringForce;
+        velocity *= friction;
+
+        let nextY = currentY + velocity;
+
+        if (initialScrollDirection > 0 && nextY < baselineCardCenter && velocity < 0) {
+            nextY = baselineCardCenter;
+            velocity = 0;
+        } else if (initialScrollDirection < 0 && nextY > baselineCardCenter && velocity > 0) {
+            nextY = baselineCardCenter;
+            velocity = 0;
+        }
+
+        currentY = nextY;
+        window.scrollTo(0, currentY);
+
+        if (Math.abs(velocity) < stopThreshold && Math.abs(currentY - baselineCardCenter) < 1) {
+            window.scrollTo(0, baselineCardCenter);
+            isPhysicsRunning = false;
+            velocity = 0;
+        } else {
+            const newClosestIndex = findClosestCardIndex(currentY, cards);
+            if (newClosestIndex !== baselineCardIndex) {
+                if ((initialScrollDirection > 0 && newClosestIndex > baselineCardIndex) || 
+                    (initialScrollDirection < 0 && newClosestIndex < baselineCardIndex)) {
+                    baselineCardIndex = newClosestIndex;
+                    baselineCardCenter = getCardCenterByIndex(baselineCardIndex, cards);
+                }
+            }
+            physicsLoopId = requestAnimationFrame(updateFrame);
+        }
+    }
+
+    physicsLoopId = requestAnimationFrame(updateFrame);
+}
+
+function findClosestCardIndex(scrollY, cards) {
+    const screenCenter = scrollY + (window.innerHeight / 2);
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cards.forEach((card, index) => {
+        const cardCenter = card.getBoundingClientRect().top + window.scrollY + (card.offsetHeight / 2);
+        const dist = Math.abs(screenCenter - cardCenter);
+        if (dist < minDistance) {
+            minDistance = dist;
+            closestIndex = index;
+        }
+    });
+    return closestIndex;
+}
+
+function getCardCenterByIndex(index, cards) {
+    if (!cards[index]) return window.scrollY;
+    const card = cards[index];
+    return card.getBoundingClientRect().top + window.scrollY - (window.innerHeight / 2) + (card.offsetHeight / 2);
+}
