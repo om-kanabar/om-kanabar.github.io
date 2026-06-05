@@ -23,6 +23,8 @@ body {
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth; 
+    scroll-snap-type: y mandatory;
 }
 
 .hidden {
@@ -199,7 +201,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; 
-    gap: 30vh;
+    gap: 20vh;
     padding-top: 10vh;
     padding-bottom: 20vh;
     background-color: var(--cream);
@@ -212,6 +214,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 .photo-card.landscape-card {
@@ -268,11 +272,23 @@ body {
     text-align: right;
     opacity: 0.4;
     white-space: nowrap;
-    transition: 0.15s cubic-bezier(0.25, 1, 0.5, 1);;
+    transition: 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .exif-item.exif-copyright:hover {
     opacity: 0.6;
+}
+
+.exif-link.family-link {
+    text-decoration: none;
+    opacity: 1;
+    color: var(--black);
+    transition: 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.exif-link.family-link:hover {
+    opacity: 0.9;
+    border-bottom: 1px solid var(--black);
 }
 
 .photo-card.vertical-card {
