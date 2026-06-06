@@ -25,6 +25,7 @@ body {
     overflow-y: auto;
     scroll-behavior: smooth; 
     scroll-snap-type: y mandatory;
+    font-family: sans-serif;
 }
 
 .hidden {
