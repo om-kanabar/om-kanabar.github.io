@@ -23,8 +23,6 @@ body {
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    scroll-behavior: smooth; 
-    scroll-snap-type: y mandatory;
     font-family: sans-serif;
 }
 
@@ -40,7 +38,7 @@ body {
     background: none;
     border: none;
     font-family: 'Menlo', 'Courier New', Courier, monospace !important;
-    font-size: 0.8rem;
+    font-size: 0.4rem;
     letter-spacing: 0.1em;
     cursor: pointer;
     text-transform: lowercase;
@@ -61,6 +59,15 @@ body {
 
 .back-btn-container {
     width: 100vw;
+}
+
+.back-btn.photo-view-active {
+    position: relative !important;
+    display: block;
+    top: auto;
+    left: auto;
+    margin: 2.5rem 0 4rem 2.5rem;
+    width: fit-content;
 }
 
 .photo, .code {
@@ -215,8 +222,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
 }
 
 .photo-card.landscape-card {
@@ -226,6 +231,7 @@ body {
 .photo-card.vertical-card {
     width: calc(70vh * 0.75); 
 }
+
 
 .photo-frame {
     width: 100%;
@@ -360,4 +366,61 @@ body {
 
 .photo-card.vertical-card.flipped.wide {
     grid-template-columns: 320px calc(70vh * 0.75); 
+}
+
+.chapter-break-light {
+    margin-bottom: 25vh !important;
+}
+
+.gallery-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    font-family: 'Menlo', 'Courier New', Courier, monospace !important;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--black);
+    text-decoration: none;
+    opacity: 0.4;
+    transition: opacity 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.nav-arrow:hover {
+    opacity: 0.85;
+}
+
+
+.photo-card.vertical-card .gallery-nav {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+    text-align: left;
+    justify-content: flex-start;
+    margin-bottom: 0.2rem;
+}
+
+.photo-card.vertical-card.flipped .gallery-nav {
+    grid-column: 2; 
+    grid-row: 1;
+    align-self: end;
+    text-align: right;
+}
+
+.photo-card.vertical-card.flipped .gallery-nav .nav-arrow {
+    justify-content: flex-end; 
+}
+
+
+.photo-card.landscape-card .gallery-nav .nav-arrow {
+    justify-content: flex-end;
 }

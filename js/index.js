@@ -2,6 +2,9 @@ let animDone = false;
 let animDoing = false;
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    navButtons();
+
     const optionsContainer = document.querySelector(".options");
     const photoPanel = document.querySelector(".photo");
     const codePanel = document.querySelector(".code");
@@ -131,6 +134,7 @@ function resetGateway(optionsContainer, backBtn) {
     optionsContainer.classList.remove("photo-active", "code-active");
 
     const photoBody = document.querySelector(".photo-body");
+    optionsContainer.classList.remove("photo-active");
     const codeBody = document.querySelector(".code-body");
     if (photoBody) photoBody.classList.add("hidden");
     if (codeBody) codeBody.classList.add("hidden");
@@ -150,4 +154,88 @@ function resetGateway(optionsContainer, backBtn) {
         photoPanel.classList.remove("expanded");
         codePanel.classList.remove("expanded");
     }
+}
+
+function navButtons() {
+    const navButtons = document.querySelectorAll(".nav-arrow[data-target]");
+
+    function executeSmoothCenterGlide(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+
+        const elementRect = targetElement.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        
+        const destination = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
+        
+        const startPosition = window.pageYOffset;
+        const distance = destination - startPosition;
+        const duration = 500;
+        let startTime = null;
+        function easeOutQuint(t) {
+            return 1 - Math.pow(1 - t, 5);
+        }
+
+        function animationLoop(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            window.scrollTo(0, startPosition + (distance * easeOutQuint(progress)));
+
+            if (progress < 1) {
+                requestAnimationFrame(animationLoop);
+            }
+        }
+
+        requestAnimationFrame(animationLoop);
+    }
+
+    navButtons.forEach(button => {
+        button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = button.getAttribute("data-target");
+            executeSmoothCenterGlide(targetId);
+        });
+    });
+
+    window.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowDown" && event.key !== "ArrowUp" && event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+        const cards = Array.from(document.querySelectorAll(".photo-card"));
+        if (cards.length === 0) return;
+
+        if ((event.key === "ArrowDown" || event.key === "ArrowRight") && window.pageYOffset < 50) {
+            event.preventDefault();
+            const firstCardId = cards[0].id;
+            if (firstCardId) executeSmoothCenterGlide(firstCardId);
+            return;
+        }
+
+        let closestCardIndex = 0;
+        let minimumDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const distanceToCenter = Math.abs((rect.top + rect.height / 2) - (window.innerHeight / 2));
+            if (distanceToCenter < minimumDistance) {
+                minimumDistance = distanceToCenter;
+                closestCardIndex = index;
+            }
+        });
+
+        event.preventDefault(); 
+
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+            if (closestCardIndex < cards.length - 1) {
+                const nextCardId = cards[closestCardIndex + 1].id;
+                if (nextCardId) executeSmoothCenterGlide(nextCardId);
+            }
+        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+            if (closestCardIndex > 0) {
+                const prevCardId = cards[closestCardIndex - 1].id;
+                if (prevCardId) executeSmoothCenterGlide(prevCardId);
+            }
+        }
+    });
 }

@@ -6,6 +6,8 @@
     <title>Om Kanabar</title>
     <script src="js/index.js" defer></script>
     <link rel="stylesheet" href="css/index.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="icon" href="https://cdn.omkanabar.com/assets/branding/logos/DarkMainLogo.png" type="image/png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +18,7 @@
     <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
 </head>
 <body>
-    <button class="hidden back-btn btn" id="back-btn"><i class="bi bi-arrow-left"></i>&nbsp;back</button>
+    <button class="hidden back-btn btn" id="back-btn"><i class="bi bi-arrow-left"></i></button>
     <div class="options">
         <div class="photo">
             <div class="hero-container">
@@ -34,8 +36,7 @@
     </div>
     <div class="photo-body hidden body">
         <div class="vertical-gallery-container">
-            
-            <div class="photo-card landscape-card">
+            <div class="photo-card landscape-card" id="o.01">
                 <div class="photo-frame">
                     <img src="/Assets/o.01.jpg" alt="Danger Sign">
                 </div>
@@ -46,11 +47,12 @@
                         <p class="exif-item">Aperture: f4.5 • Shutter Speed: 1/500 s • ISO: 1600</p>
                         <p class="exif-item">Location: Chicago, Illinois</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.02"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.02">
                 <div class="photo-frame">
                     <img src="/Assets/o.02.jpg" alt="Window Light Streak">
                 </div>
@@ -63,10 +65,14 @@
                         <p class="exif-item">ISO: 800</p>
                         <p class="exif-item">Location: Chicago, Illinois</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.01"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.03"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.03">
                 <div class="photo-frame">
                     <img src="/Assets/o.03.jpg" alt="Great Blue Heron Profile">
                 </div>
@@ -79,10 +85,14 @@
                         <p class="exif-item">ISO: 400</p>
                         <p class="exif-item">Location: Ottawa National Wildlife Refuge, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.02"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.13"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.13">
                 <div class="photo-frame">
                     <img src="/Assets/o.13.jpg" alt="Great blue heron flying">
                 </div>
@@ -95,10 +105,14 @@
                         <p class="exif-item">ISO: 3200</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.03"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.04"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.04">
                 <div class="photo-frame">
                     <img src="/Assets/o.04.jpg" alt="You Matter">
                 </div>
@@ -111,10 +125,14 @@
                         <p class="exif-item">ISO: 800</p>
                         <p class="exif-item">Location: Vista Grande Overlook, New Mexico</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.13"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.05"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card chapter-break-light" id="o.05">
                 <div class="photo-frame">
                     <img src="/Assets/o.05.jpg" alt="Wacker Drive at Night">
                 </div>
@@ -127,10 +145,14 @@
                         <p class="exif-item">ISO: 1600</p>
                         <p class="exif-item">Location: Chicago, Illinois</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.04"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.06"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.06">
                 <div class="photo-frame">
                     <img src="/Assets/o.06.jpg" alt="Vietnam War Memorial">
                 </div>
@@ -143,10 +165,14 @@
                         <p class="exif-item">ISO: 16000</p>
                         <p class="exif-item">Location: Vietnam Veterans Memorial, Washington DC</p>
                     </div>
-                    <a href="#family-dedication" class="exif-item exif-copyright family-link">&copy; Om Kanabar, 2026 • Family of Thomas E. Raubolt click here</a>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.05"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.07"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.07">
                 <div class="photo-frame">
                     <img src="/Assets/o.07.jpg" alt="Gravestone with infant on it">
                 </div>
@@ -159,10 +185,14 @@
                         <p class="exif-item">ISO: 200</p>
                         <p class="exif-item">Location: Arlington National Cemetery, Virginia</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.06"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.08"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped chapter-break-light" id="o.08">
                 <div class="photo-frame">
                     <img src="/Assets/o.08.jpg" alt="Holocaust Memorial Museum">
                 </div>
@@ -175,10 +205,14 @@
                         <p class="exif-item">ISO: 2500</p>
                         <p class="exif-item">Location: United States Holocaust Memorial Museum, Washington DC</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.07"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.09"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.09">
                 <div class="photo-frame">
                     <img src="/Assets/o.09.jpg" alt="Bird with insect in mouth with wings unfolded">
                 </div>
@@ -191,10 +225,14 @@
                         <p class="exif-item">ISO: 250</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.08"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.10"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.10">
                 <div class="photo-frame">
                     <img src="/Assets/o.10.jpg" alt="Bronze statue of a lady looking up.">
                 </div>
@@ -207,10 +245,14 @@
                         <p class="exif-item">ISO: 200</p>
                         <p class="exif-item">Location: New Mexico Museum of Art, New Mexico</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.09"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.11"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.11">
                 <div class="photo-frame">
                     <img src="/Assets/o.11.jpg" alt="Yellow Bird Surrounded by Foliage.">
                 </div>
@@ -223,10 +265,14 @@
                         <p class="exif-item">ISO: 6400</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.10"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.12"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.12">
                 <div class="photo-frame">
                     <img src="/Assets/o.12.jpg" alt="A person looking at a projecter video">
                 </div>
@@ -239,10 +285,14 @@
                         <p class="exif-item">ISO: 8000</p>
                         <p class="exif-item">Location: New Mexico Museum of Art, New Mexico</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.11"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.14"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.14">
                 <div class="photo-frame">
                     <img src="/Assets/o.14.jpg" alt="Caterpillar hanging from silk">
                 </div>
@@ -255,10 +305,14 @@
                         <p class="exif-item">ISO: 200</p>
                         <p class="exif-item">Location: Judge C. R. Magney State Park, Minnesota</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.12"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.15"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card flipped">
+            <div class="photo-card vertical-card flipped" id="o.15">
                 <div class="photo-frame">
                     <img src="/Assets/o.15.jpg" alt="A bird about to fly">
                 </div>
@@ -271,10 +325,14 @@
                         <p class="exif-item">ISO: 1000</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.14"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.16"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card" id="o.16">
                 <div class="photo-frame">
                     <img src="/Assets/o.16.jpg" alt="Magnolia Flowers">
                 </div>
@@ -287,10 +345,14 @@
                         <p class="exif-item">ISO: 2000</p>
                         <p class="exif-item">Location: Chicago, Illinois</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.15"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card landscape-card">
+            <div class="photo-card landscape-card" id="o.17">
                 <div class="photo-frame">
                     <img src="/Assets/o.17.jpg" alt="Robin Chicks with their mouths open">
                 </div>
@@ -301,10 +363,14 @@
                         <p class="exif-item">Aperture: f/6.0 • Shutter Speed: 1/800 s • ISO: 6400</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.16"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.18"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card landscape-card">
+            <div class="photo-card landscape-card" id="o.18">
                 <div class="photo-frame">
                     <img src="/Assets/o.18.jpg" alt="Robin mother feeding a robin chick">
                 </div>
@@ -315,10 +381,14 @@
                         <p class="exif-item">Aperture: f/6.0 • Shutter Speed: 1/800 s • ISO: 6400</p>
                         <p class="exif-item">Location: Magee Marsh Wildlife Area, Ohio</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
+                        <span class="exif-item p-x-2">|</span>
+                        <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                    </div>
                 </div>
             </div>
-            <div class="photo-card vertical-card">
+            <div class="photo-card vertical-card chapter-break-light" id="o.19">
                 <div class="photo-frame">
                     <img src="/Assets/o.19.jpg" alt="CTA Blue Line Train at Sunset">
                 </div>
@@ -331,7 +401,9 @@
                         <p class="exif-item">ISO: 1600</p>
                         <p class="exif-item">Location: Chicago, Illinois</p>
                     </div>
-                    <p class="exif-item exif-copyright">&copy; Om Kanabar, 2026, All Rights Reserved</p>
+                    <div class="exif-copyright">
+                        <button class="nav-arrow" data-target="o.18"><i class="bi bi-arrow-up"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
