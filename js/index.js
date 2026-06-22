@@ -24,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (backBtn) {
         backBtn.addEventListener("click", () => resetGateway(optionsContainer, backBtn));
-    }
+    }    
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 });
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
@@ -89,7 +91,7 @@ function animatePanels(dominantPanel, shrinkingPanel, duration) {
         dominantPanel.style.width = `${blueY * 100}vw`;
         shrinkingPanel.style.width = `${greenY * 100}vw`;
 
-        shrinkingPanel.style.opacity = `${greenY * 2}`; 
+        shrinkingPanel.style.opacity = greenY * 2; 
 
         if (x < 1) {
             requestAnimationFrame(updateFrame);
@@ -212,55 +214,57 @@ async function renderPhotos(sceneID) {
     if (!section) return;
     let flipped = false;
     section.photos.forEach(photo => {
-        if (photo.Orientation === "Horizontal") {
-            const newPhoto = document.createElement('div');
-            newPhoto.innerHTML = `
-                <div class="photo-card landscape-card" id="o.${photo.Order}">
-                    <div class="photo-frame">
-                        <img src="/Assets/${photo.file}" alt="${photo.alt}">
-                    </div>
-                    <div class="exif">
-                        <div class="exif-data wide">
-                            <p class="exif-item">Camera: ${photo.Camera}</p>
-                            <p class="exif-item">Lens: ${photo.Lens}</p>
-                            <p class="exif-item">Aperture: ${photo.Aperture} • Shutter Speed: ${photo.shutterSpeed} • ISO: ${photo.ISO}</p>
-                            <p class="exif-item">Location: ${photo.Location}</p>
+        if (photo.Featured == true) {
+            if (photo.Orientation === "Horizontal") {
+                const newPhoto = document.createElement('div');
+                newPhoto.innerHTML = `
+                    <div class="photo-card landscape-card" id="o.${photo.Order}">
+                        <div class="photo-frame">
+                            <img src="/Assets/${photo.file}" alt="${photo.alt}">
                         </div>
-                        <div class="exif-copyright">
-                            <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
-                            <span class="exif-item p-x-2">|</span>
-                            <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
-                        </div>
-                    </div>
-                </div>
-            `
-            scene.appendChild(newPhoto);
-        } else {
-            const newPhoto = document.createElement('div');
-            newPhoto.innerHTML = `
-                <div class="photo-card vertical-card ${flippedClass(flipped)}" id="o.${photo.Order}">
-                    <div class="photo-frame">
-                        <img src="/Assets/${photo.file}" alt="${photo.alt}">
-                    </div>
-                    <div class="exif">
-                        <div class="exif-data wide">
-                            <p class="exif-item">Camera: ${photo.Camera}</p>
-                            <p class="exif-item">Lens: ${photo.Lens}</p>
-                            <p class="exif-item">Aperture: ${photo.Aperture}</p>
-                            <p class="exif-item">Shutter Speed: ${photo.shutterSpeed}</p>
-                            <p class="exif-item">ISO: ${photo.ISO}</p>
-                            <p class="exif-item">Location: ${photo.Location}</p>
-                        </div>
-                        <div class="exif-copyright">
-                            <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
-                            <span class="exif-item p-x-2">|</span>
-                            <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                        <div class="exif">
+                            <div class="exif-data wide">
+                                <p class="exif-item">Camera: ${photo.Camera}</p>
+                                <p class="exif-item">Lens: ${photo.Lens}</p>
+                                <p class="exif-item">Aperture: ${photo.Aperture} • Shutter Speed: ${photo.shutterSpeed} • ISO: ${photo.ISO}</p>
+                                <p class="exif-item">Location: ${photo.Location}</p>
+                            </div>
+                            <div class="exif-copyright">
+                                <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
+                                <span class="exif-item p-x-2">|</span>
+                                <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `
-            scene.appendChild(newPhoto);
-            flipped = !flipped
+                `
+                scene.appendChild(newPhoto);
+            } else {
+                const newPhoto = document.createElement('div');
+                newPhoto.innerHTML = `
+                    <div class="photo-card vertical-card ${flippedClass(flipped)}" id="o.${photo.Order}">
+                        <div class="photo-frame">
+                            <img src="/Assets/${photo.file}" alt="${photo.alt}">
+                        </div>
+                        <div class="exif">
+                            <div class="exif-data wide">
+                                <p class="exif-item">Camera: ${photo.Camera}</p>
+                                <p class="exif-item">Lens: ${photo.Lens}</p>
+                                <p class="exif-item">Aperture: ${photo.Aperture}</p>
+                                <p class="exif-item">Shutter Speed: ${photo.shutterSpeed}</p>
+                                <p class="exif-item">ISO: ${photo.ISO}</p>
+                                <p class="exif-item">Location: ${photo.Location}</p>
+                            </div>
+                            <div class="exif-copyright">
+                                <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
+                                <span class="exif-item p-x-2">|</span>
+                                <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                `
+                scene.appendChild(newPhoto);
+                flipped = !flipped
+            }
         }
     });
     console.log(section);
@@ -269,3 +273,25 @@ async function renderPhotos(sceneID) {
 function flippedClass(flipped) {
     return flipped ? "flipped" : "";
 } 
+
+let lastScrollTop = 0;
+const delta = 50;
+
+window.addEventListener("scroll", () => {
+    if (!animDone) return; 
+
+    const btnContainer = document.querySelector(".back-btn-container");
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (Math.abs(lastScrollTop - st) <= delta) return;
+
+    if (st > lastScrollTop && st > 50) {
+        btnContainer.classList.add("nav-up");
+    } else {
+        if (st + window.innerHeight < document.documentElement.scrollHeight) {
+            btnContainer.classList.remove("nav-up");
+        }
+    }
+
+    lastScrollTop = st;
+});
