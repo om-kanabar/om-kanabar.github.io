@@ -6,7 +6,7 @@ async function pause(ms) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    navButtons();
     const optionsContainer = document.querySelector(".options");
     optionsContainer.classList.remove("hidden");
 
@@ -162,112 +162,78 @@ function resetGateway(optionsContainer, backBtn) {
     }
 }
 
-function showPhotos() {
-
-}
-
-async function trans(sceneID) {
-    const changeScene = document.getElementById(sceneID); 
-    if (!changeScene) return;
-    const scenes = document.querySelectorAll(".scene");
-    const transition = document.getElementById("transition");
-    transition.classList.remove("hidden");
-    await pause(50);
-    transition.classList.add("active");
-    await pause(600);
-    
-    scenes.forEach(scene => {
-        scene.classList.add("hidden");
-    });
-    changeScene.classList.remove("hidden");
-    await renderPhotos(sceneID);
-    const navBtns = document.querySelectorAll(".nav-item"); 
-    navBtns.forEach(btn => {
-        btn.classList.remove("active");
-    });
-    const activeBtn = document.getElementById(`${sceneID}btn`);
-    if (activeBtn) {
-        activeBtn.classList.add("active");
-    }
-    transition.classList.remove("active");
-    await pause(400);
-    transition.classList.add("hidden");
-}
-
-async function renderPhotos(sceneID) {
+async function renderPhotos() {
     const response = await fetch("./Assets/order.json");
     if (!response.ok) {
         throw new Error(`Fetch Error: ${response.status}`);
-        return;
     }
 
     let photoData;
-
     try {
         photoData = await response.json();
     } catch (error) {
         console.error(`Invalid JSON, ${error.message}`);
+        return;
     }
-    const sectionID = sceneID.split("scene")[1];
-    const scene = document.getElementById(sceneID);
-    const section = photoData.sections.find(section => section.id === sectionID)
-    if (!section) return;
+
+    const gallery = document.getElementById("photo-gallery");
+    if (!gallery) {
+        console.error("Could not find element with id 'photo-gallery'");
+        return;
+    }
+
+    gallery.innerHTML = "";
+
+    const flippedClass = (flipped) => flipped ? "flipped" : ""; 
     let flipped = false;
-    section.photos.forEach(photo => {
-        if (photo.Featured == true) {
-            if (photo.Orientation === "Horizontal") {
+
+    photoData.sections.forEach(section => {
+        section.photos.forEach(photo => {
+            if (photo.Featured === true) {
                 const newPhoto = document.createElement('div');
-                newPhoto.innerHTML = `
-                    <div class="photo-card landscape-card" id="o.${photo.Order}">
-                        <div class="photo-frame">
-                            <img src="/Assets/${photo.file}" alt="${photo.alt}">
-                        </div>
-                        <div class="exif">
-                            <div class="exif-data wide">
-                                <p class="exif-item">Camera: ${photo.Camera}</p>
-                                <p class="exif-item">Lens: ${photo.Lens}</p>
-                                <p class="exif-item">Aperture: ${photo.Aperture} • Shutter Speed: ${photo.shutterSpeed} • ISO: ${photo.ISO}</p>
-                                <p class="exif-item">Location: ${photo.Location}</p>
+                
+                if (photo.Orientation === "Horizontal") {
+                    newPhoto.innerHTML = `
+                        <div class="photo-card landscape-card" id="o.${photo.Order}">
+                            <div class="photo-frame">
+                                <img src="/Assets/${photo.file}" alt="${photo.alt}">
                             </div>
-                            <div class="exif-copyright">
-                                <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
-                                <span class="exif-item p-x-2">|</span>
-                                <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                            <div class="exif">
+                                <div class="exif-data wide">
+                                    <p class="exif-item">Camera: ${photo.Camera}</p>
+                                    <p class="exif-item">Lens: ${photo.Lens}</p>
+                                    <p class="exif-item">Aperture: ${photo.Aperture} • Shutter Speed: ${photo.shutterSpeed} • ISO: ${photo.ISO}</p>
+                                    <p class="exif-item">Location: ${photo.Location}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `
-                scene.appendChild(newPhoto);
-            } else {
-                const newPhoto = document.createElement('div');
-                newPhoto.innerHTML = `
-                    <div class="photo-card vertical-card ${flippedClass(flipped)}" id="o.${photo.Order}">
-                        <div class="photo-frame">
-                            <img src="/Assets/${photo.file}" alt="${photo.alt}">
-                        </div>
-                        <div class="exif">
-                            <div class="exif-data wide">
-                                <p class="exif-item">Camera: ${photo.Camera}</p>
-                                <p class="exif-item">Lens: ${photo.Lens}</p>
-                                <p class="exif-item">Aperture: ${photo.Aperture}</p>
-                                <p class="exif-item">Shutter Speed: ${photo.shutterSpeed}</p>
-                                <p class="exif-item">ISO: ${photo.ISO}</p>
-                                <p class="exif-item">Location: ${photo.Location}</p>
+                    `;
+                } else {
+                    newPhoto.innerHTML = `
+                        <div class="photo-card vertical-card ${flippedClass(flipped)}" id="o.${photo.Order}">
+                            <div class="photo-frame">
+                                <img src="/Assets/${photo.file}" alt="${photo.alt}">
                             </div>
-                            <div class="exif-copyright">
-                                <button class="nav-arrow" data-target="o.17"><i class="bi bi-arrow-up"></i></button>
-                                <span class="exif-item p-x-2">|</span>
-                                <button class="nav-arrow" data-target="o.19"><i class="bi bi-arrow-down"></i></button>
+                            <div class="exif">
+                                <div class="exif-data wide">
+                                    <p class="exif-item">Camera: ${photo.Camera}</p>
+                                    <p class="exif-item">Lens: ${photo.Lens}</p>
+                                    <p class="exif-item">Aperture: ${photo.Aperture}</p>
+                                    <p class="exif-item">Shutter Speed: ${photo.shutterSpeed}</p>
+                                    <p class="exif-item">ISO: ${photo.ISO}</p>
+                                    <p class="exif-item">Location: ${photo.Location}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `
-                scene.appendChild(newPhoto);
-                flipped = !flipped
+                    `;
+                    flipped = !flipped;
+                }
+                
+                gallery.appendChild(newPhoto);
+                if (photo.lastPhoto === true) return;
             }
-        }
+        });
     });
-    console.log(section);
 }
 
 function flippedClass(flipped) {
@@ -295,3 +261,80 @@ window.addEventListener("scroll", () => {
 
     lastScrollTop = st;
 });
+
+
+function navButtons() {
+    const navButtons = document.querySelectorAll(".nav-arrow[data-target]");
+
+    function executeSmoothCenterGlide(targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (!targetElement) return;
+
+        const elementRect = targetElement.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        
+        const destination = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
+        
+        const startPosition = window.pageYOffset;
+        const distance = destination - startPosition;
+        const duration = 500;
+        let startTime = null;
+        function easeOutQuint(t) {
+            return 1 - Math.pow(1 - t, 5);
+        }
+
+        function animationLoop(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+
+            window.scrollTo(0, startPosition + (distance * easeOutQuint(progress)));
+
+            if (progress < 1) {
+                requestAnimationFrame(animationLoop);
+            }
+        }
+
+        requestAnimationFrame(animationLoop);
+    }
+    
+    window.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowDown" && event.key !== "ArrowUp" && event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+        const cards = Array.from(document.querySelectorAll(".photo-card"));
+        if (cards.length === 0) return;
+
+        if ((event.key === "ArrowDown" || event.key === "ArrowRight") && window.pageYOffset < 50) {
+            event.preventDefault();
+            const firstCardId = cards[0].id;
+            if (firstCardId) executeSmoothCenterGlide(firstCardId);
+            return;
+        }
+
+        let closestCardIndex = 0;
+        let minimumDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const distanceToCenter = Math.abs((rect.top + rect.height / 2) - (window.innerHeight / 2));
+            if (distanceToCenter < minimumDistance) {
+                minimumDistance = distanceToCenter;
+                closestCardIndex = index;
+            }
+        });
+
+        event.preventDefault(); 
+
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+            if (closestCardIndex < cards.length - 1) {
+                const nextCardId = cards[closestCardIndex + 1].id;
+                if (nextCardId) executeSmoothCenterGlide(nextCardId);
+            }
+        } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+            if (closestCardIndex > 0) {
+                const prevCardId = cards[closestCardIndex - 1].id;
+                if (prevCardId) executeSmoothCenterGlide(prevCardId);
+            }
+        }
+    });
+}

@@ -484,8 +484,16 @@ body {
     color: #478ab1 !important;
 }
 
-
-/* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
+/* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE *//* CODE */
 
 
 .file-path {
@@ -523,45 +531,17 @@ body {
     opacity: 1;
 }
 
-.ga {
-    color: #6f7681;
-}
-
-.db {
-    color: #569dd6;
-}
-
-.b {
-    color: #4fc1ff;
-}
-
-.lb {
-    color: #9cdcff;
-}
-
-.y {
-    color: #dcdcaa;
-}
-
-.m {
-    color: #ffd800;
-}
-
-.p {
-    color: #da70d6;
-}
-
-.o {
-    color: #ce9178;
-}
-
-.g {
-    color: #b5cea9;
-}
-
-.t {
-    color: #4fcab0;
-}
+.ga { color: #6f7681; }
+.db { color: #569dd6; }
+.b { color: #4fc1ff; }
+.lb { color: #9cdcff; }
+.y { color: #dcdcaa; }
+.m { color: #ffd800; }
+.p { color: #da70d6; }
+.o { color: #ce9178; }
+.g { color: #b5cea9; }
+.t { color: #4fcab0; }
+.c { color: #6a9955; }
 
 .line {
     padding-right: 2rem;
@@ -578,36 +558,28 @@ body {
     margin-right: 2rem;
 }
 
-.code-card {
+.code-card-container {
     position: relative;
     width: 100vw;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 0;
-    box-sizing: border-box;
-}
-
-.code-card {
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: center;
     padding: 6rem 0;
     box-sizing: border-box;
-    background-color: var(--black);
+    background-color: #1f1f1f;
+}
+
+.code-card {
+    grid-area: 1 / 1;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
 }
 
 .code-display {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: max-content;
-    z-index: 1;
     overflow: hidden;
     padding: 2rem;
     box-sizing: border-box;
@@ -616,6 +588,9 @@ body {
 }
 
 .code-project-card {
+    grid-area: 1 / 1;
+    justify-self: center;
+    align-self: center;
     position: relative;
     z-index: 10;
     width: 90%;
@@ -632,22 +607,42 @@ body {
 .card-badges {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 0.5rem;
+    justify-content: space-between; 
+    gap: 0.75rem;
     margin-bottom: 1rem;
     font-family: var(--mono);
+    font-size: 1.5rem; 
 }
 
 .b-badge {
     transition: var(--trans-fast);
+    color: var(--cream);
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .b-badge:hover {
     color: color-mix(in srgb, var(--cream) 80%, var(--light-text) 20%);
+    fill: color-mix(in srgb, var(--cream) 80%, var(--light-text) 20%);
 }
+
+.badge-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+}
+
 
 .card-badges span {
     font-size: 1.5rem;
+}
+
+.version {
+    font-size: 0.75rem !important;
 }
 
 .project-title {
@@ -698,11 +693,185 @@ body {
 }
 
 .demo:hover {
-    background-color: (in srgb, var(--cream) 10%, var(--light-text) 90%);
+    background-color: color-mix(in srgb, var(--cream) 10%, var(--light-text) 90%);
 }
 
 .code-container-block {
     background-color: var(--dark);
     width: 100vw;
     min-height: 20rem;
+}
+
+.projects {
+    background-color: #1f1f1f !important;
+    list-style-type: none;
+    width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+}
+
+@media (max-width: 992px) {
+    .options {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .photo,
+    .code {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .photo:hover,
+    .code:hover,
+    .options:has(.code:hover) .photo {
+        width: 100%;
+    }
+
+    .hero {
+        font-size: clamp(4.5rem, 12vw, 8rem);
+        margin-top: 15vh;
+    }
+
+    .label {
+        font-size: 1.15rem;
+    }
+
+    .code-card-container {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+
+    .code-display {
+        padding: 1.5rem;
+    }
+
+    .code-block {
+        margin-left: 1rem;
+    }
+
+    .file-path {
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        padding-top: 0.8rem;
+    }
+
+    .path-item,
+    .path-seperator {
+        font-size: 0.95rem;
+    }
+
+    .link-container {
+        width: 90vw;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .nav-item {
+        font-size: 0.95rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-links a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .photo-card.landscape-card {
+        width: min(90vw, 650px);
+    }
+
+    .photo-card.vertical-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: min(90vw, 720px);
+        column-gap: 0;
+    }
+
+    .photo-card.vertical-card .photo-frame img {
+        width: 100%;
+        height: auto;
+        max-height: 70vh;
+    }
+
+    .photo-card.vertical-card .exif {
+        display: block;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .photo-card.vertical-card .exif-data {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+    }
+
+    .photo-card.vertical-card .exif-copyright {
+        grid-column: auto;
+        grid-row: auto;
+        text-align: left;
+        margin-top: 1rem;
+    }
+
+    .photo-card.vertical-card.flipped {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card.vertical-card.flipped .exif-data {
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        font-size: clamp(3rem, 18vw, 5.5rem);
+        margin-top: 12vh;
+    }
+
+    .label {
+        font-size: 0.95rem;
+        letter-spacing: 0.12em;
+    }
+
+    .back-btn-container {
+        padding-left: 1rem;
+        height: 4rem;
+    }
+
+    .code-project-card {
+        padding: 1.75rem;
+    }
+
+    .code-display {
+        padding: 1rem;
+    }
+
+    .project-title {
+        font-size: 1.45rem;
+    }
+
+    .project-text {
+        font-size: 0.92rem;
+    }
+
+    .repo,
+    .demo {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .code-card-container {
+        padding: 2.5rem 0;
+    }
+
+    .photo-card.vertical-card {
+        column-gap: 1rem;
+        row-gap: 1rem;
+    }
 }

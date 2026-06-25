@@ -15,7 +15,8 @@
                     "Orientation": "Horizontal",
                     "Order": "1",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.02.jpg",
@@ -29,7 +30,8 @@
                     "Orientation": "Vertical",
                     "Order": "2",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.03.jpg",
@@ -43,7 +45,8 @@
                     "Orientation": "Vertical",
                     "Order": "3",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.13.jpg",
@@ -57,7 +60,8 @@
                     "Orientation": "Vertical",
                     "Order": "4",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.04.jpg",
@@ -71,7 +75,8 @@
                     "Orientation": "Vertical",
                     "Order": "5",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": true
                 }
             ]
         },
@@ -90,7 +95,8 @@
                     "Orientation": "Vertical",
                     "Order": "6",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.06.jpg",
@@ -104,7 +110,8 @@
                     "Orientation": "Vertical",
                     "Order": "7",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.07.jpg",
@@ -118,7 +125,8 @@
                     "Orientation": "Vertical",
                     "Order": "8",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": true
                 }
             ]
         },
@@ -137,7 +145,8 @@
                     "Orientation": "Vertical",
                     "Order": "9",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.09.jpg",
@@ -151,7 +160,8 @@
                     "Orientation": "Vertical",
                     "Order": "10",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.10.jpg",
@@ -165,7 +175,8 @@
                     "Orientation": "Vertical",
                     "Order": "11",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.11.jpg",
@@ -179,7 +190,8 @@
                     "Orientation": "Vertical",
                     "Order": "12",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.12.jpg",
@@ -193,7 +205,8 @@
                     "Orientation": "Vertical",
                     "Order": "13",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.14.jpg",
@@ -207,7 +220,8 @@
                     "Orientation": "Vertical",
                     "Order": "14",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.15.jpg",
@@ -221,7 +235,8 @@
                     "Orientation": "Vertical",
                     "Order": "15",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.16.jpg",
@@ -235,7 +250,8 @@
                     "Orientation": "Vertical",
                     "Order": "16",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.17.jpg",
@@ -249,7 +265,8 @@
                     "Orientation": "Horizontal",
                     "Order": "17",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.18.jpg",
@@ -263,7 +280,8 @@
                     "Orientation": "Horizontal",
                     "Order": "18",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": false
                 },
                 {
                     "file": "o.19.jpg",
@@ -277,7 +295,8 @@
                     "Orientation": "Vertical",
                     "Order": "19",
                     "Featured": true,
-                    "Favorite": false
+                    "Favorite": false,
+                    "lastPhoto": true
                 }
             ]
         }

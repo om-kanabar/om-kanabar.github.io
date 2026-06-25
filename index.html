@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om Kanabar</title>
-    <script src="js/index.js" defer></script>
-    <link rel="stylesheet" href="css/index.css"/>
+    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="styles.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
     <link rel="icon" href="https://cdn.omkanabar.com/assets/branding/logos/DarkMainLogo.png" type="image/png" />
@@ -18,12 +18,12 @@
     <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
 </head>
 <body>
-    <noscript>
+    <!-- <noscript>
         <div style="font-family: 'Glacial Indifference', 'Montserrat', BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 2rem; text-align: center; background-color: #233c4a; color: #ede8dd; box-sizing: border-box; padding-top: 45vh; padding-bottom: 50vh; max-height: 100vh; overflow: hidden;">
             <p>This website needs JS to function.</p>
             <p>For a non-JS friendly version of this website go to <a href="omkanabar.com/noscript?index" class="noscript-a" style="transition: 0.2s cubic-bezier(0.25, 1, 0.5, 1); color: #84adc5;">omkanabar.com/noscript?index</a></p>
         </div>
-    </noscript>
+    </noscript> -->
     <div class="back-btn-container">
         <button class="hidden back-btn btn" id="back-btn">
             <i class="bi bi-arrow-left"></i>
@@ -46,168 +46,265 @@
         </div>
     </div>
     <div class="photo-body hidden body">
-        <div class="nav">
-            <div class="link-container">
-                <a id="scene1btn" class="nav-item active" onclick="trans('scene1')">I</a>
-                <p class="nav-separator">|</p>
-                <a id="scene2btn" class="nav-item" onclick="trans('scene2')">II</a>
-                <p class="nav-separator">|</p>
-                <a id="scene3btn" class="nav-item" onclick="trans('scene3')">III</a>
-            </div>
-        </div>
-        <div id="scene1" class="vertical-gallery-container scene pos-back"></div>
-        <div id="scene2" class="vertical-gallery-container scene hidden pos-back"></div>
-        <div id="scene3" class="vertical-gallery-container scene hidden pos-back"></div>
+        <div id="photo-gallery" class="vertical-gallery-container scene pos-back"></div>
     </div>
     <div class="code-body hidden body" data-bs-theme="dark">
-        <div class="code-card-container">
-            <div class="code-card">
-                <div class="code-display">
-                    <ol class="file-path">
-                        <li class="path-item"><a href="https://github.com/om-kanabar/" target="_blank">om-kanabar</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item"><a href="https://github.com/om-kanabar/om-kanabar.github.io/tree/main" target="_blank">om-kanabar.github.io</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item"><a href="https://github.com/om-kanabar/om-kanabar.github.io/tree/main/js" target="_blank">js</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item active"><a href="https://github.com/om-kanabar/om-kanabar.github.io/blob/main/js/index.js" target="_blank">index.js</a></li>
-                        <li class="path-item"><a data-bs-toggle="tooltip" data-bs-title="The code below is real code styled with CSS. This function was used to expand the code side panel which you clicked on to get here."><i class="bi bi-info-circle"></i></a></li>
-                    </ol>
-                    <div class="code-block">
-                        <div class="code-line"><span class="ga line">&nbsp;68</span><span class="db">function&nbsp;</span><span class="y">animatePanels</span><span class="m">(</span><span class="lb">dominantPanel</span>,&nbsp;<span class="lb">shrinkingPanel</span>,&nbsp;<span class="lb">duration</span><span class="m">)&nbsp;{</span></div>
-                        <div class="code-line"><span class="ga line">&nbsp;69</span><div class="tab"></div><span class="lb">animDone</span>&nbsp;=&nbsp;<span class="db">true</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;70</span><div class="tab"></div><span class="lb">animDoing</span>&nbsp;=&nbsp;<span class="db">true</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;71</span><div class="tab"></div><span class="db">const&nbsp;</span><span class="b">startTime</span>&nbsp;=&nbsp;<span class="lb">performance</span>.<span class="y">now</span><span class="p">()</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;72</span><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;73</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">transition</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;74</span><div class="tab"></div></span><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">transition</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;75</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="o">"1"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;76</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">zIndex</span>&nbsp;=&nbsp;<span class="o">"1"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;77</span><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">zIndex</span>&nbsp;=&nbsp;<span class="o">"0"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;78</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">classlist</span>.<span class="y">add</span><span class="p">(</span><span class="o">"expanded"</span><span class="p">)</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;79</span><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;80</span><div class="tab"></div><span class="db">function&nbsp;</span><span class="y">updateFrame</span><span class="p">(</span><span class="lb">now</span><span class="p">)&nbsp;{</span></div>
-                        <div class="code-line"><span class="ga line">&nbsp;81</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">elapsed</span>&nbsp;=&nbsp;<span class="lb">now</span>&nbsp;-&nbsp;<span class="b">startTime</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;82</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">x</span>&nbsp;=&nbsp;<span class="lb">Math</span>.<span class="y">min</span><span class="b">(</span><span class="lb">elapsed</span>&nbsp;/&nbsp;<span class="lb">duration</span>,&nbsp;<span class="g">1</span><span class="b">)</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;83</span><div class="tab"></div><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;84</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">blueY</span>&nbsp;=&nbsp;<span class="b">(</span><span class="g">8.1</span>&nbsp;*&nbsp;<span class="lb">Math</span>.<span class="y">pow</span><span class="m">(</span><span class="lb">x</span>,&nbsp;<span class="g">3</span><span class="m">)</span><span class="b">)</span>&nbsp;-&nbsp;<span class="b">(</span><span class="g">6.8</span>&nbsp;*&nbsp;<span class="lb">Math</span>.<span class="y">pow</span><span class="m">(</span><span class="lb">x</span>,&nbsp;<span class="g">2</span><span class="m">)</span><span class="b">)</span>&nbsp;+&nbsp;<span class="b">(</span><span class="g">1.5</span>&nbsp;*&nbsp;<span class="lb">x</span><span class="b">)</span>&nbsp;+&nbsp;<span class="g">0.5</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;85</span><div class="tab"></div><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;86</span><div class="tab"></div><div class="tab"></div><span class="p">if&nbsp;</span><span class="b">(</span><span class="lb">x</span>&nbsp;===&nbsp;<span class="g">1</span><span class="b">)&nbsp;</span><span class="lb">blueY</span>&nbsp;=&nbsp;<span class="g">1</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;87</span><div class="tab"></div><div class="tab"></div><span class="db">let</span><span class="lb">&nbsp;greenY</span>&nbsp;=&nbsp;<span class="g">1</span>&nbsp;-&nbsp;<span class="lb">blueY</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;88</span><div class="tab"></div><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;89</span><div class="tab"></div><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">`</span><span class="db">${</span><span class="lb">blueY</span>&nbsp;*&nbsp;<span class="g">100</span><span class="db">}</span><span class="o">vw`</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;90</span><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">`</span><span class="db">${</span><span class="lb">greenY</span>&nbsp;*&nbsp;<span class="g">100</span><span class="db">}</span><span class="o">vw`</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;91</span><div class="tab"></div><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;92</span><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="lb">greenY</span>&nbsp;*&nbsp;<span class="g">2</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;93</span><div class="tab"></div><div class="tab"></div></div>
-                        <div class="code-line"><span class="ga line">&nbsp;94</span><div class="tab"></div><div class="tab"></div><span class="p">if&nbsp;</span><span class="b">(</span><span class="lb">x</span>&nbsp;&lt;&nbsp;<span class="g">1</span><span class="b">)&nbsp;{</span></div>
-                        <div class="code-line"><span class="ga line">&nbsp;95</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="y">requestAnimationFrame</span><span class="m">(</span><span class="y">updateFrame</span><span class="m">)</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;96</span><div class="tab"></div><div class="tab"></div><span class="b">}&nbsp;</span><span class="p">else&nbsp;</span><span class="b">{</span></div>
-                        <div class="code-line"><span class="ga line">&nbsp;97</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="o">"0"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;98</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">"100vw"</span>;</div>
-                        <div class="code-line"><span class="ga line">&nbsp;99</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">"0vw"</span>;</div>
-                        <div class="code-line"><span class="ga line">100</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">document</span>.<span class="lb">body</span>.<span class="lb">style</span>.<span class="lb">overflow</span>&nbsp;=&nbsp;<span class="o">"auto"</span>;</div>
-                        <div class="code-line"><span class="ga line">101</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">document</span>.<span class="y">querySelector</span><span class="m">(</span><span class="o">."options"</span><span class="m">)</span><span class="lb">style</span>.<span class="lb">pointerEvents</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
-                        <div class="code-line"><span class="ga line">102</span><div class="tab"></div><div class="tab"></div><span class="b">}</span></div>
-                        <div class="code-line"><span class="ga line">103</span><div class="tab"></div><span class="p">}</span></div>
-                        <div class="code-line"><span class="ga line">104</span><div class="tab"></div><span class="y">requestAnimationFrame</span><span class="m">(</span><span class="y">updateFrame</span><span class="m">)</span>;</div>
-                        <div class="code-line"><span class="ga line">105</span><div class="m">}</div>
+        <ol class="projects">
+            <li class="project">
+                <div class="code-card-container">
+                    <div class="code-card">
+                        <div class="code-display">
+                            <ol class="file-path">
+                                <li class="path-item"><a href="https://github.com/om-kanabar/" target="_blank">om-kanabar</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/om-kanabar.github.io/tree/main" target="_blank">om-kanabar.github.io</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/om-kanabar.github.io/tree/main/js" target="_blank">js</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item active"><a href="https://github.com/om-kanabar/om-kanabar.github.io/blob/main/js/index.js" target="_blank">index.js</a></li>
+                                <li class="path-item"><a data-bs-toggle="tooltip" data-bs-title="The code below is real code styled with CSS. This function was used to expand the code side panel which you clicked on to get here."><i class="bi bi-info-circle"></i></a></li>
+                            </ol>
+                            <div class="code-block">
+                                <div class="code-line"><span class="ga line">&nbsp;68</span><span class="db">function&nbsp;</span><span class="y">animatePanels</span><span class="m">(</span><span class="lb">dominantPanel</span>,&nbsp;<span class="lb">shrinkingPanel</span>,&nbsp;<span class="lb">duration</span><span class="m">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">&nbsp;69</span><div class="tab"></div><span class="lb">animDone</span>&nbsp;=&nbsp;<span class="db">true</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;70</span><div class="tab"></div><span class="lb">animDoing</span>&nbsp;=&nbsp;<span class="db">true</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;71</span><div class="tab"></div><span class="db">const&nbsp;</span><span class="b">startTime</span>&nbsp;=&nbsp;<span class="lb">performance</span>.<span class="y">now</span><span class="p">()</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;72</span><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;73</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">transition</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;74</span><div class="tab"></div></span><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">transition</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;75</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="o">"1"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;76</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">zIndex</span>&nbsp;=&nbsp;<span class="o">"1"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;77</span><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">zIndex</span>&nbsp;=&nbsp;<span class="o">"0"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;78</span><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">classlist</span>.<span class="y">add</span><span class="p">(</span><span class="o">"expanded"</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;79</span><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;80</span><div class="tab"></div><span class="db">function&nbsp;</span><span class="y">updateFrame</span><span class="p">(</span><span class="lb">now</span><span class="p">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">&nbsp;81</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">elapsed</span>&nbsp;=&nbsp;<span class="lb">now</span>&nbsp;-&nbsp;<span class="b">startTime</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;82</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">x</span>&nbsp;=&nbsp;<span class="lb">Math</span>.<span class="y">min</span><span class="b">(</span><span class="lb">elapsed</span>&nbsp;/&nbsp;<span class="lb">duration</span>,&nbsp;<span class="g">1</span><span class="b">)</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;83</span><div class="tab"></div><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;84</span><div class="tab"></div><div class="tab"></div><span class="db">let&nbsp;</span><span class="lb">blueY</span>&nbsp;=&nbsp;<span class="b">(</span><span class="g">8.1</span>&nbsp;*&nbsp;<span class="lb">Math</span>.<span class="y">pow</span><span class="m">(</span><span class="lb">x</span>,&nbsp;<span class="g">3</span><span class="m">)</span><span class="b">)</span>&nbsp;-&nbsp;<span class="b">(</span><span class="g">6.8</span>&nbsp;*&nbsp;<span class="lb">Math</span>.<span class="y">pow</span><span class="m">(</span><span class="lb">x</span>,&nbsp;<span class="g">2</span><span class="m">)</span><span class="b">)</span>&nbsp;+&nbsp;<span class="b">(</span><span class="g">1.5</span>&nbsp;*&nbsp;<span class="lb">x</span><span class="b">)</span>&nbsp;+&nbsp;<span class="g">0.5</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;85</span><div class="tab"></div><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;86</span><div class="tab"></div><div class="tab"></div><span class="p">if&nbsp;</span><span class="b">(</span><span class="lb">x</span>&nbsp;===&nbsp;<span class="g">1</span><span class="b">)&nbsp;</span><span class="lb">blueY</span>&nbsp;=&nbsp;<span class="g">1</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;87</span><div class="tab"></div><div class="tab"></div><span class="db">let</span><span class="lb">&nbsp;greenY</span>&nbsp;=&nbsp;<span class="g">1</span>&nbsp;-&nbsp;<span class="lb">blueY</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;88</span><div class="tab"></div><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;89</span><div class="tab"></div><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">`</span><span class="db">${</span><span class="lb">blueY</span>&nbsp;*&nbsp;<span class="g">100</span><span class="db">}</span><span class="o">vw`</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;90</span><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">`</span><span class="db">${</span><span class="lb">greenY</span>&nbsp;*&nbsp;<span class="g">100</span><span class="db">}</span><span class="o">vw`</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;91</span><div class="tab"></div><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;92</span><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="lb">greenY</span>&nbsp;*&nbsp;<span class="g">2</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;93</span><div class="tab"></div><div class="tab"></div></div>
+                                <div class="code-line"><span class="ga line">&nbsp;94</span><div class="tab"></div><div class="tab"></div><span class="p">if&nbsp;</span><span class="b">(</span><span class="lb">x</span>&nbsp;&lt;&nbsp;<span class="g">1</span><span class="b">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">&nbsp;95</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="y">requestAnimationFrame</span><span class="m">(</span><span class="y">updateFrame</span><span class="m">)</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;96</span><div class="tab"></div><div class="tab"></div><span class="b">}&nbsp;</span><span class="p">else&nbsp;</span><span class="b">{</span></div>
+                                <div class="code-line"><span class="ga line">&nbsp;97</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">opacity</span>&nbsp;=&nbsp;<span class="o">"0"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;98</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">dominantPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">"100vw"</span>;</div>
+                                <div class="code-line"><span class="ga line">&nbsp;99</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">shrinkingPanel</span>.<span class="lb">style</span>.<span class="lb">width</span>&nbsp;=&nbsp;<span class="o">"0vw"</span>;</div>
+                                <div class="code-line"><span class="ga line">100</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">document</span>.<span class="lb">body</span>.<span class="lb">style</span>.<span class="lb">overflow</span>&nbsp;=&nbsp;<span class="o">"auto"</span>;</div>
+                                <div class="code-line"><span class="ga line">101</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">document</span>.<span class="y">querySelector</span><span class="m">(</span><span class="o">."options"</span><span class="m">)</span><span class="lb">style</span>.<span class="lb">pointerEvents</span>&nbsp;=&nbsp;<span class="o">"none"</span>;</div>
+                                <div class="code-line"><span class="ga line">102</span><div class="tab"></div><div class="tab"></div><span class="b">}</span></div>
+                                <div class="code-line"><span class="ga line">103</span><div class="tab"></div><span class="p">}</span></div>
+                                <div class="code-line"><span class="ga line">104</span><div class="tab"></div><span class="y">requestAnimationFrame</span><span class="m">(</span><span class="y">updateFrame</span><span class="m">)</span>;</div>
+                                <div class="code-line"><span class="ga line">105</span><span class="m">}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-project-card">
+                        <div class="card-badges">
+                            <div class="badge-container">
+                                <span><i class="bi b-badge bi-filetype-html"></i></span>
+                                <span><i class="bi b-badge bi-css"></i></span>
+                                <span><i class="bi b-badge bi-javascript"></i></span>
+                                <span><i class="bi b-badge bi-filetype-json"></i></span>
+                                <span><i class="bi b-badge bi-camera"></i></span>
+                            </div>
+                            <p class="badge version fw-semibold text-warning-emphasis bg-warning-subtle border border-warning rounded-3">v2.2.0-alpha</p>
+                        </div>
+                        
+                        <h2 class="project-title">Portfolio</h2>
+                        <p class="project-text">An interactive portfolio that highlights both my photography and coding skills. (it's this website) The photography is loaded in with JSON to make my code more DRY. The backgrounds of the code projects are actual code taken from the a project file, and styled with CSS to match my editor.</p>
+                        
+                        <div class="project-links" style="display: flex; gap: 1rem;">
+                            <a href="https://github.com/om-kanabar/om-kanabar.github.io" target="_blank" class="repo"><i class="bi bi-github"></i> View Repository</a>
+                            <a href="https://omkanabar.com" target="_blank" class="demo secondary-btn">Demo</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="code-project-card">
-                <div class="card-badges">
-                    <div class="badge-container">
-                        <span><i class="bi b-badge bi-filetype-html"></i></span>
-                        <span><i class="bi b-badge bi-css"></i></span>
-                        <span><i class="bi b-badge bi-javascript"></i></span>
-                        <span><i class="bi b-badge bi-filetype-json"></i></span>
+            </li>
+            <li class="project">
+                <div class="code-card-container">
+                    <div class="code-card">
+                        <div class="code-display">
+                            <ol class="file-path">
+                                <li class="path-item"><a href="https://github.com/om-kanabar/" target="_blank">om-kanabar</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/ks-cnn/tree/main" target="_blank">ks-cnn</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/ks-cnn/tree/main/Scripts" target="_blank">Scripts</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item active"><a href="https://github.com/om-kanabar/ks-cnn/blob/main/Scripts/train-model.py" target="_blank">train-models.py</a></li>
+                                <li class="path-item"><a data-bs-toggle="tooltip" data-bs-title="The code below is real code styled with CSS. The script which this code is from trained the Convolutional Neural Networks for my CNN."><i class="bi bi-info-circle"></i></a></li>
+                            </ol>
+                            <div class="code-block">
+                                <div class="code-line"><span class="ga line">47</span><span class="lb">num_classes</span>&nbsp;=&nbsp;<span class="y">len</span><span class="m">(<span class="lb">mapping</span>)</span></div>
+                                <div class="code-line"><span class="ga line">48</span></div>
+                                <div class="code-line"><span class="ga line">49</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(<span class="o">"[bold cyan]Building CNN model...[/bold cyan]"</span>)</span></div>
+                                <div class="code-line"><span class="ga line">50</span></div>
+                                <div class="code-line"><span class="ga line">51</span><span class="lb">model</span>&nbsp;=&nbsp;<span class="t">keras</span>.<span class="t">models</span>.Sequential<span class="m">(</span><span class="p">[</span></div>
+                                <div class="code-line"><span class="ga line">52</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">32</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span>,&nbsp;<span class="lb">input_shape</span>=<span class="m">(</span><span class="g">28</span>,<span class="g">28</span>,<span class="g">1</span><span class="m">)</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">53</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.MaxPooling2D<span class="b">(</span><span class="lb">pool_size</span>=<span class="m">(</span><span class="g">2</span>,<span class="g">2</span><span class="m">)</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">54</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">64</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">55</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">128</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">56</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.MaxPooling2D<span class="b">(</span><span class="lb">pool_size</span>=<span class="m">(</span><span class="g">2</span>,<span class="g">2</span><span class="m">)</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">57</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.Flatten<span class="b">()</span>,</div>
+                                <div class="code-line"><span class="ga line">58</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Dense</span><span class="b">(</span><span class="g">128</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
+                                <div class="code-line"><span class="ga line">59</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Dense</span><span class="b">(</span><span class="lb">num_classes</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'softmax'</span><span class="b">)</span></div>
+                                <div class="code-line"><span class="ga line">60</span><span class="p">]</span><span class="m">)</span></div>
+                                <div class="code-line"><span class="ga line">61</span></div>
+                                <div class="code-line"><span class="ga line">62</span><span class="lb">model</span>.compile<span class="m">(</span></div>
+                                <div class="code-line"><span class="ga line">63</span><div class="tab"></div><span class="lb">optimizer</span>=<span class="o">'adam'</span>,</div>
+                                <div class="code-line"><span class="ga line">64</span><div class="tab"></div><span class="lb">loss</span>=<span class="o">'sparse_categorical_crossentropy'</span>,</div>
+                                <div class="code-line"><span class="ga line">65</span><div class="tab"></div><span class="lb">metrics</span>=<span class="p">[<span class="o">'accuracy'</span>]</span></div>
+                                <div class="code-line"><span class="ga line">66</span><span class="m">)</span></div>
+                                <div class="code-line"><span class="ga line">67</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(<span class="o">"[green]Compiling complete.[/green]"</span>)</span></div>
+                                <div class="code-line"><span class="ga line">68</span></div>
+                                <div class="code-line"><span class="ga line">69</span></div>
+                                <div class="code-line"><span class="ga line">70</span><span class="lb">unique_id</span>&nbsp;=&nbsp;<span class="t">uuid</span>.<span class="y">uuid</span><span class="m">()</span>.<span class="lb">hex</span><span class="m">[</span>:<span class="g">16</span><span class="m">]</span></div>
+                                <div class="code-line"><span class="ga line">71</span></div>
+                                <div class="code-line"><span class="ga line">72</span><span class="lb">train_images</span>&nbsp;=&nbsp;<span class="lb">train_images</span>&nbsp;/&nbsp;<span class="g">255.0</span></div>
+                                <div class="code-line"><span class="ga line">73</span><span class="lb">train_images</span>&nbsp;=&nbsp;<span class="lb">train_images</span>.reshape<span class="m">(</span>-<span class="g">1</span>,&nbsp;<span class="g">28</span>,&nbsp;<span class="g">28</span>,&nbsp;<span class="g">1</span><span class="m">)</span></div>
+                                <div class="code-line"><span class="ga line">74</span></div>
+                                <div class="code-line"><span class="ga line">75</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(</span><span class="o">"[bold cyan]Splitting data into training and validation sets...[/bold cyan]"</span><span class="m">)</span></div>
+                                <div class="code-line"><span class="ga line">76</span></div>
+                                <div class="code-line"><span class="ga line">77</span><span class="lb">x_train</span>,&nbsp;<span class="lb">x_val</span>,&nbsp;<span class="lb">y_train</span>,&nbsp;<span class="lb">y_val</span>&nbsp;=&nbsp;<span class="y">train_test_split</span><span class="m">(</span></div>
+                                <div class="code-line"><span class="ga line">78</span><div class="tab"></div><span class="lb">train_images</span>,</div>
+                                <div class="code-line"><span class="ga line">79</span><div class="tab"></div><span class="lb">train_labels</span>,</div>
+                                <div class="code-line"><span class="ga line">80</span><div class="tab"></div><span class="lb">test_size</span>=<span class="g">0.115</span>,</div>
+                                <div class="code-line"><span class="ga line">81</span><div class="tab"></div><span class="lb">random_state</span>=<span class="t">random</span>.<span class="lb">randint</span><span class="p">(</span><span class="g">1</span>,<span class="g">50</span><span class="p">)</span></div>
+                                <div class="code-line"><span class="ga line">82</span><span class="m">)</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="badge fw-semibold text-warning-emphasis bg-warning-subtle border border-warning rounded-3">v2.1.3-alpha</p>
-                </div>
-                
-                <h2 class="project-title">Portfolio</h2>
-                <p class="project-text">An interactive portfolio that highlights both my photography and coding skills.</p>
-                
-                <div class="project-links" style="display: flex; gap: 1rem;">
-                    <a href="https://github.com/om-kanabar/om-kanabar.github.io" target="_blank" class="repo"><i class="bi bi-github"></i> View Repository</a>
-                    <a href="https://omkanabar.com" target="_blank" class="demo secondary-btn">Demo</a>
-                </div>
-            </div>
-        </div>
-        <div class="code-container-block"></div>
-        <div class="code-card-container">
-            <div class="code-card">
-                <div class="code-display">
-                    <ol class="file-path">
-                        <li class="path-item"><a href="https://github.com/om-kanabar/" target="_blank">om-kanabar</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item"><a href="https://github.com/om-kanabar/ks-cnn/tree/main" target="_blank">ks-cnn</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item"><a href="https://github.com/om-kanabar/ks-cnn/tree/main/Scripts" target="_blank">Scripts</a></li>
-                        <li class="path-seperator">/</li>
-                        <li class="path-item active"><a href="https://github.com/om-kanabar/ks-cnn/blob/main/Scripts/train-model.py" target="_blank">train-models.py</a></li>
-                        <li class="path-item"><a data-bs-toggle="tooltip" data-bs-title="The code below is real code styled with CSS. The script which this code is from trained the Convolutional Neural Networks for my CNN."><i class="bi bi-info-circle"></i></a></li>
-                    </ol>
-                    <div class="code-block">
-                        <div class="code-line"><span class="ga line">47</span><span class="lb">num_classes</span>&nbsp;=&nbsp;<span class="y">len</span><span class="m">(<span class="lb">mapping</span>)</span></div>
-                        <div class="code-line"><span class="ga line">48</span></div>
-                        <div class="code-line"><span class="ga line">49</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(<span class="o">"[bold cyan]Building CNN model...[/bold cyan]"</span>)</span></div>
-                        <div class="code-line"><span class="ga line">50</span></div>
-                        <div class="code-line"><span class="ga line">51</span><span class="lb">model</span>&nbsp;=&nbsp;<span class="t">keras</span>.<span class="t">models</span>.Sequential<span class="m">(</span><span class="p">[</span></div>
-                        <div class="code-line"><span class="ga line">52</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">32</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span>,&nbsp;<span class="lb">input_shape</span>=<span class="m">(</span><span class="g">28</span>,<span class="g">28</span>,<span class="g">1</span><span class="m">)</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">53</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.MaxPooling2D<span class="b">(</span><span class="lb">pool_size</span>=<span class="m">(</span><span class="g">2</span>,<span class="g">2</span><span class="m">)</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">54</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">64</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">55</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Conv2D</span><span class="b">(</span><span class="g">128</span>,&nbsp;<span class="lb">kernel_size</span>=<span class="lb">kernel_size</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">56</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.MaxPooling2D<span class="b">(</span><span class="lb">pool_size</span>=<span class="m">(</span><span class="g">2</span>,<span class="g">2</span><span class="m">)</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">57</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.Flatten<span class="b">()</span>,</div>
-                        <div class="code-line"><span class="ga line">58</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Dense</span><span class="b">(</span><span class="g">128</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'relu'</span><span class="b">)</span>,</div>
-                        <div class="code-line"><span class="ga line">59</span><div class="tab"></div><span class="t">keras</span>.<span class="t">layers</span>.<span class="t">Dense</span><span class="b">(</span><span class="lb">num_classes</span>,&nbsp;<span class="lb">activation</span>=<span class="o">'softmax'</span><span class="b">)</span></div>
-                        <div class="code-line"><span class="ga line">60</span><span class="p">]</span><span class="m">)</span></div>
-                        <div class="code-line"><span class="ga line">61</span></div>
-                        <div class="code-line"><span class="ga line">62</span><span class="lb">model</span>.compile<span class="m">(</span></div>
-                        <div class="code-line"><span class="ga line">63</span><div class="tab"></div><span class="lb">optimizer</span>=<span class="o">'adam'</span>,</div>
-                        <div class="code-line"><span class="ga line">64</span><div class="tab"></div><span class="lb">loss</span>=<span class="o">'sparse_categorical_crossentropy'</span>,</div>
-                        <div class="code-line"><span class="ga line">65</span><div class="tab"></div><span class="lb">metrics</span>=<span class="p">[<span class="o">'accuracy'</span>]</span></div>
-                        <div class="code-line"><span class="ga line">66</span><span class="m">)</span></div>
-                        <div class="code-line"><span class="ga line">67</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(<span class="o">"[green]Compiling complete.[/green]"</span>)</span></div>
-                        <div class="code-line"><span class="ga line">68</span></div>
-                        <div class="code-line"><span class="ga line">69</span></div>
-                        <div class="code-line"><span class="ga line">70</span><span class="lb">unique_id</span>&nbsp;=&nbsp;<span class="t">uuid</span>.<span class="y">uuid</span><span class="m">()</span>.<span class="lb">hex</span><span class="m">[</span>:<span class="g">16</span><span class="m">]</span></div>
-                        <div class="code-line"><span class="ga line">71</span></div>
-                        <div class="code-line"><span class="ga line">72</span><span class="lb">train_images</span>&nbsp;=&nbsp;<span class="lb">train_images</span>&nbsp;/&nbsp;<span class="g">255.0</span></div>
-                        <div class="code-line"><span class="ga line">73</span><span class="lb">train_images</span>&nbsp;=&nbsp;<span class="lb">train_images</span>.reshape<span class="m">(</span>-<span class="g">1</span>,&nbsp;<span class="g">28</span>,&nbsp;<span class="g">28</span>,&nbsp;<span class="g">1</span><span class="m">)</span></div>
-                        <div class="code-line"><span class="ga line">74</span></div>
-                        <div class="code-line"><span class="ga line">75</span><span class="lb">console</span>.<span class="y">print</span><span class="m">(</span><span class="o">"[bold cyan]Splitting data into training and validation sets...[/bold cyan]"</span><span class="m">)</span></div>
-                        <div class="code-line"><span class="ga line">76</span></div>
-                        <div class="code-line"><span class="ga line">77</span><span class="lb">x_train</span>,&nbsp;<span class="lb">x_val</span>,&nbsp;<span class="lb">y_train</span>,&nbsp;<span class="lb">y_val</span>&nbsp;=&nbsp;<span class="y">train_test_split</span><span class="m">(</span></div>
-                        <div class="code-line"><span class="ga line">78</span><div class="tab"></div><span class="lb">train_images</span>,</div>
-                        <div class="code-line"><span class="ga line">79</span><div class="tab"></div><span class="lb">train_labels</span>,</div>
-                        <div class="code-line"><span class="ga line">80</span><div class="tab"></div><span class="lb">test_size</span>=<span class="g">0.115</span>,</div>
-                        <div class="code-line"><span class="ga line">81</span><div class="tab"></div><span class="lb">random_state</span>=<span class="t">random</span>.<span class="lb">randint</span><span class="p">(</span><span class="g">1</span>,<span class="g">50</span><span class="p">)</span></div>
-                        <div class="code-line"><span class="ga line">82</span><span class="m">)</span></div>
-                </div>
-            </div>
-            <div class="code-project-card">
-                <div class="card-badges">
-                    <div class="badge-container">
-                        <span><i class="bi b-badge bi-filetype-html"></i></span>
-                        <span><i class="bi b-badge bi-css"></i></span>
-                        <span><i class="bi b-badge bi-javascript"></i></span>
-                        <span><i class="bi b-badge bi-filetype-json"></i></span>
+                    <div class="code-project-card">
+                        <div class="card-badges">
+                            <div class="badge-container">
+                                <span><svg role="img" class="b-badge" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/></svg></span>
+                            </div>
+                            <p class="badge version fw-semibold text-success-emphasis bg-success-subtle border border-success rounded-3">v1.0-stable</p>
+                        </div>
+                        
+                        <h2 class="project-title">The Effect of Convolutional Kernel Size on Handwritten Character Recognition Accuracy Using the EMNIST Dataset</h2>
+                        <p class="project-text">This project was made for CPS Stem Fair. Information about my hypothesis, variables, results, etc. are in my essay linked below.</p>
+                        
+                        <div class="project-links" style="display: flex; gap: 1rem;">
+                            <a href="https://github.com/om-kanabar/ks-cnn" target="_blank" class="repo"><i class="bi bi-github"></i> View Repository</a>
+                            <a data-bs-toggle="tooltip" data-bs-title="This essay does not include the abstract, safety sheet, or title page as they have PII" href="https://cdn.omkanabar.com/assets/stempaperpublic.pdf" target="_blank" class="demo secondary-btn">Essay</a>
+                        </div>
                     </div>
-                    <p class="badge fw-semibold text-success-emphasis bg-success-subtle border border-success rounded-3">v1.0-stable</p>
                 </div>
-                
-                <h2 class="project-title">filler text</h2>
-                <p class="project-text">more filler text</p>
-                
-                <div class="project-links" style="display: flex; gap: 1rem;">
-                    <a href="https://github.com/om-kanabar/om-kanabar.github.io" target="_blank" class="repo"><i class="bi bi-github"></i> View Repository</a>
-                    <a href="https://omkanabar.com" target="_blank" class="demo secondary-btn">Demo</a>
+            </li>
+            <li class="project">
+                <div class="code-card-container">
+                    <div class="code-card">
+                        <div class="code-display">
+                            <ol class="file-path">
+                                <li class="path-item"><a href="https://github.com/om-kanabar/" target="_blank">om-kanabar</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/fintrack/tree/main" target="_blank">fintrack</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item"><a href="https://github.com/om-kanabar/fintrack/tree/main/js" target="_blank">js</a></li>
+                                <li class="path-seperator">/</li>
+                                <li class="path-item active"><a href="https://github.com/om-kanabar/fintrack/blob/main/js/app.js" target="_blank">app.js</a></li>
+                                <li class="path-item"><a data-bs-toggle="tooltip" data-bs-title="The code below is real code styled with CSS. The function below adds a row to the table that keeps track of expenses."><i class="bi bi-info-circle"></i></a></li>
+                            </ol>
+                            <div class="code-block">
+                                <div class="code-line"><span class="ga line">180</span><span class="db">function&nbsp;</span><span class="y">addRowToTable</span><span class="m">(</span><span class="lb">expense</span>,&nbsp;<span class="lb">parent</span><span class="m">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">181</span><div class="tab"></div><span class="db">const</span><span class="b">&nbsp;data</span>&nbsp;=&nbsp;<span class="lb">expense</span>;</div>
+                                <div class="code-line"><span class="ga line">182</span><div class="tab"></div><span class="db">const</span><span class="b">&nbsp;tr</span>&nbsp;=&nbsp;<span class="lb">document</span>.<span class="y">createElement</span><span class="p">(</span><span class="o">"tr"</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">183</span><div class="tab"></div><span class="b">tr</span>.<span class="y">setAttribute</span><span class="p">(</span><span class="o">"data-date"</span>,&nbsp;<span class="b">data</span>.<span class="lb">date</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">184</span><div class="tab"></div><span class="db">let</span>&nbsp;<span class="lb">dateObj</span>;</div>
+                                <div class="code-line"><span class="ga line">185</span><div class="tab"></div><span class="p">if&nbsp;(</span><span class="lb">expense</span>.<span class="lb">createdAt</span>.<span class="lb">toDate</span><span class="p">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">186</span><div class="tab"></div><div class="tab"></div><span class="lb">dateObj</span>&nbsp;=&nbsp;<span class="lb">expense</span>.<span class="lb">createdAt</span>.<span class="y">toDate</span><span class="b">()</span>;</div>
+                                <div class="code-line"><span class="ga line">187</span><div class="tab"></div><span class="p">}&nbsp;else&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">188</span><div class="tab"></div><div class="tab"></div><span class="lb">dateObj</span>&nbsp;=&nbsp;<span class="lb">expense</span>.<span class="lb">createdAt</span>;</div>
+                                <div class="code-line"><span class="ga line">189</span><div class="tab"></div><span class="p">}</span></div>
+                                <div class="code-line"><span class="ga line">190</span><div class="tab"></div><span class="db">const</span><span class="b">&nbsp;timestamp</span>&nbsp;=&nbsp;<span class="lb">dateObj</span>.<span class="y">getTime</span><span class="b">()</span>;</div>
+                                <div class="code-line"><span class="ga line">191</span><div class="tab"></div><span class="b">tr</span>.<span class="y">setAttribute</span><span class="p">(</span><span class="o">"data-time"</span>,&nbsp;<span class="b">timestamp</span>.<span class="y">toString</span><span class="b">()</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">192</span><div class="tab"></div><span class="b">tr</span>.<span class="y">setAttribute</span><span class="p">(</span><span class="o">"id"</span>,&nbsp;<span class="b">data</span>.<span class="lb">id</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">193</span><div class="tab"></div><span class="db">const</span><span class="b">&nbsp;date</span>&nbsp;=&nbsp;<span class="b">data</span>.<span class="lb">date</span></div>
+                                <div class="code-line"><span class="ga line">194</span><div class="tab"></div><div class="tab"></div>?&nbsp;<span class="db">new</span>&nbsp;<span class="t">Date</span><span class="p">(</span><span class="b">data</span>.<span class="lb">date</span>&nbsp;+&nbsp;<span class="o">"T00:00:00"</span><span class="p">)</span>.<span class="y">toLocaleDateString</span><span class="p">(</span><span class="o">"en-US"</span><span class="p">)</span></div>
+                                <div class="code-line"><span class="ga line">195</span><div class="tab"></div><div class="tab"></div>:&nbsp;<span class="o">""</span>;</div>
+                                <div class="code-line"><span class="ga line">196</span><div class="tab"></div><span class="b">tr</span>.<span class="lb">innerHTML</span>&nbsp;=&nbsp;<span class="o">`</span></div>
+                                <div class="code-line"><span class="ga line">197</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;th scope="row"&gt;</span><span class="pi">${</span><span class="lb">parent</span>.<span class="lb">children</span>.<span class="lb">length</span>&nbsp;+&nbsp;<span class="g">1</span><span class="pi">}</span><span class="o">&lt;/th&gt;</span></div>
+                                <div class="code-line"><span class="ga line">198</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;td&gt;</span><span class="pi">${</span><span class="b">data</span>.<span class="pi">item</span><span class="db">}</span><span class="o">&lt;/td&gt;</span></div>
+                                <div class="code-line"><span class="ga line">199</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;td&gt;</span><span class="pi">${</span><span class="b">data</span>.<span class="pi">amount</span>.<span class="y">toFixed</span><span class="p">(</span><span class="g">2</span><span class="p">)</span><span class="db">}</span><span class="o">&lt;/td&gt;</span></div>
+                                <div class="code-line"><span class="ga line">200</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;td&gt;</span><span class="pi>${</span><span class="b">date</span><span class="pi">}</span><span class="o">&lt;/td&gt;</span></div>
+                                <div class="code-line"><span class="ga line">201</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;td&gt;</span></div>
+                                <div class="code-line"><span class="ga line">202</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="o">&lt;button class="btn btn-sm btn-outline-danger delete-btn" title="Delete expense"&gt;</span></div>
+                                <div class="code-line"><span class="ga line">203</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="o">&lt;i class="bi bi-trash"&gt;&lt;/i&gt;</span></div>
+                                <div class="code-line"><span class="ga line">204</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="o">&lt;/button&gt;</span></div>
+                                <div class="code-line"><span class="ga line">205</span><div class="tab"></div><div class="tab"></div><span class="o">&lt;/td&gt;</span></div>
+                                <div class="code-line"><span class="ga line">206</span><div class="tab"></div><span class="o">`</span>;</div>
+                                <div class="code-line"><span class="ga line">207</span><div class="tab"></div><span class="lb">parent</span>.<span class="y">appendChild</span><span class="p">(</span><span class="b">tr</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">208</span><div class="tab"></div><span class="b">tr</span>.<span class="y">querySelector</span><span class="p">(</span><span class="o">".delete-btn"</span><span class="p">)</span>.<span class="y">addEventListener</span><span class="p">(</span><span class="o">"click"</span>,&nbsp;<span class="db">async</span>&nbsp;<span class="b">()</span>&nbsp;<span class="db">=&gt;</span>&nbsp;<span class="p">{</span></div>
+                                <div class="code-line"><span class="ga line">209</span><div class="tab"></div><div class="tab"></div><span class="p">if&nbsp;(</span>!<span class="y">confirm</span><span class="p">(</span><span class="o">"Are you sure you want to delete this expense?"</span><span class="p">))</span>&nbsp;<span class="p">return</span>;</div>
+                                <div class="code-line"><span class="ga line">210</span><div class="tab"></div><div class="tab"></div><span class="p">await</span>&nbsp;<span class="y">deleteDoc</span><span class="p">(</span><span class="y">doc</span><span class="b">(</span><span class="lb">db</span>,&nbsp;<span class="o">"users"</span>,&nbsp;<span class="lb">auth</span>.<span class="lb">currentUser</span>.<span class="lb">uid</span>,&nbsp;<span class="o">"expenses"</span>,&nbsp;<span class="b">data</span>.<span class="lb">id</span><span class="b">)</span><span class="p">)</span>;</div>
+                                <div class="code-line"><span class="ga line">211</span><div class="tab"></div><div class="tab"></div><span class="b">tr</span>.<span class="y">remove</span><span class="b">()</span>;</div>
+                                <div class="code-line"><span class="ga line">212</span><div class="tab"></div><div class="tab"></div><span class="c">// Update row numbers</span></div>
+                                <div class="code-line"><span class="ga line">213</span><div class="tab"></div><div class="tab"></div><span class="p">for&nbsp;(</span><span class="db">let</span>&nbsp;<span class="b">i</span>&nbsp;=&nbsp;<span class="g">0</span>;&nbsp;<span class="b">i</span>&nbsp;&lt;&nbsp;<span class="lb">parent</span>.<span class="lb">children</span>.<span class="lb">length</span>;&nbsp;<span class="b">i</span>++<span class="p">)&nbsp;{</span></div>
+                                <div class="code-line"><span class="ga line">214</span><div class="tab"></div><div class="tab"></div><div class="tab"></div><span class="lb">parent</span>.<span class="lb">children</span><span class="p">[</span><span class="b">i</span><span class="p">]</span>.<span class="y">querySelector</span><span class="p">(</span><span class="o">"th"</span><span class="p">)</span>.<span class="lb">textContent</span>&nbsp;=&nbsp;<span class="b">i</span>&nbsp;+&nbsp;<span class="g">1</span>;</div>
+                                <div class="code-line"><span class="ga line">215</span><div class="tab"></div><div class="tab"></div><span class="p">}</span></div>
+                                <div class="code-line"><span class="ga line">216</span><div class="tab"></div><span class="p">}</span><span class="b">)</span>;</div>
+                                <div class="code-line"><span class="ga line">217</span><span class="m">}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-project-card">
+                        <div class="card-badges">
+                            <div class="badge-container">
+                                <span><i class="bi b-badge bi-filetype-html"></i></span>
+                                <span><i class="bi b-badge bi-css"></i></span>
+                                <span><i class="bi b-badge bi-javascript"></i></span>
+                                <span><svg role="img" class="b-badge" style="margin-bottom: -1vh;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Firebase</title><path d="M19.455 8.369c-.538-.748-1.778-2.285-3.681-4.569-.826-.991-1.535-1.832-1.884-2.245a146 146 0 0 0-.488-.576l-.207-.245-.113-.133-.022-.032-.01-.005L12.57 0l-.609.488c-1.555 1.246-2.828 2.851-3.681 4.64-.523 1.064-.864 2.105-1.043 3.176-.047.241-.088.489-.121.738-.209-.017-.421-.028-.632-.033-.018-.001-.035-.002-.059-.003a7.46 7.46 0 0 0-2.28.274l-.317.089-.163.286c-.765 1.342-1.198 2.869-1.252 4.416-.07 2.01.477 3.954 1.583 5.625 1.082 1.633 2.61 2.882 4.42 3.611l.236.095.071.025.003-.001a9.59 9.59 0 0 0 2.941.568q.171.006.342.006c1.273 0 2.513-.249 3.69-.742l.008.004.313-.145a9.63 9.63 0 0 0 3.927-3.335c1.01-1.49 1.577-3.234 1.641-5.042.075-2.161-.643-4.304-2.133-6.371m-7.083 6.695c.328 1.244.264 2.44-.191 3.558-1.135-1.12-1.967-2.352-2.475-3.665-.543-1.404-.87-2.74-.974-3.975.48.157.922.366 1.315.622 1.132.737 1.914 1.902 2.325 3.461zm.207 6.022c.482.368.99.712 1.513 1.028-.771.21-1.565.302-2.369.273a8 8 0 0 1-.373-.022c.458-.394.869-.823 1.228-1.279zm1.347-6.431c-.516-1.957-1.527-3.437-3.002-4.398-.647-.421-1.385-.741-2.194-.95.011-.134.026-.268.043-.4.014-.113.03-.216.046-.313.133-.689.332-1.37.589-2.025.099-.25.206-.499.321-.74l.004-.008c.177-.358.376-.719.61-1.105l.092-.152-.003-.001c.544-.851 1.197-1.627 1.942-2.311l.288.341c.672.796 1.304 1.548 1.878 2.237 1.291 1.549 2.966 3.583 3.612 4.48 1.277 1.771 1.893 3.579 1.83 5.375-.049 1.395-.461 2.755-1.195 3.933-.694 1.116-1.661 2.05-2.8 2.708-.636-.318-1.559-.839-2.539-1.599.79-1.575.952-3.28.479-5.072zm-2.575 5.397c-.725.939-1.587 1.55-2.09 1.856-.081-.029-.163-.06-.243-.093l-.065-.026c-1.49-.616-2.747-1.656-3.635-3.01-.907-1.384-1.356-2.993-1.298-4.653.041-1.19.338-2.327.882-3.379.316-.07.638-.114.96-.131l.084-.002c.162-.003.324-.003.478 0 .227.011.454.035.677.07.073 1.513.445 3.145 1.105 4.852.637 1.644 1.694 3.162 3.144 4.515z"/></svg></span>
+                            </div>
+                            <p class="badge version fw-semibold text-warning-emphasis bg-warning-subtle border border-warning rounded-3">v0.1.0-alpha</p>
+                        </div>
+                        
+                        <h2 class="project-title">FinTrack</h2>
+                        <p class="project-text">FinTrack is a financial tracking website that securly stores your financial expenses per month and will give analytics about them.</p>
+
+                        <div id="carouselRide" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-theme="dark">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselRide" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselRide" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselRide" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="https://cdn.omkanabar.com/assets/branding/FinTrack/FintrackHomepage.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://cdn.omkanabar.com/assets/branding/FinTrack/FintrackDashboard.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="https://cdn.omkanabar.com/assets/branding/FinTrack/FintrackSettings.jpg" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselRide" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselRide" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        
+                        <div class="project-links" style="display: flex; gap: 1rem;">
+                            <a href="https://github.com/om-kanabar/fintrack" target="_blank" class="repo"><i class="bi bi-github"></i> View Repository</a>
+                            <a href="https://fintrack.omkanabar.com" target="_blank" class="demo secondary-btn">Demo</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ol>
     </div>
 </body>
 </html>
