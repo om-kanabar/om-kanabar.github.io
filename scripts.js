@@ -13,20 +13,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const photoPanel = document.querySelector(".photo");
     const codePanel = document.querySelector(".code");
     const backBtn = document.getElementById("back-btn");
+    const form = document.getElementById("contactForm");
 
-    if (photoPanel) {
-        photoPanel.addEventListener("click", () => triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn));
-    }
-    
-    if (codePanel) {
-        codePanel.addEventListener("click", () => triggerCode(photoPanel, codePanel, optionsContainer, backBtn));
-    }
+    if (photoPanel) photoPanel.addEventListener("click", () => triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn));
+    if (codePanel) codePanel.addEventListener("click", () => triggerCode(photoPanel, codePanel, optionsContainer, backBtn));
+    if (backBtn) backBtn.addEventListener("click", () => resetGateway(optionsContainer, backBtn));
+    if (form) form.addEventListener('submit', handleFormSubmit);
 
-    if (backBtn) {
-        backBtn.addEventListener("click", () => resetGateway(optionsContainer, backBtn));
-    }    
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    aboutReady("code");
 });
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
@@ -52,7 +48,7 @@ function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
     if (animDone === true) return;
     animDoing = true;
     optionsContainer.classList.add("code-active");
-    document.querySelector(".options").style.backgroundColor = "#111111";
+    document.querySelector(".options").style.backgroundColor = "#191919";
     revealBackButton(backBtn, "#ede8dd");
     animatePanels(codePanel, photoPanel, 2400);
 
@@ -60,7 +56,7 @@ function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
         typeWriter("om ", codePanel.querySelector(".type-target"));
         const codeBody = document.querySelector(".code-body");
         if (codeBody) codeBody.classList.remove("hidden");
-        document.body.style.backgroundColor = "#111111";
+        document.body.style.backgroundColor = "#191919";
         document.querySelector(".options").style.height = "90vh";
     }, 1600);
     animDone = true;
@@ -297,7 +293,7 @@ function navButtons() {
 
         requestAnimationFrame(animationLoop);
     }
-    
+
     window.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowDown" && event.key !== "ArrowUp" && event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
 
@@ -337,4 +333,62 @@ function navButtons() {
             }
         }
     });
+}
+
+
+function aboutReady(section) {
+    if (!["code", "photography"].includes(section)) return;
+    theme = (section === "code") ? "light" : "dark";
+    const bgColor = (theme === "light") ? "#ede8dd" : "#191919";
+    const textColor = (theme === "dark") ? "#ede8dd" : "#191919";
+    const aboutMe = document.getElementById("aboutMe");
+    if (!aboutMe) return;
+    aboutMe.setAttribute('data-bs-theme', theme);
+    aboutMe.classList.add(theme);
+    aboutMe.style.backgroundColor = bgColor;
+    aboutMe.style.color = textColor;
+    
+    const submitBtn = document.getElementById("submitBtn");
+    if (!submitBtn) return;
+    submitBtn.classList = (theme === "dark") ? "btn btn-light" : "btn btn-dark";
+}
+
+async function handleFormSubmit(event) {
+    const blockedEmailHashes = [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" 
+    ];
+
+    const form = event.currentTarget;
+    const stopFormElement = document.getElementById('stopForm');
+
+    if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+        form.classList.add('was-validated');
+        return; 
+    }
+
+    form.classList.add('was-validated');
+
+    const honeypot = document.getElementById('nickname').value;
+    if (honeypot !== "") {
+        event.preventDefault();
+        event.stopPropagation();
+        stopFormElement.classList.remove('hidden');
+        return;
+    }
+    event.preventDefault(); 
+    
+    const emailValue = document.getElementById('emailInput').value.trim().toLowerCase();
+    const msgBuffer = new TextEncoder().encode(emailValue);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const emailHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    if (blockedEmailHashes.includes(emailHash)) {
+        stopFormElement.classList.remove('hidden');
+    } else {
+        form.submit();
+    }
 }

@@ -69,7 +69,7 @@ body {
 }
 
 .code {
-    background-color: var(--black);
+    background-color: var(--dark);
     text-align: left;
 }
 
@@ -710,6 +710,69 @@ body {
     margin: 0 !important;
 
 }
+
+
+.about {
+    width: 100vw;
+    height: max-content;
+}
+
+
+.contactForm {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.formElement {
+    width: 61.8vw;
+}
+
+.formLabel {
+    font-size: 0.9rem;
+}
+
+#stopForm {
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-text) !important;
+    color: var(--cream);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 999999999 !important;
+}
+
+.honeypot {
+    opacity: 0;
+    margin-left: -999vw;
+}
+
+.btn-light {
+    background-color: var(--cream) !important;
+    color: var(--dark) !important;
+    transition: var(--trans-fast);
+}
+
+.btn-light:hover {
+    background-color: color-mix(in srgb, var(--cream) 70% , var(--dark) 30%) !important;
+}
+
+.btn-dark {
+    background-color: var(--dark);
+    color: var(--cream);
+    transition: var(--trans-fast);
+}
+
+.btn-dark:hover {
+    background-color: color-mix(in srgb, var(--cream) 30% , var(--dark) 70%) !important;
+}
+
 
 @media (max-width: 992px) {
     .options {
