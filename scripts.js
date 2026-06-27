@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-    aboutReady("code");
 });
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
@@ -39,6 +38,7 @@ function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
         if (photoBody) photoBody.classList.remove("hidden");
         document.body.style.backgroundColor = "#e8e5dd";
         document.querySelector(".options").style.height = "60vh";
+        aboutReady("photography");
     }, 1600);
     animDone = true;
     animDoing = false;
@@ -58,6 +58,7 @@ function triggerCode(photoPanel, codePanel, optionsContainer, backBtn) {
         if (codeBody) codeBody.classList.remove("hidden");
         document.body.style.backgroundColor = "#191919";
         document.querySelector(".options").style.height = "90vh";
+        aboutReady("code");
     }, 1600);
     animDone = true;
     animDoing = false;
@@ -156,6 +157,8 @@ function resetGateway(optionsContainer, backBtn) {
         photoPanel.classList.remove("expanded");
         codePanel.classList.remove("expanded");
     }
+    document.getElementById("aboutMe").classList.add("hidden");
+    document.querySelector("footer").classList.add("hidden");
 }
 
 async function renderPhotos() {
@@ -347,21 +350,31 @@ function aboutReady(section) {
     aboutMe.classList.add(theme);
     aboutMe.style.backgroundColor = bgColor;
     aboutMe.style.color = textColor;
+    aboutMe.classList.remove("hidden");
     
     const submitBtn = document.getElementById("submitBtn");
     if (!submitBtn) return;
     submitBtn.classList = (theme === "dark") ? "btn btn-light" : "btn btn-dark";
+
+    const wbez = document.getElementById("WBEZ");
+    if (!wbez) return;
+    wbez.src = (theme === "dark") ? "/Assets/wbezLight.png" : "/Assets/wbezDark.png";
+
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    footer.style.backgroundColor = (theme === "dark") ? "var(--cream)" : "var(--dark)";
+    footer.style.color = (theme === "dark") ? "color-mix(in srgb, var(--cream) 30% , var(--dark) 70%)": "color-mix(in srgb, var(--cream) 70%, var(--dark) 30%)";
+    footer.classList.remove("hidden");
 }
 
 async function handleFormSubmit(event) {
     const blockedEmailHashes = [
         "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
-        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8" 
+        "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+        "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66"
     ];
-
     const form = event.currentTarget;
     const stopFormElement = document.getElementById('stopForm');
-
     if (!form.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
@@ -385,6 +398,7 @@ async function handleFormSubmit(event) {
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const emailHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    console.log(emailHash);
 
     if (blockedEmailHashes.includes(emailHash)) {
         stopFormElement.classList.remove('hidden');

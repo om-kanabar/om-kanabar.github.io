@@ -715,6 +715,7 @@ body {
 .about {
     width: 100vw;
     height: max-content;
+    font-family: 'Inter', var(--hero-font);
 }
 
 
@@ -723,6 +724,15 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-bottom: 5vh;
+}
+
+.contactHero {
+    font-family: 'Lexend', 'Inter', var(--hero-font);
+    font-size: 2rem;
+    text-align: center;
+    padding: 3vw;
+    font-weight: 450;
 }
 
 .formElement {
@@ -771,6 +781,15 @@ body {
 
 .btn-dark:hover {
     background-color: color-mix(in srgb, var(--cream) 30% , var(--dark) 70%) !important;
+}
+
+.logoName {
+    font-family: 'Lato', 'Inter', var(--hero-font);
+    font-weight: 500;
+}
+
+.footer {
+    margin-bottom: 5vh;
 }
 
 

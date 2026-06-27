@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Lexend:wght@100..900&family=Poiret+One&family=Righteous&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
 </head>
@@ -300,9 +301,67 @@
             </li>
         </ol>
     </div>
-    <div class="about" id="aboutMe" data-bs-theme="dark">
-        <p>about me</p>
-        <div class="contact">
+    <div class="about hidden" id="aboutMe" data-bs-theme="dark">
+        <div class="aboutSection container my-4">
+            <p class="contactHero">About Me</p>
+            <p class="aboutText">Hi! I'm Om Kanabar. I am 14 years old and love photography, coding, and policy debate. Some of my other interests are philosophy, running, and learning about new things. Feel free to contact me below.</p>
+            
+            <div class="shoutOuts mb-3">
+                <p class="mb-3">btw, I want to shout out some organizations that I support:</p>
+                
+                <div class="d-flex flex-wrap gap-4 align-items-center">
+                    
+                    <div class="d-flex align-items-center">
+                        <span class="logoName me-2">Hack Club</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://hackclub.com" target="_blank" rel="noopener noreferrer"><img src="https://assets.hackclub.com/icon-rounded.svg" alt="Hack Club" class="ms-2" style="height: 40px; width: 40px;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">Equality in Forensics</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://www.equalityinforensics.org" target="_blank" rel="noopener noreferrer"><img src="/Assets/eif.png" alt="Equality in Forensics" class="ms-2" style="height: 40px; width: 40px;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">Chicago Debates</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://chicagodebates.org/" target="_blank" rel="noopener noreferrer"><img src="https://chicagodebates.org/favicon-96x96.png" alt="Chicago Debates" class="ms-2" style="height: 40px; width: 40px;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">National Aeronautics and Space Administration</span>
+                        <div class="border-end border-secondary me-2" style="height: 30px;"></div>
+                        <a href="https://www.nasa.gov" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="NASA" class="ms-2" style="height: 60px; width: 60px; object-fit: contain;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">Mozilla Foundation</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://www.mozilla.org" target="_blank" rel="noopener noreferrer"><img src="/Assets/mozilla.svg" alt="Mozilla" class="ms-2" style="height: 40px; width: 40px; object-fit: contain;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">World Wildlife Fund</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://www.worldwildlife.org" target="_blank" rel="noopener noreferrer"><img src="https://wwfasia.awsassets.panda.org/downloads/wwf_logo_large_rgb_72dpi_1.jpg" alt="WWF" class="ms-2" style="height: 40px; width: 40px; object-fit: contain;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center ms-4">
+                        <span class="logoName me-2">Block Club Chicago</span>
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://blockclubchicago.org" target="_blank" rel="noopener noreferrer"><img src="/Assets/blockclub.jpeg" alt="Block Club Chicago" class="ms-2" style="height: 40px; width: 40px; object-fit: contain;"></a>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+                        <div class="border-end border-secondary" style="height: 30px;"></div>
+                        <a href="https://www.wbez.org" target="_blank" rel="noopener noreferrer" class="ms-3 d-inline-flex align-items-center" style="height: 40px;"><img src="Assets/wbezDark.png" id="WBEZ" alt="WBEZ Chicago's NPR news station" style="height: 100%; width: auto; object-fit: contain;"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact" id="contactMeSection">
+            <p class="contactHero">Contact Me</p>
             <form class="contactForm" id="contactForm" action="https://formsubmit.co/e0459f877d74bc51cf22e24a45fd2a74" method="POST" class="needs-validation" novalidate>
                 <div class="formElement">
                     <div class="mb-3">
@@ -333,14 +392,20 @@
                         <input id="nickname" name="nickname" type="text" tabindex="-1" autocomplete="off">
                     </div>
                     <!-- THE ABOVE INPUT IS A TRAP FOR BOTS ONLY -->
-                    <button type="submit" id="submitBtn" class="">Submit</button>
+                    <button type="submit" id="submitBtn" class="mb-5">Submit</button>
                 </div>
             </form>
-            
         </div>
     </div>
     <div id="stopForm" class="hidden">
         <p id="stopFormText">Submission blocked due to security policies.</p>
     </div>
+    <footer class="footer py-4 hidden">
+        <div class="container text-center small">
+            <p class="mb-2">&copy; 2026 Om Kanabar. All rights reserved.</p>
+            <p class="mb-2">All photographs featured on this website are original works by Om Kanabar and may not be reproduced without permission.</p>
+            <p class="mb-0 text-secondary" style="font-size: 0.8rem;">All organization logos and trademarks are the property of their respective owners.</p>
+        </div>
+    </footer>   
 </body>
 </html>
