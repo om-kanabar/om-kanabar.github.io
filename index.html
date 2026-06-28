@@ -366,7 +366,7 @@
                 <div class="formElement">
                     <div class="mb-3">
                         <label for="emailInput" class="form-label">Email address<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" placeholder="example@example.com" id="emailInput" required>
+                        <input type="email" class="form-control" placeholder="example@example.com" name="email" id="emailInput" required>
                         <div class="invalid-feedback">Please enter a valid email address.</div>
                     </div>
                     <div class="mb-3 d-flex">
@@ -376,8 +376,8 @@
                             <div class="invalid-feedback">Please enter your name.</div>
                         </div>
                         <div class="w-100">
-                            <label for="subject" class="form-label">Subject<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" placeholder="Subject" id="subject" required>
+                            <label for="userSubject" class="form-label">Subject<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" placeholder="Subject" id="userSubject" required>
                             <div class="invalid-feedback">Please enter a subject.</div>
                         </div>
                     </div>
@@ -389,9 +389,11 @@
                     <!-- THE BELOW INPUT IS A TRAP FOR BOTS ONLY -->
                     <div class="honeypot">
                         <label for="nickname">Leave this field empty</label>
-                        <input id="nickname" name="nickname" type="text" tabindex="-1" autocomplete="off">
+                        <input id="nickname" type="text" tabindex="-1" autocomplete="off">
                     </div>
                     <!-- THE ABOVE INPUT IS A TRAP FOR BOTS ONLY -->
+                     <input type="hidden" id="formSubmitSubject" name="_subject" value="Website Submission">
+                     <input type="hidden" name="_next" value="https://omkanabar.com/thanks.html">
                     <button type="submit" id="submitBtn" class="mb-5">Submit</button>
                 </div>
             </form>

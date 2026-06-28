@@ -1,5 +1,6 @@
 let animDone = false;
 let animDoing = false;
+let fromParam;
 
 async function pause(ms) {
     await new Promise(resolve => setTimeout(resolve, ms));
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    contactForm(photoPanel, codePanel, optionsContainer, backBtn);
 });
 
 function triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) {
@@ -371,7 +373,10 @@ async function handleFormSubmit(event) {
     const blockedEmailHashes = [
         "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
         "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-        "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66"
+        "31c5543c1734d25c7206f5fd591525d0295bec6fe84ff82f946a34fe970a1e66",
+        "ffea9d1125032e872817e164222dfcd7cd1a6b22b75491005a02c3a1506ce2ee", 
+        "57f6427135dd0537e59772e4821695529d6e6d814a2203f9d6e3ce04c2ecb3f0", 
+        "fab750116714be3d606e5d30230c9040c4477a1eb52f03b13b0cc0ff32bd70b9",
     ];
     const form = event.currentTarget;
     const stopFormElement = document.getElementById('stopForm');
@@ -394,6 +399,7 @@ async function handleFormSubmit(event) {
     event.preventDefault(); 
     
     const emailValue = document.getElementById('emailInput').value.trim().toLowerCase();
+    const userSubjectInput = document.getElementById("userSubject").value;
     const msgBuffer = new TextEncoder().encode(emailValue);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
@@ -403,6 +409,22 @@ async function handleFormSubmit(event) {
     if (blockedEmailHashes.includes(emailHash)) {
         stopFormElement.classList.remove('hidden');
     } else {
+        const hiddenSubjectField = document.getElementById("formSubmitSubject");
+        const origin = fromParam ? fromParam : "Direct"; 
+        hiddenSubjectField.value = `${origin} - ${userSubjectInput}`;
         form.submit();
     }
+}
+
+async function contactForm(photoPanel, codePanel, optionsContainer, backBtn) {
+    const urlParams = new URLSearchParams(window.location.search);
+    fromParam = urlParams.get("from");
+    if (urlParams.has("contact")) {
+        (Math.random() <= 0.45) ? triggerPhotography(photoPanel, codePanel, optionsContainer, backBtn) : triggerCode(photoPanel, codePanel, optionsContainer, backBtn);
+        await pause(1600);
+        const contactSection = document.getElementById("contactMeSection");
+        if (!contactSection) return;
+        contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+    history.replaceState(null, "", window.location.pathname);
 }

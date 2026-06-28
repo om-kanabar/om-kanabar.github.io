@@ -792,6 +792,13 @@ body {
     margin-bottom: 5vh;
 }
 
+.quote-text {
+    font-family: var(--hero-font) !important;
+}
+
+.bold {
+    font-weight: 600;
+}
 
 @media (max-width: 992px) {
     .options {
