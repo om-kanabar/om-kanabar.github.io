@@ -3,7 +3,7 @@ Allow: /Assets/googlecd4fbe630c51566b.html
 Disallow: /Assets/
 Disallow: /copyright.html
 Disallow: /404.html
-Disallow: /landing.html
+Disallow: /thanks.html
 
 User-agent: AdsBot-Google
 Disallow: /
@@ -12,6 +12,6 @@ User-agent: *
 Disallow: /copyright.html
 Disallow: /Assets/
 Disallow: /404.html
-Disallow: /landing.html
+Disallow: /thanks.html
 
 Sitemap: https://om-kanabar.github.io/sitemap.xml
